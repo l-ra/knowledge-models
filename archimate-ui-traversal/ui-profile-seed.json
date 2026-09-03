@@ -1,0 +1,1118 @@
+[
+  {
+    "iriLocal": "ui-profile-itmap-default",
+    "class": "UiNavigationProfile",
+    "labels": {
+      "cs": "IT Map — výchozí navigace",
+      "en": "IT Map default navigation"
+    },
+    "properties": {
+      "profileCode": "itmap-default",
+      "profileVersion": "1.0.0",
+      "minCatalogVersion": "3.0.0",
+      "isSystemDefault": true,
+      "labelCs": "IT Map — výchozí navigace",
+      "labelEn": "IT Map default navigation"
+    }
+  },
+  {
+    "iriLocal": "ui-tpl-business-exploration",
+    "class": "UiTraversalTemplate",
+    "labels": {
+      "en": "Business exploration"
+    },
+    "properties": {
+      "parentProfile": "ui-profile-itmap-default",
+      "templateCode": "business-exploration",
+      "labelCs": "Business exploration",
+      "sortOrder": 1,
+      "isDefault": true,
+      "startStage": "ui-stage-business-exploration-organization"
+    }
+  },
+  {
+    "iriLocal": "ui-stage-business-exploration-organization",
+    "class": "UiStage",
+    "labels": {
+      "cs": "Organizace"
+    },
+    "properties": {
+      "parentTemplate": "ui-tpl-business-exploration",
+      "stageCode": "organization",
+      "stageOrder": 1,
+      "columnLabelCs": "Organizace",
+      "targetClasses": [
+        "BusinessActor"
+      ],
+      "actorKinds": "department"
+    }
+  },
+  {
+    "iriLocal": "ui-stage-business-exploration-people-roles",
+    "class": "UiStage",
+    "labels": {
+      "cs": "Lidé / Role"
+    },
+    "properties": {
+      "parentTemplate": "ui-tpl-business-exploration",
+      "stageCode": "people-roles",
+      "stageOrder": 2,
+      "columnLabelCs": "Lidé / Role",
+      "targetClasses": [
+        "BusinessActor",
+        "BusinessRole"
+      ],
+      "actorKinds": "person,external"
+    }
+  },
+  {
+    "iriLocal": "ui-stage-business-exploration-functions",
+    "class": "UiStage",
+    "labels": {
+      "cs": "Oblasti odpovědnosti"
+    },
+    "properties": {
+      "parentTemplate": "ui-tpl-business-exploration",
+      "stageCode": "functions",
+      "stageOrder": 3,
+      "columnLabelCs": "Oblasti odpovědnosti",
+      "targetClasses": [
+        "BusinessFunction"
+      ]
+    }
+  },
+  {
+    "iriLocal": "ui-stage-business-exploration-processes",
+    "class": "UiStage",
+    "labels": {
+      "cs": "Procesy"
+    },
+    "properties": {
+      "parentTemplate": "ui-tpl-business-exploration",
+      "stageCode": "processes",
+      "stageOrder": 4,
+      "columnLabelCs": "Procesy",
+      "targetClasses": [
+        "BusinessProcess"
+      ]
+    }
+  },
+  {
+    "iriLocal": "ui-stage-business-exploration-biz-services",
+    "class": "UiStage",
+    "labels": {
+      "cs": "Business služby"
+    },
+    "properties": {
+      "parentTemplate": "ui-tpl-business-exploration",
+      "stageCode": "biz-services",
+      "stageOrder": 5,
+      "columnLabelCs": "Business služby",
+      "targetClasses": [
+        "BusinessService"
+      ]
+    }
+  },
+  {
+    "iriLocal": "ui-stage-business-exploration-app-services",
+    "class": "UiStage",
+    "labels": {
+      "cs": "Aplikační služby"
+    },
+    "properties": {
+      "parentTemplate": "ui-tpl-business-exploration",
+      "stageCode": "app-services",
+      "stageOrder": 6,
+      "columnLabelCs": "Aplikační služby",
+      "targetClasses": [
+        "ApplicationService"
+      ]
+    }
+  },
+  {
+    "iriLocal": "ui-stage-business-exploration-applications",
+    "class": "UiStage",
+    "labels": {
+      "cs": "Aplikace"
+    },
+    "properties": {
+      "parentTemplate": "ui-tpl-business-exploration",
+      "stageCode": "applications",
+      "stageOrder": 7,
+      "columnLabelCs": "Aplikace",
+      "targetClasses": [
+        "ApplicationComponent"
+      ]
+    }
+  },
+  {
+    "iriLocal": "ui-stage-business-exploration-data",
+    "class": "UiStage",
+    "labels": {
+      "cs": "Data"
+    },
+    "properties": {
+      "parentTemplate": "ui-tpl-business-exploration",
+      "stageCode": "data",
+      "stageOrder": 8,
+      "columnLabelCs": "Data",
+      "targetClasses": [
+        "DataObject"
+      ]
+    }
+  },
+  {
+    "iriLocal": "ui-stage-business-exploration-tech",
+    "class": "UiStage",
+    "labels": {
+      "cs": "Technologie"
+    },
+    "properties": {
+      "parentTemplate": "ui-tpl-business-exploration",
+      "stageCode": "tech",
+      "stageOrder": 9,
+      "columnLabelCs": "Technologie",
+      "targetClasses": [
+        "SystemSoftware",
+        "TechnologyService"
+      ]
+    }
+  },
+  {
+    "iriLocal": "ui-stage-business-exploration-nodes",
+    "class": "UiStage",
+    "labels": {
+      "cs": "Uzly"
+    },
+    "properties": {
+      "parentTemplate": "ui-tpl-business-exploration",
+      "stageCode": "nodes",
+      "stageOrder": 10,
+      "columnLabelCs": "Uzly",
+      "targetClasses": [
+        "Node",
+        "Device"
+      ]
+    }
+  },
+  {
+    "iriLocal": "ui-stage-business-exploration-network",
+    "class": "UiStage",
+    "labels": {
+      "cs": "Síť"
+    },
+    "properties": {
+      "parentTemplate": "ui-tpl-business-exploration",
+      "stageCode": "network",
+      "stageOrder": 11,
+      "columnLabelCs": "Síť",
+      "targetClasses": [
+        "CommunicationNetwork",
+        "Path"
+      ]
+    }
+  },
+  {
+    "iriLocal": "ui-stage-business-exploration-facilities",
+    "class": "UiStage",
+    "labels": {
+      "cs": "Lokality"
+    },
+    "properties": {
+      "parentTemplate": "ui-tpl-business-exploration",
+      "stageCode": "facilities",
+      "stageOrder": 12,
+      "columnLabelCs": "Lokality",
+      "targetClasses": [
+        "Facility",
+        "Location"
+      ]
+    }
+  },
+  {
+    "iriLocal": "ui-trans-business-exploration-01",
+    "class": "UiTransition",
+    "labels": {
+      "cs": "Obsahuje"
+    },
+    "properties": {
+      "parentTemplate": "ui-tpl-business-exploration",
+      "fromStage": "ui-stage-business-exploration-organization",
+      "toStage": "ui-stage-business-exploration-people-roles",
+      "relationshipClass": "Composition",
+      "traverseDirection": "model",
+      "uiEdgeLabelCs": "Obsahuje"
+    }
+  },
+  {
+    "iriLocal": "ui-trans-business-exploration-02",
+    "class": "UiTransition",
+    "labels": {
+      "cs": "Má roli"
+    },
+    "properties": {
+      "parentTemplate": "ui-tpl-business-exploration",
+      "fromStage": "ui-stage-business-exploration-organization",
+      "toStage": "ui-stage-business-exploration-people-roles",
+      "relationshipClass": "Assignment",
+      "traverseDirection": "model",
+      "uiEdgeLabelCs": "Má roli"
+    }
+  },
+  {
+    "iriLocal": "ui-trans-business-exploration-03",
+    "class": "UiTransition",
+    "labels": {
+      "cs": "Přiřazeno"
+    },
+    "properties": {
+      "parentTemplate": "ui-tpl-business-exploration",
+      "fromStage": "ui-stage-business-exploration-people-roles",
+      "toStage": "ui-stage-business-exploration-people-roles",
+      "relationshipClass": "Assignment",
+      "traverseDirection": "model",
+      "uiEdgeLabelCs": "Přiřazeno"
+    }
+  },
+  {
+    "iriLocal": "ui-trans-business-exploration-04",
+    "class": "UiTransition",
+    "labels": {
+      "cs": "Odpovídá za"
+    },
+    "properties": {
+      "parentTemplate": "ui-tpl-business-exploration",
+      "fromStage": "ui-stage-business-exploration-people-roles",
+      "toStage": "ui-stage-business-exploration-functions",
+      "relationshipClass": "Assignment",
+      "traverseDirection": "model",
+      "uiEdgeLabelCs": "Odpovídá za"
+    }
+  },
+  {
+    "iriLocal": "ui-trans-business-exploration-05",
+    "class": "UiTransition",
+    "labels": {
+      "cs": "Odpovídá za"
+    },
+    "properties": {
+      "parentTemplate": "ui-tpl-business-exploration",
+      "fromStage": "ui-stage-business-exploration-organization",
+      "toStage": "ui-stage-business-exploration-functions",
+      "relationshipClass": "Assignment",
+      "traverseDirection": "model",
+      "uiEdgeLabelCs": "Odpovídá za"
+    }
+  },
+  {
+    "iriLocal": "ui-trans-business-exploration-06",
+    "class": "UiTransition",
+    "labels": {
+      "cs": "Obsahuje"
+    },
+    "properties": {
+      "parentTemplate": "ui-tpl-business-exploration",
+      "fromStage": "ui-stage-business-exploration-functions",
+      "toStage": "ui-stage-business-exploration-processes",
+      "relationshipClass": "Composition",
+      "traverseDirection": "model",
+      "uiEdgeLabelCs": "Obsahuje"
+    }
+  },
+  {
+    "iriLocal": "ui-trans-business-exploration-07",
+    "class": "UiTransition",
+    "labels": {
+      "cs": "Realizuje"
+    },
+    "properties": {
+      "parentTemplate": "ui-tpl-business-exploration",
+      "fromStage": "ui-stage-business-exploration-functions",
+      "toStage": "ui-stage-business-exploration-biz-services",
+      "relationshipClass": "Realization",
+      "traverseDirection": "model",
+      "uiEdgeLabelCs": "Realizuje"
+    }
+  },
+  {
+    "iriLocal": "ui-trans-business-exploration-08",
+    "class": "UiTransition",
+    "labels": {
+      "cs": "Realizuje"
+    },
+    "properties": {
+      "parentTemplate": "ui-tpl-business-exploration",
+      "fromStage": "ui-stage-business-exploration-processes",
+      "toStage": "ui-stage-business-exploration-biz-services",
+      "relationshipClass": "Realization",
+      "traverseDirection": "model",
+      "uiEdgeLabelCs": "Realizuje"
+    }
+  },
+  {
+    "iriLocal": "ui-trans-business-exploration-09",
+    "class": "UiTransition",
+    "labels": {
+      "cs": "Podporováno"
+    },
+    "properties": {
+      "parentTemplate": "ui-tpl-business-exploration",
+      "fromStage": "ui-stage-business-exploration-processes",
+      "toStage": "ui-stage-business-exploration-app-services",
+      "relationshipClass": "Serving",
+      "traverseDirection": "inverse",
+      "uiEdgeLabelCs": "Podporováno"
+    }
+  },
+  {
+    "iriLocal": "ui-trans-business-exploration-10",
+    "class": "UiTransition",
+    "labels": {
+      "cs": "Podporováno"
+    },
+    "properties": {
+      "parentTemplate": "ui-tpl-business-exploration",
+      "fromStage": "ui-stage-business-exploration-functions",
+      "toStage": "ui-stage-business-exploration-app-services",
+      "relationshipClass": "Serving",
+      "traverseDirection": "inverse",
+      "uiEdgeLabelCs": "Podporováno"
+    }
+  },
+  {
+    "iriLocal": "ui-trans-business-exploration-11",
+    "class": "UiTransition",
+    "labels": {
+      "cs": "Podporováno"
+    },
+    "properties": {
+      "parentTemplate": "ui-tpl-business-exploration",
+      "fromStage": "ui-stage-business-exploration-biz-services",
+      "toStage": "ui-stage-business-exploration-app-services",
+      "relationshipClass": "Serving",
+      "traverseDirection": "inverse",
+      "uiEdgeLabelCs": "Podporováno"
+    }
+  },
+  {
+    "iriLocal": "ui-trans-business-exploration-12",
+    "class": "UiTransition",
+    "labels": {
+      "cs": "Realizováno"
+    },
+    "properties": {
+      "parentTemplate": "ui-tpl-business-exploration",
+      "fromStage": "ui-stage-business-exploration-app-services",
+      "toStage": "ui-stage-business-exploration-applications",
+      "relationshipClass": "Realization",
+      "traverseDirection": "inverse",
+      "uiEdgeLabelCs": "Realizováno"
+    }
+  },
+  {
+    "iriLocal": "ui-trans-business-exploration-13",
+    "class": "UiTransition",
+    "labels": {
+      "cs": "Přistupuje"
+    },
+    "properties": {
+      "parentTemplate": "ui-tpl-business-exploration",
+      "fromStage": "ui-stage-business-exploration-applications",
+      "toStage": "ui-stage-business-exploration-data",
+      "relationshipClass": "Access",
+      "traverseDirection": "model",
+      "uiEdgeLabelCs": "Přistupuje"
+    }
+  },
+  {
+    "iriLocal": "ui-trans-business-exploration-14",
+    "class": "UiTransition",
+    "labels": {
+      "cs": "Běží na"
+    },
+    "properties": {
+      "parentTemplate": "ui-tpl-business-exploration",
+      "fromStage": "ui-stage-business-exploration-applications",
+      "toStage": "ui-stage-business-exploration-tech",
+      "relationshipClass": "DeployedOn",
+      "traverseDirection": "model",
+      "uiEdgeLabelCs": "Běží na"
+    }
+  },
+  {
+    "iriLocal": "ui-trans-business-exploration-15",
+    "class": "UiTransition",
+    "labels": {
+      "cs": "Závisí na"
+    },
+    "properties": {
+      "parentTemplate": "ui-tpl-business-exploration",
+      "fromStage": "ui-stage-business-exploration-applications",
+      "toStage": "ui-stage-business-exploration-tech",
+      "relationshipClass": "Serving",
+      "traverseDirection": "inverse",
+      "uiEdgeLabelCs": "Závisí na"
+    }
+  },
+  {
+    "iriLocal": "ui-trans-business-exploration-16",
+    "class": "UiTransition",
+    "labels": {
+      "cs": "Na uzlu"
+    },
+    "properties": {
+      "parentTemplate": "ui-tpl-business-exploration",
+      "fromStage": "ui-stage-business-exploration-tech",
+      "toStage": "ui-stage-business-exploration-nodes",
+      "relationshipClass": "Assignment",
+      "traverseDirection": "model",
+      "uiEdgeLabelCs": "Na uzlu"
+    }
+  },
+  {
+    "iriLocal": "ui-trans-business-exploration-17",
+    "class": "UiTransition",
+    "labels": {
+      "cs": "Síť"
+    },
+    "properties": {
+      "parentTemplate": "ui-tpl-business-exploration",
+      "fromStage": "ui-stage-business-exploration-nodes",
+      "toStage": "ui-stage-business-exploration-network",
+      "relationshipClass": "Association",
+      "traverseDirection": "model",
+      "uiEdgeLabelCs": "Síť"
+    }
+  },
+  {
+    "iriLocal": "ui-trans-business-exploration-18",
+    "class": "UiTransition",
+    "labels": {
+      "cs": "Umístění"
+    },
+    "properties": {
+      "parentTemplate": "ui-tpl-business-exploration",
+      "fromStage": "ui-stage-business-exploration-nodes",
+      "toStage": "ui-stage-business-exploration-facilities",
+      "relationshipClass": "Association",
+      "traverseDirection": "model",
+      "uiEdgeLabelCs": "Umístění"
+    }
+  },
+  {
+    "iriLocal": "ui-trans-business-exploration-19",
+    "class": "UiTransition",
+    "labels": {
+      "cs": "Lokace"
+    },
+    "properties": {
+      "parentTemplate": "ui-tpl-business-exploration",
+      "fromStage": "ui-stage-business-exploration-facilities",
+      "toStage": "ui-stage-business-exploration-facilities",
+      "relationshipClass": "Association",
+      "traverseDirection": "model",
+      "uiEdgeLabelCs": "Lokace"
+    }
+  },
+  {
+    "iriLocal": "ui-add-business-exploration-add-dept",
+    "class": "UiAddAction",
+    "labels": {
+      "cs": "Organizační jednotka"
+    },
+    "properties": {
+      "parentTemplate": "ui-tpl-business-exploration",
+      "stage": "ui-stage-business-exploration-organization",
+      "actionCode": "add-dept",
+      "domainLabelCs": "Organizační jednotka",
+      "createsClass": "BusinessActor",
+      "sortOrder": 1,
+      "defaultProperties": "{\"actorKind\": \"department\"}",
+      "derivesRelationship": "Composition",
+      "relationshipDirection": "from-selected-to-new"
+    }
+  },
+  {
+    "iriLocal": "ui-add-business-exploration-add-person",
+    "class": "UiAddAction",
+    "labels": {
+      "cs": "Osoba"
+    },
+    "properties": {
+      "parentTemplate": "ui-tpl-business-exploration",
+      "stage": "ui-stage-business-exploration-people-roles",
+      "actionCode": "add-person",
+      "domainLabelCs": "Osoba",
+      "createsClass": "BusinessActor",
+      "sortOrder": 2,
+      "defaultProperties": "{\"actorKind\": \"person\"}",
+      "derivesRelationship": "Composition",
+      "relationshipDirection": "from-selected-to-new"
+    }
+  },
+  {
+    "iriLocal": "ui-add-business-exploration-add-role",
+    "class": "UiAddAction",
+    "labels": {
+      "cs": "Role"
+    },
+    "properties": {
+      "parentTemplate": "ui-tpl-business-exploration",
+      "stage": "ui-stage-business-exploration-people-roles",
+      "actionCode": "add-role",
+      "domainLabelCs": "Role",
+      "createsClass": "BusinessRole",
+      "sortOrder": 3,
+      "derivesRelationship": "Assignment",
+      "relationshipDirection": "from-selected-to-new"
+    }
+  },
+  {
+    "iriLocal": "ui-add-business-exploration-add-function",
+    "class": "UiAddAction",
+    "labels": {
+      "cs": "Oblast odpovědnosti"
+    },
+    "properties": {
+      "parentTemplate": "ui-tpl-business-exploration",
+      "stage": "ui-stage-business-exploration-functions",
+      "actionCode": "add-function",
+      "domainLabelCs": "Oblast odpovědnosti",
+      "createsClass": "BusinessFunction",
+      "sortOrder": 4,
+      "derivesRelationship": "Assignment",
+      "relationshipDirection": "from-selected-to-new"
+    }
+  },
+  {
+    "iriLocal": "ui-add-business-exploration-add-process",
+    "class": "UiAddAction",
+    "labels": {
+      "cs": "Proces / aktivita"
+    },
+    "properties": {
+      "parentTemplate": "ui-tpl-business-exploration",
+      "stage": "ui-stage-business-exploration-processes",
+      "actionCode": "add-process",
+      "domainLabelCs": "Proces / aktivita",
+      "createsClass": "BusinessProcess",
+      "sortOrder": 5,
+      "derivesRelationship": "Composition",
+      "relationshipDirection": "from-selected-to-new"
+    }
+  },
+  {
+    "iriLocal": "ui-add-business-exploration-add-biz-service",
+    "class": "UiAddAction",
+    "labels": {
+      "cs": "Business služba"
+    },
+    "properties": {
+      "parentTemplate": "ui-tpl-business-exploration",
+      "stage": "ui-stage-business-exploration-biz-services",
+      "actionCode": "add-biz-service",
+      "domainLabelCs": "Business služba",
+      "createsClass": "BusinessService",
+      "sortOrder": 6,
+      "derivesRelationship": "Realization",
+      "relationshipDirection": "from-selected-to-new"
+    }
+  },
+  {
+    "iriLocal": "ui-add-business-exploration-add-app-service",
+    "class": "UiAddAction",
+    "labels": {
+      "cs": "Aplikační služba"
+    },
+    "properties": {
+      "parentTemplate": "ui-tpl-business-exploration",
+      "stage": "ui-stage-business-exploration-app-services",
+      "actionCode": "add-app-service",
+      "domainLabelCs": "Aplikační služba",
+      "createsClass": "ApplicationService",
+      "sortOrder": 7,
+      "derivesRelationship": "Serving",
+      "relationshipDirection": "from-new-to-selected"
+    }
+  },
+  {
+    "iriLocal": "ui-add-business-exploration-add-app",
+    "class": "UiAddAction",
+    "labels": {
+      "cs": "Aplikace / systém"
+    },
+    "properties": {
+      "parentTemplate": "ui-tpl-business-exploration",
+      "stage": "ui-stage-business-exploration-applications",
+      "actionCode": "add-app",
+      "domainLabelCs": "Aplikace / systém",
+      "createsClass": "ApplicationComponent",
+      "sortOrder": 8,
+      "defaultProperties": "{\"ownership\": \"internal\"}",
+      "derivesRelationship": "Realization",
+      "relationshipDirection": "from-new-to-selected"
+    }
+  },
+  {
+    "iriLocal": "ui-add-business-exploration-add-data",
+    "class": "UiAddAction",
+    "labels": {
+      "cs": "Datový objekt"
+    },
+    "properties": {
+      "parentTemplate": "ui-tpl-business-exploration",
+      "stage": "ui-stage-business-exploration-data",
+      "actionCode": "add-data",
+      "domainLabelCs": "Datový objekt",
+      "createsClass": "DataObject",
+      "sortOrder": 9,
+      "derivesRelationship": "Access",
+      "relationshipDirection": "from-selected-to-new",
+      "relationshipDefaults": "{\"accessMode\": \"readWrite\"}"
+    }
+  },
+  {
+    "iriLocal": "ui-add-business-exploration-add-syssoft",
+    "class": "UiAddAction",
+    "labels": {
+      "cs": "System software / runtime"
+    },
+    "properties": {
+      "parentTemplate": "ui-tpl-business-exploration",
+      "stage": "ui-stage-business-exploration-tech",
+      "actionCode": "add-syssoft",
+      "domainLabelCs": "System software / runtime",
+      "createsClass": "SystemSoftware",
+      "sortOrder": 10,
+      "derivesRelationship": "DeployedOn",
+      "relationshipDirection": "from-selected-to-new"
+    }
+  },
+  {
+    "iriLocal": "ui-add-business-exploration-add-tech-svc",
+    "class": "UiAddAction",
+    "labels": {
+      "cs": "Technologická služba"
+    },
+    "properties": {
+      "parentTemplate": "ui-tpl-business-exploration",
+      "stage": "ui-stage-business-exploration-tech",
+      "actionCode": "add-tech-svc",
+      "domainLabelCs": "Technologická služba",
+      "createsClass": "TechnologyService",
+      "sortOrder": 11,
+      "derivesRelationship": "Serving",
+      "relationshipDirection": "from-new-to-selected"
+    }
+  },
+  {
+    "iriLocal": "ui-add-business-exploration-add-node",
+    "class": "UiAddAction",
+    "labels": {
+      "cs": "Uzel / cluster"
+    },
+    "properties": {
+      "parentTemplate": "ui-tpl-business-exploration",
+      "stage": "ui-stage-business-exploration-nodes",
+      "actionCode": "add-node",
+      "domainLabelCs": "Uzel / cluster",
+      "createsClass": "Node",
+      "sortOrder": 12,
+      "derivesRelationship": "Assignment",
+      "relationshipDirection": "from-selected-to-new"
+    }
+  },
+  {
+    "iriLocal": "ui-add-business-exploration-add-network",
+    "class": "UiAddAction",
+    "labels": {
+      "cs": "Síťový segment"
+    },
+    "properties": {
+      "parentTemplate": "ui-tpl-business-exploration",
+      "stage": "ui-stage-business-exploration-network",
+      "actionCode": "add-network",
+      "domainLabelCs": "Síťový segment",
+      "createsClass": "CommunicationNetwork",
+      "sortOrder": 13,
+      "defaultProperties": "{\"networkKind\": \"vlan\", \"networkRole\": \"production\"}",
+      "derivesRelationship": "Association",
+      "relationshipDirection": "from-selected-to-new",
+      "relationshipDefaults": "{\"associationKind\": \"memberOf\"}"
+    }
+  },
+  {
+    "iriLocal": "ui-add-business-exploration-add-facility",
+    "class": "UiAddAction",
+    "labels": {
+      "cs": "Areál / DC"
+    },
+    "properties": {
+      "parentTemplate": "ui-tpl-business-exploration",
+      "stage": "ui-stage-business-exploration-facilities",
+      "actionCode": "add-facility",
+      "domainLabelCs": "Areál / DC",
+      "createsClass": "Facility",
+      "sortOrder": 14,
+      "derivesRelationship": "Association",
+      "relationshipDirection": "from-selected-to-new",
+      "relationshipDefaults": "{\"associationKind\": \"locatedIn\"}"
+    }
+  },
+  {
+    "iriLocal": "ui-add-business-exploration-add-location",
+    "class": "UiAddAction",
+    "labels": {
+      "cs": "Geografická lokace"
+    },
+    "properties": {
+      "parentTemplate": "ui-tpl-business-exploration",
+      "stage": "ui-stage-business-exploration-facilities",
+      "actionCode": "add-location",
+      "domainLabelCs": "Geografická lokace",
+      "createsClass": "Location",
+      "sortOrder": 15,
+      "derivesRelationship": "Association",
+      "relationshipDirection": "from-selected-to-new"
+    }
+  },
+  {
+    "iriLocal": "ui-tpl-application-impact",
+    "class": "UiTraversalTemplate",
+    "labels": {
+      "en": "Application impact"
+    },
+    "properties": {
+      "parentProfile": "ui-profile-itmap-default",
+      "templateCode": "application-impact",
+      "labelCs": "Application impact",
+      "sortOrder": 2
+    }
+  },
+  {
+    "iriLocal": "ui-stage-application-impact-applications",
+    "class": "UiStage",
+    "labels": {
+      "cs": "Aplikace"
+    },
+    "properties": {
+      "parentTemplate": "ui-tpl-application-impact",
+      "stageCode": "applications",
+      "stageOrder": 1,
+      "columnLabelCs": "Aplikace",
+      "targetClasses": [
+        "ApplicationComponent"
+      ]
+    }
+  },
+  {
+    "iriLocal": "ui-stage-application-impact-app-services",
+    "class": "UiStage",
+    "labels": {
+      "cs": "Aplikační služby"
+    },
+    "properties": {
+      "parentTemplate": "ui-tpl-application-impact",
+      "stageCode": "app-services",
+      "stageOrder": 2,
+      "columnLabelCs": "Aplikační služby",
+      "targetClasses": [
+        "ApplicationService"
+      ]
+    }
+  },
+  {
+    "iriLocal": "ui-stage-application-impact-processes",
+    "class": "UiStage",
+    "labels": {
+      "cs": "Procesy"
+    },
+    "properties": {
+      "parentTemplate": "ui-tpl-application-impact",
+      "stageCode": "processes",
+      "stageOrder": 3,
+      "columnLabelCs": "Procesy",
+      "targetClasses": [
+        "BusinessProcess",
+        "BusinessFunction"
+      ]
+    }
+  },
+  {
+    "iriLocal": "ui-stage-application-impact-people-roles",
+    "class": "UiStage",
+    "labels": {
+      "cs": "Role"
+    },
+    "properties": {
+      "parentTemplate": "ui-tpl-application-impact",
+      "stageCode": "people-roles",
+      "stageOrder": 4,
+      "columnLabelCs": "Role",
+      "targetClasses": [
+        "BusinessRole"
+      ]
+    }
+  },
+  {
+    "iriLocal": "ui-stage-application-impact-organization",
+    "class": "UiStage",
+    "labels": {
+      "cs": "Organizace"
+    },
+    "properties": {
+      "parentTemplate": "ui-tpl-application-impact",
+      "stageCode": "organization",
+      "stageOrder": 5,
+      "columnLabelCs": "Organizace",
+      "targetClasses": [
+        "BusinessActor"
+      ]
+    }
+  },
+  {
+    "iriLocal": "ui-trans-application-impact-01",
+    "class": "UiTransition",
+    "labels": {
+      "cs": "Realizuje"
+    },
+    "properties": {
+      "parentTemplate": "ui-tpl-application-impact",
+      "fromStage": "ui-stage-application-impact-applications",
+      "toStage": "ui-stage-application-impact-app-services",
+      "relationshipClass": "Realization",
+      "traverseDirection": "model",
+      "uiEdgeLabelCs": "Realizuje"
+    }
+  },
+  {
+    "iriLocal": "ui-trans-application-impact-02",
+    "class": "UiTransition",
+    "labels": {
+      "cs": "Podporuje"
+    },
+    "properties": {
+      "parentTemplate": "ui-tpl-application-impact",
+      "fromStage": "ui-stage-application-impact-app-services",
+      "toStage": "ui-stage-application-impact-processes",
+      "relationshipClass": "Serving",
+      "traverseDirection": "model",
+      "uiEdgeLabelCs": "Podporuje"
+    }
+  },
+  {
+    "iriLocal": "ui-trans-application-impact-03",
+    "class": "UiTransition",
+    "labels": {
+      "cs": "Přiřazeno"
+    },
+    "properties": {
+      "parentTemplate": "ui-tpl-application-impact",
+      "fromStage": "ui-stage-application-impact-processes",
+      "toStage": "ui-stage-application-impact-people-roles",
+      "relationshipClass": "Assignment",
+      "traverseDirection": "inverse",
+      "uiEdgeLabelCs": "Přiřazeno"
+    }
+  },
+  {
+    "iriLocal": "ui-trans-application-impact-04",
+    "class": "UiTransition",
+    "labels": {
+      "cs": "Součást"
+    },
+    "properties": {
+      "parentTemplate": "ui-tpl-application-impact",
+      "fromStage": "ui-stage-application-impact-people-roles",
+      "toStage": "ui-stage-application-impact-organization",
+      "relationshipClass": "Composition",
+      "traverseDirection": "inverse",
+      "uiEdgeLabelCs": "Součást"
+    }
+  },
+  {
+    "iriLocal": "ui-tpl-infrastructure",
+    "class": "UiTraversalTemplate",
+    "labels": {
+      "en": "Infrastructure"
+    },
+    "properties": {
+      "parentProfile": "ui-profile-itmap-default",
+      "templateCode": "infrastructure",
+      "labelCs": "Infrastructure",
+      "sortOrder": 3
+    }
+  },
+  {
+    "iriLocal": "ui-stage-infrastructure-nodes",
+    "class": "UiStage",
+    "labels": {
+      "cs": "Uzly"
+    },
+    "properties": {
+      "parentTemplate": "ui-tpl-infrastructure",
+      "stageCode": "nodes",
+      "stageOrder": 1,
+      "columnLabelCs": "Uzly",
+      "targetClasses": [
+        "Node"
+      ]
+    }
+  },
+  {
+    "iriLocal": "ui-stage-infrastructure-tech",
+    "class": "UiStage",
+    "labels": {
+      "cs": "Software"
+    },
+    "properties": {
+      "parentTemplate": "ui-tpl-infrastructure",
+      "stageCode": "tech",
+      "stageOrder": 2,
+      "columnLabelCs": "Software",
+      "targetClasses": [
+        "SystemSoftware"
+      ]
+    }
+  },
+  {
+    "iriLocal": "ui-stage-infrastructure-applications",
+    "class": "UiStage",
+    "labels": {
+      "cs": "Aplikace"
+    },
+    "properties": {
+      "parentTemplate": "ui-tpl-infrastructure",
+      "stageCode": "applications",
+      "stageOrder": 3,
+      "columnLabelCs": "Aplikace",
+      "targetClasses": [
+        "ApplicationComponent"
+      ]
+    }
+  },
+  {
+    "iriLocal": "ui-stage-infrastructure-app-services",
+    "class": "UiStage",
+    "labels": {
+      "cs": "Služby"
+    },
+    "properties": {
+      "parentTemplate": "ui-tpl-infrastructure",
+      "stageCode": "app-services",
+      "stageOrder": 4,
+      "columnLabelCs": "Služby",
+      "targetClasses": [
+        "ApplicationService"
+      ]
+    }
+  },
+  {
+    "iriLocal": "ui-stage-infrastructure-network",
+    "class": "UiStage",
+    "labels": {
+      "cs": "Síť"
+    },
+    "properties": {
+      "parentTemplate": "ui-tpl-infrastructure",
+      "stageCode": "network",
+      "stageOrder": 5,
+      "columnLabelCs": "Síť",
+      "targetClasses": [
+        "CommunicationNetwork"
+      ]
+    }
+  },
+  {
+    "iriLocal": "ui-stage-infrastructure-facilities",
+    "class": "UiStage",
+    "labels": {
+      "cs": "Lokality"
+    },
+    "properties": {
+      "parentTemplate": "ui-tpl-infrastructure",
+      "stageCode": "facilities",
+      "stageOrder": 6,
+      "columnLabelCs": "Lokality",
+      "targetClasses": [
+        "Facility",
+        "Location"
+      ]
+    }
+  },
+  {
+    "iriLocal": "ui-trans-infrastructure-01",
+    "class": "UiTransition",
+    "labels": {
+      "cs": "Hostuje"
+    },
+    "properties": {
+      "parentTemplate": "ui-tpl-infrastructure",
+      "fromStage": "ui-stage-infrastructure-nodes",
+      "toStage": "ui-stage-infrastructure-tech",
+      "relationshipClass": "Assignment",
+      "traverseDirection": "inverse",
+      "uiEdgeLabelCs": "Hostuje"
+    }
+  },
+  {
+    "iriLocal": "ui-trans-infrastructure-02",
+    "class": "UiTransition",
+    "labels": {
+      "cs": "Nasazeno"
+    },
+    "properties": {
+      "parentTemplate": "ui-tpl-infrastructure",
+      "fromStage": "ui-stage-infrastructure-tech",
+      "toStage": "ui-stage-infrastructure-applications",
+      "relationshipClass": "DeployedOn",
+      "traverseDirection": "inverse",
+      "uiEdgeLabelCs": "Nasazeno"
+    }
+  },
+  {
+    "iriLocal": "ui-trans-infrastructure-03",
+    "class": "UiTransition",
+    "labels": {
+      "cs": "Realizuje"
+    },
+    "properties": {
+      "parentTemplate": "ui-tpl-infrastructure",
+      "fromStage": "ui-stage-infrastructure-applications",
+      "toStage": "ui-stage-infrastructure-app-services",
+      "relationshipClass": "Realization",
+      "traverseDirection": "model",
+      "uiEdgeLabelCs": "Realizuje"
+    }
+  },
+  {
+    "iriLocal": "ui-trans-infrastructure-04",
+    "class": "UiTransition",
+    "labels": {
+      "cs": "Síť"
+    },
+    "properties": {
+      "parentTemplate": "ui-tpl-infrastructure",
+      "fromStage": "ui-stage-infrastructure-nodes",
+      "toStage": "ui-stage-infrastructure-network",
+      "relationshipClass": "Association",
+      "traverseDirection": "model",
+      "uiEdgeLabelCs": "Síť"
+    }
+  },
+  {
+    "iriLocal": "ui-trans-infrastructure-05",
+    "class": "UiTransition",
+    "labels": {
+      "cs": "Umístění"
+    },
+    "properties": {
+      "parentTemplate": "ui-tpl-infrastructure",
+      "fromStage": "ui-stage-infrastructure-nodes",
+      "toStage": "ui-stage-infrastructure-facilities",
+      "relationshipClass": "Association",
+      "traverseDirection": "model",
+      "uiEdgeLabelCs": "Umístění"
+    }
+  }
+]

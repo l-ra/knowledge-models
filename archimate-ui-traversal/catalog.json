@@ -1,0 +1,816 @@
+{
+  "version": "1.0.0",
+  "package": {
+    "code": "archimate-ui-traversal",
+    "lifecycle": "continuous",
+    "iriBase": "https://knowledge-core.local/archimate-ui-traversal/",
+    "labels": {
+      "en": "ArchiMate UI Traversal",
+      "cs": "ArchiMate UI Traversal"
+    },
+    "descriptions": {
+      "en": "IT Map column-browser navigation profiles, templates, stages, transitions, and add actions. Depends on kc-base and archimate-lite. Not part of knowledge-core.",
+      "cs": "IT Map navigační profily (šablony, stage, přechody, add akce). Závisí na kc-base a archimate-lite. Není součástí jádra knowledge-core."
+    },
+    "dependencies": [
+      {
+        "dependsOnCode": "kc-base",
+        "versionRange": "*",
+        "releaseVersion": "1.1.0"
+      },
+      {
+        "dependsOnCode": "archimate-lite",
+        "versionRange": "^3.0.0",
+        "releaseVersion": "3.0.0"
+      }
+    ]
+  },
+  "classes": [
+    {
+      "iriLocal": "UiTraversalMeta",
+      "labels": {
+        "en": "UI traversal meta",
+        "cs": "UI traversal meta"
+      },
+      "descriptions": {
+        "en": "Not an ArchiMate concept. Root for IT Map navigation / column-browser traversal metadata.",
+        "cs": "Není ArchiMate koncept. Kořen metadat IT Map navigace / column-browser traversal."
+      },
+      "usageGuidance": "Root for UI traversal profile data. Not used in architecture diagrams.",
+      "usageExamples": "UiNavigationProfile, UiTraversalTemplate, UiStage, UiTransition, UiAddAction."
+    },
+    {
+      "iriLocal": "UiNavigationProfile",
+      "parent": "UiTraversalMeta",
+      "labels": {
+        "en": "UI navigation profile",
+        "cs": "UI navigační profil"
+      },
+      "descriptions": {
+        "en": "IT Map column-browser navigation profile: templates, stages, transitions, and add actions."
+      },
+      "usageGuidance": "Declares how IT Map traverses the org model. System default lives in archimate-ui-traversal; org packages may override via orgNavigationProfile on package-root.",
+      "usageExamples": "ui-profile-itmap-default with business-exploration, application-impact, infrastructure templates."
+    },
+    {
+      "iriLocal": "UiTraversalTemplate",
+      "parent": "UiTraversalMeta",
+      "labels": {
+        "en": "UI traversal template",
+        "cs": "UI traversal šablona"
+      },
+      "descriptions": {
+        "en": "One selectable traversal path (column layout) within a navigation profile."
+      },
+      "usageGuidance": "Groups stages, transitions, and add actions for one browser template code.",
+      "usageExamples": "business-exploration template with organization → facilities stages."
+    },
+    {
+      "iriLocal": "UiStage",
+      "parent": "UiTraversalMeta",
+      "labels": {
+        "en": "UI stage",
+        "cs": "UI stage"
+      },
+      "descriptions": {
+        "en": "One column in the traversal browser."
+      },
+      "usageGuidance": "Defines which ArchiMate classes appear in a column and optional instance filters.",
+      "usageExamples": "organization stage with BusinessActor and actorKinds=department."
+    },
+    {
+      "iriLocal": "UiTransition",
+      "parent": "UiTraversalMeta",
+      "labels": {
+        "en": "UI transition",
+        "cs": "UI přechod"
+      },
+      "descriptions": {
+        "en": "Edge rule between two stages in a traversal template."
+      },
+      "usageGuidance": "Maps a relationship class and direction between fromStage and toStage.",
+      "usageExamples": "organization → functions via Assignment (model direction)."
+    },
+    {
+      "iriLocal": "UiAddAction",
+      "parent": "UiTraversalMeta",
+      "labels": {
+        "en": "UI add action",
+        "cs": "UI akce přidání"
+      },
+      "descriptions": {
+        "en": "Create-menu action available in a stage."
+      },
+      "usageGuidance": "Declares what class to create and optional derived relationship when adding from the browser.",
+      "usageExamples": "add-function creating BusinessFunction with Assignment from selected entity."
+    }
+  ],
+  "properties": [
+    {
+      "iriLocal": "profileCode",
+      "datatype": "String",
+      "domain": [
+        "UiNavigationProfile"
+      ],
+      "minCount": 1,
+      "maxCount": 1,
+      "severity": "error",
+      "labels": {
+        "en": "Profile code"
+      },
+      "usageGuidance": "Unique code for the navigation profile.",
+      "usageExamples": "itmap-default; org-ote-custom.",
+      "descriptions": {
+        "en": "Unique stable code identifying a UI navigation profile, e.g. itmap-default.",
+        "cs": "Jedinečný stabilní kód identifikující UI navigační profil, např. itmap-default."
+      }
+    },
+    {
+      "iriLocal": "profileVersion",
+      "datatype": "String",
+      "domain": [
+        "UiNavigationProfile"
+      ],
+      "minCount": 1,
+      "maxCount": 1,
+      "severity": "error",
+      "labels": {
+        "en": "Profile version"
+      },
+      "usageGuidance": "Semver of the navigation profile content.",
+      "usageExamples": "1.0.0.",
+      "descriptions": {
+        "en": "Semantic version of the navigation profile content, e.g. 1.0.0.",
+        "cs": "Sémantická verze obsahu navigačního profilu, např. 1.0.0."
+      }
+    },
+    {
+      "iriLocal": "minCatalogVersion",
+      "datatype": "String",
+      "domain": [
+        "UiNavigationProfile"
+      ],
+      "maxCount": 1,
+      "labels": {
+        "en": "Minimum catalog version"
+      },
+      "usageGuidance": "Minimum archimate-lite catalog version required by this profile.",
+      "usageExamples": "2.3.0.",
+      "descriptions": {
+        "en": "Minimum archimate-lite catalog version required by this navigation profile, e.g. 2.3.0.",
+        "cs": "Minimální verze katalogu archimate-lite vyžadovaná tímto navigačním profilem, např. 2.3.0."
+      }
+    },
+    {
+      "iriLocal": "isSystemDefault",
+      "datatype": "Boolean",
+      "domain": [
+        "UiNavigationProfile"
+      ],
+      "maxCount": 1,
+      "labels": {
+        "en": "System default profile"
+      },
+      "usageGuidance": "True only for the seeded default profile in archimate-lite.",
+      "usageExamples": "true on ui-profile-itmap-default.",
+      "descriptions": {
+        "en": "True only for the seeded default navigation profile in the archimate-lite package.",
+        "cs": "True pouze u výchozího seedovaného navigačního profilu v balíčku archimate-lite."
+      }
+    },
+    {
+      "iriLocal": "parentProfile",
+      "datatype": "EntityReference",
+      "domain": [
+        "UiNavigationProfile",
+        "UiTraversalTemplate"
+      ],
+      "range": [
+        "UiNavigationProfile"
+      ],
+      "labels": {
+        "en": "Parent navigation profile"
+      },
+      "usageGuidance": "On UiNavigationProfile: optional inheritance. On UiTraversalTemplate: required owning profile.",
+      "usageExamples": "org profile parentProfile → ui-profile-itmap-default.",
+      "descriptions": {
+        "en": "Owning or parent UiNavigationProfile for inheritance or template grouping.",
+        "cs": "Vlastnící nebo nadřazený UiNavigationProfile pro dědičnost nebo seskupení šablon."
+      }
+    },
+    {
+      "iriLocal": "labelCs",
+      "datatype": "String",
+      "domain": [
+        "UiNavigationProfile",
+        "UiTraversalTemplate"
+      ],
+      "labels": {
+        "en": "Label (CS)"
+      },
+      "usageGuidance": "Czech label shown in IT Map UI.",
+      "usageExamples": "IT Map — výchozí navigace; Business exploration.",
+      "descriptions": {
+        "en": "Czech label shown in the IT Map user interface.",
+        "cs": "Český popisek zobrazený v uživatelském rozhraní IT Map."
+      }
+    },
+    {
+      "iriLocal": "labelEn",
+      "datatype": "String",
+      "domain": [
+        "UiNavigationProfile"
+      ],
+      "maxCount": 1,
+      "labels": {
+        "en": "Label (EN)"
+      },
+      "usageGuidance": "English label for the navigation profile.",
+      "usageExamples": "IT Map default navigation.",
+      "descriptions": {
+        "en": "English label for the navigation profile shown in the IT Map UI.",
+        "cs": "Anglický popisek navigačního profilu zobrazený v UI IT Map."
+      }
+    },
+    {
+      "iriLocal": "templateCode",
+      "datatype": "String",
+      "domain": [
+        "UiTraversalTemplate"
+      ],
+      "minCount": 1,
+      "maxCount": 1,
+      "severity": "error",
+      "labels": {
+        "en": "Template code"
+      },
+      "usageGuidance": "Stable code for the traversal template.",
+      "usageExamples": "business-exploration; application-impact; infrastructure.",
+      "descriptions": {
+        "en": "Stable code for a traversal template within a navigation profile, e.g. business-exploration.",
+        "cs": "Stabilní kód traversal šablony v navigačním profilu, např. business-exploration."
+      }
+    },
+    {
+      "iriLocal": "isDefault",
+      "datatype": "Boolean",
+      "domain": [
+        "UiTraversalTemplate"
+      ],
+      "maxCount": 1,
+      "labels": {
+        "en": "Default template"
+      },
+      "usageGuidance": "When true, this template is pre-selected in the browser.",
+      "usageExamples": "true on business-exploration.",
+      "descriptions": {
+        "en": "When true, this traversal template is pre-selected when opening the column browser.",
+        "cs": "Pokud true, tato traversal šablona je předvybraná při otevření sloupcového prohlížeče."
+      }
+    },
+    {
+      "iriLocal": "startStage",
+      "datatype": "EntityReference",
+      "domain": [
+        "UiTraversalTemplate"
+      ],
+      "range": [
+        "UiStage"
+      ],
+      "maxCount": 1,
+      "labels": {
+        "en": "Start stage"
+      },
+      "usageGuidance": "First column of the template. Alternative: lowest stageOrder.",
+      "usageExamples": "Reference to organization stage.",
+      "descriptions": {
+        "en": "First column stage of the traversal template; alternatively the stage with the lowest stageOrder.",
+        "cs": "Počáteční stage (sloupec) traversal šablony; alternativně stage s nejnižším stageOrder."
+      }
+    },
+    {
+      "iriLocal": "sortOrder",
+      "datatype": "Integer",
+      "domain": [
+        "UiTraversalTemplate",
+        "UiAddAction"
+      ],
+      "maxCount": 1,
+      "labels": {
+        "en": "Sort order"
+      },
+      "usageGuidance": "Ordering in template list or add menu.",
+      "usageExamples": "1 for first template; 10 for add action position.",
+      "descriptions": {
+        "en": "Ordering position in a template list or add menu, e.g. 1 for the first item.",
+        "cs": "Pořadí v seznamu šablon nebo add menu, např. 1 pro první položku."
+      }
+    },
+    {
+      "iriLocal": "parentTemplate",
+      "datatype": "EntityReference",
+      "domain": [
+        "UiStage",
+        "UiTransition",
+        "UiAddAction"
+      ],
+      "range": [
+        "UiTraversalTemplate"
+      ],
+      "minCount": 1,
+      "maxCount": 1,
+      "severity": "error",
+      "labels": {
+        "en": "Parent traversal template"
+      },
+      "usageGuidance": "Owning traversal template for this stage, transition, or add action.",
+      "usageExamples": "Reference to business-exploration template.",
+      "descriptions": {
+        "en": "Owning UiTraversalTemplate for this stage, transition, or add action.",
+        "cs": "Vlastnící UiTraversalTemplate pro tuto stage, transition nebo add action."
+      }
+    },
+    {
+      "iriLocal": "stageCode",
+      "datatype": "String",
+      "domain": [
+        "UiStage"
+      ],
+      "minCount": 1,
+      "maxCount": 1,
+      "severity": "error",
+      "labels": {
+        "en": "Stage code"
+      },
+      "usageGuidance": "Stable code for the stage within a template.",
+      "usageExamples": "organization; functions; applications.",
+      "descriptions": {
+        "en": "Stable code for a stage within a traversal template, e.g. organization or applications.",
+        "cs": "Stabilní kód stage v traversal šabloně, např. organization nebo applications."
+      }
+    },
+    {
+      "iriLocal": "stageOrder",
+      "datatype": "Integer",
+      "domain": [
+        "UiStage"
+      ],
+      "minCount": 1,
+      "maxCount": 1,
+      "severity": "error",
+      "labels": {
+        "en": "Stage order"
+      },
+      "usageGuidance": "Column order (1-based, contiguous).",
+      "usageExamples": "1 for first column; 12 for facilities.",
+      "descriptions": {
+        "en": "Column order within the template (1-based, contiguous), e.g. 1 for the first column.",
+        "cs": "Pořadí sloupce v šabloně (od 1, souvislé), např. 1 pro první sloupec."
+      }
+    },
+    {
+      "iriLocal": "columnLabelCs",
+      "datatype": "String",
+      "domain": [
+        "UiStage"
+      ],
+      "minCount": 1,
+      "maxCount": 1,
+      "severity": "error",
+      "labels": {
+        "en": "Column label (CS)"
+      },
+      "usageGuidance": "Czech label for the browser column.",
+      "usageExamples": "Organizace; Aplikace; Lokality.",
+      "descriptions": {
+        "en": "Czech label for the browser column header in IT Map.",
+        "cs": "Český popisek hlavičky sloupce v prohlížeči IT Map."
+      }
+    },
+    {
+      "iriLocal": "targetClasses",
+      "datatype": "EntityReference",
+      "domain": [
+        "UiStage"
+      ],
+      "range": [
+        "ArchiMateElement"
+      ],
+      "minCount": 1,
+      "severity": "error",
+      "labels": {
+        "en": "Target classes"
+      },
+      "usageGuidance": "ArchiMate element classes shown in this column.",
+      "usageExamples": "BusinessActor; ApplicationComponent; Node and Device.",
+      "descriptions": {
+        "en": "ArchiMate element classes whose instances are shown in this browser column.",
+        "cs": "Třídy ArchiMate prvků, jejichž instance se zobrazují v tomto sloupci prohlížeče."
+      }
+    },
+    {
+      "iriLocal": "instanceFilter",
+      "datatype": "String",
+      "domain": [
+        "UiStage"
+      ],
+      "maxCount": 1,
+      "labels": {
+        "en": "Instance filter"
+      },
+      "usageGuidance": "JSON whitelist filter on instance properties (actorKind, ownership, associationKind, accessMode).",
+      "usageExamples": "{\"property\":\"actorKind\",\"value\":\"department\"}.",
+      "descriptions": {
+        "en": "JSON whitelist filter on instance properties, e.g. actorKind or ownership.",
+        "cs": "JSON whitelist filtr na vlastnostech instance, např. actorKind nebo ownership."
+      }
+    },
+    {
+      "iriLocal": "actorKinds",
+      "datatype": "String",
+      "domain": [
+        "UiStage"
+      ],
+      "maxCount": 1,
+      "labels": {
+        "en": "Actor kinds"
+      },
+      "usageGuidance": "CSV of actorKind enum values for soft filtering.",
+      "usageExamples": "department; person,external.",
+      "descriptions": {
+        "en": "Comma-separated actorKind enum values for soft filtering in a stage, e.g. department or person,external.",
+        "cs": "CSV hodnot enum actorKind pro měkké filtrování ve stage, např. department nebo person,external."
+      }
+    },
+    {
+      "iriLocal": "fromStage",
+      "datatype": "EntityReference",
+      "domain": [
+        "UiTransition"
+      ],
+      "range": [
+        "UiStage"
+      ],
+      "minCount": 1,
+      "maxCount": 1,
+      "severity": "error",
+      "labels": {
+        "en": "From stage"
+      },
+      "usageGuidance": "Source column for the transition.",
+      "usageExamples": "Reference to organization stage.",
+      "descriptions": {
+        "en": "Source column stage for a UI transition between browser columns.",
+        "cs": "Zdrojová stage (sloupec) pro UI přechod mezi sloupci prohlížeče."
+      }
+    },
+    {
+      "iriLocal": "toStage",
+      "datatype": "EntityReference",
+      "domain": [
+        "UiTransition"
+      ],
+      "range": [
+        "UiStage"
+      ],
+      "minCount": 1,
+      "maxCount": 1,
+      "severity": "error",
+      "labels": {
+        "en": "To stage"
+      },
+      "usageGuidance": "Target column for the transition.",
+      "usageExamples": "Reference to functions stage.",
+      "descriptions": {
+        "en": "Target column stage for a UI transition between browser columns.",
+        "cs": "Cílová stage (sloupec) pro UI přechod mezi sloupci prohlížeče."
+      }
+    },
+    {
+      "iriLocal": "relationshipClass",
+      "datatype": "EntityReference",
+      "domain": [
+        "UiTransition"
+      ],
+      "range": [
+        "ArchiMateRelationship"
+      ],
+      "minCount": 1,
+      "maxCount": 1,
+      "severity": "error",
+      "labels": {
+        "en": "Relationship class"
+      },
+      "usageGuidance": "ArchiMate relationship class traversed between stages.",
+      "usageExamples": "Assignment; Serving; Composition.",
+      "descriptions": {
+        "en": "ArchiMate relationship class traversed when navigating between stages, e.g. Assignment or Serving.",
+        "cs": "Třída ArchiMate vztahu procházená při navigaci mezi stages, např. Assignment nebo Serving."
+      }
+    },
+    {
+      "iriLocal": "traverseDirection",
+      "datatype": "String",
+      "domain": [
+        "UiTransition"
+      ],
+      "minCount": 1,
+      "maxCount": 1,
+      "severity": "error",
+      "labels": {
+        "en": "Traverse direction"
+      },
+      "usageGuidance": "model = follow ArchiMate direction; inverse = navigate opposite.",
+      "usageExamples": "model; inverse.",
+      "descriptions": {
+        "en": "Whether to follow ArchiMate direction (model) or navigate in reverse (inverse).",
+        "cs": "Zda sledovat směr ArchiMate (model) nebo navigovat opačně (inverse)."
+      }
+    },
+    {
+      "iriLocal": "uiEdgeLabelCs",
+      "datatype": "String",
+      "domain": [
+        "UiTransition"
+      ],
+      "minCount": 1,
+      "maxCount": 1,
+      "severity": "error",
+      "labels": {
+        "en": "Edge label (CS)"
+      },
+      "usageGuidance": "Czech label for the edge in the column browser.",
+      "usageExamples": "Obsahuje; Podporováno; Realizuje.",
+      "descriptions": {
+        "en": "Czech label for the edge shown in the column browser when traversing between stages.",
+        "cs": "Český popisek hrany zobrazený ve sloupcovém prohlížeči při přechodu mezi stages."
+      }
+    },
+    {
+      "iriLocal": "requireProperty",
+      "datatype": "String",
+      "domain": [
+        "UiTransition"
+      ],
+      "maxCount": 1,
+      "labels": {
+        "en": "Require property"
+      },
+      "usageGuidance": "Optional JSON filter requiring a property value on the relationship.",
+      "usageExamples": "{\"property\":\"associationKind\",\"value\":\"reportsTo\"}.",
+      "descriptions": {
+        "en": "Optional JSON filter requiring a specific property value on the traversed relationship.",
+        "cs": "Volitelný JSON filtr vyžadující konkrétní hodnotu vlastnosti na procházeném vztahu."
+      }
+    },
+    {
+      "iriLocal": "stage",
+      "datatype": "EntityReference",
+      "domain": [
+        "UiAddAction"
+      ],
+      "range": [
+        "UiStage"
+      ],
+      "minCount": 1,
+      "maxCount": 1,
+      "severity": "error",
+      "labels": {
+        "en": "Stage"
+      },
+      "usageGuidance": "Column where this add action is available.",
+      "usageExamples": "Reference to functions stage.",
+      "descriptions": {
+        "en": "Browser column where this add action is available in the create menu.",
+        "cs": "Sloupec prohlížeče, kde je tato add action dostupná v create menu."
+      }
+    },
+    {
+      "iriLocal": "actionCode",
+      "datatype": "String",
+      "domain": [
+        "UiAddAction"
+      ],
+      "minCount": 1,
+      "maxCount": 1,
+      "severity": "error",
+      "labels": {
+        "en": "Action code"
+      },
+      "usageGuidance": "Stable code for the add action.",
+      "usageExamples": "add-function; add-app; add-dept.",
+      "descriptions": {
+        "en": "Stable code for an add action, e.g. add-function or add-app.",
+        "cs": "Stabilní kód add action, např. add-function nebo add-app."
+      }
+    },
+    {
+      "iriLocal": "domainLabelCs",
+      "datatype": "String",
+      "domain": [
+        "UiAddAction"
+      ],
+      "minCount": 1,
+      "maxCount": 1,
+      "severity": "error",
+      "labels": {
+        "en": "Domain label (CS)"
+      },
+      "usageGuidance": "Czech label shown in the Add menu.",
+      "usageExamples": "Oblast odpovědnosti; Aplikace / systém.",
+      "descriptions": {
+        "en": "Czech label shown in the Add menu for this create action.",
+        "cs": "Český popisek zobrazený v Add menu pro tuto create akci."
+      }
+    },
+    {
+      "iriLocal": "createsClass",
+      "datatype": "EntityReference",
+      "domain": [
+        "UiAddAction"
+      ],
+      "range": [
+        "ArchiMateElement"
+      ],
+      "minCount": 1,
+      "maxCount": 1,
+      "severity": "error",
+      "labels": {
+        "en": "Creates class"
+      },
+      "usageGuidance": "ArchiMate class created by this action.",
+      "usageExamples": "BusinessFunction; ApplicationComponent; CommunicationNetwork.",
+      "descriptions": {
+        "en": "ArchiMate element class created when the user triggers this add action.",
+        "cs": "Třída ArchiMate prvku vytvořená při spuštění této add action uživatelem."
+      }
+    },
+    {
+      "iriLocal": "defaultProperties",
+      "datatype": "String",
+      "domain": [
+        "UiAddAction"
+      ],
+      "maxCount": 1,
+      "labels": {
+        "en": "Default properties"
+      },
+      "usageGuidance": "JSON Record<string,string> set on the new entity.",
+      "usageExamples": "{\"actorKind\":\"department\"}; {\"ownership\":\"internal\"}.",
+      "descriptions": {
+        "en": "JSON map of property values preset on the newly created entity.",
+        "cs": "JSON mapa hodnot vlastností přednastavených na nově vytvořené entitě."
+      }
+    },
+    {
+      "iriLocal": "derivesRelationship",
+      "datatype": "EntityReference",
+      "domain": [
+        "UiAddAction"
+      ],
+      "range": [
+        "ArchiMateRelationship"
+      ],
+      "maxCount": 1,
+      "labels": {
+        "en": "Derives relationship"
+      },
+      "usageGuidance": "Optional relationship created between selected and new entity.",
+      "usageExamples": "Assignment; Composition; Access.",
+      "descriptions": {
+        "en": "Optional ArchiMate relationship class created between the selected and new entity.",
+        "cs": "Volitelná třída ArchiMate vztahu vytvořená mezi vybranou a novou entitou."
+      }
+    },
+    {
+      "iriLocal": "relationshipDirection",
+      "datatype": "String",
+      "domain": [
+        "UiAddAction"
+      ],
+      "maxCount": 1,
+      "labels": {
+        "en": "Relationship direction"
+      },
+      "usageGuidance": "Direction of the derived relationship relative to selection.",
+      "usageExamples": "from-selected-to-new; from-new-to-selected.",
+      "descriptions": {
+        "en": "Direction of the derived relationship relative to the selection, e.g. from-selected-to-new.",
+        "cs": "Směr odvozeného vztahu vůči výběru, např. from-selected-to-new nebo from-new-to-selected."
+      }
+    },
+    {
+      "iriLocal": "relationshipDefaults",
+      "datatype": "String",
+      "domain": [
+        "UiAddAction"
+      ],
+      "maxCount": 1,
+      "labels": {
+        "en": "Relationship defaults"
+      },
+      "usageGuidance": "JSON properties set on the derived relationship.",
+      "usageExamples": "{\"accessMode\":\"readWrite\"}; {\"associationKind\":\"memberOf\"}.",
+      "descriptions": {
+        "en": "JSON map of property values preset on the derived relationship entity.",
+        "cs": "JSON mapa hodnot vlastností přednastavených na odvozené entitě vztahu."
+      }
+    },
+    {
+      "iriLocal": "orgNavigationProfile",
+      "datatype": "EntityReference",
+      "domain": [
+        "Package"
+      ],
+      "range": [
+        "UiNavigationProfile"
+      ],
+      "maxCount": 1,
+      "labels": {
+        "en": "Organization navigation profile"
+      },
+      "usageGuidance": "On org package-root: active IT Map navigation profile for the organization.",
+      "usageExamples": "org-ote package-root → org-ote-custom UiNavigationProfile.",
+      "descriptions": {
+        "en": "On an organization package-root: the active IT Map navigation profile for that organization.",
+        "cs": "U package-root organizace: aktivní IT Map navigační profil pro danou organizaci."
+      }
+    }
+  ],
+  "shapes": [
+    {
+      "code": "aml-ui-navigation-profile",
+      "class": "UiNavigationProfile",
+      "required": [
+        "profileCode",
+        "profileVersion",
+        "labelCs"
+      ],
+      "severity": "error"
+    },
+    {
+      "code": "aml-ui-traversal-template",
+      "class": "UiTraversalTemplate",
+      "required": [
+        "parentProfile",
+        "templateCode",
+        "labelCs"
+      ],
+      "severity": "error"
+    },
+    {
+      "code": "aml-ui-stage",
+      "class": "UiStage",
+      "required": [
+        "parentTemplate",
+        "stageCode",
+        "stageOrder",
+        "columnLabelCs",
+        "targetClasses"
+      ],
+      "severity": "error"
+    },
+    {
+      "code": "aml-ui-transition",
+      "class": "UiTransition",
+      "required": [
+        "parentTemplate",
+        "fromStage",
+        "toStage",
+        "relationshipClass",
+        "traverseDirection",
+        "uiEdgeLabelCs"
+      ],
+      "severity": "error"
+    },
+    {
+      "code": "aml-ui-add-action",
+      "class": "UiAddAction",
+      "required": [
+        "parentTemplate",
+        "stage",
+        "actionCode",
+        "domainLabelCs",
+        "createsClass"
+      ],
+      "severity": "error"
+    }
+  ],
+  "enums": {
+    "traverseDirection": {
+      "property": "traverseDirection",
+      "values": [
+        "model",
+        "inverse"
+      ]
+    },
+    "relationshipDirection": {
+      "property": "relationshipDirection",
+      "values": [
+        "from-selected-to-new",
+        "from-new-to-selected"
+      ]
+    }
+  },
+  "instancesFile": "ui-profile-seed.json"
+}
