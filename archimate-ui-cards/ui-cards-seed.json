@@ -1,0 +1,299 @@
+[
+  {
+    "iriLocal": "card-profile-department",
+    "class": "PresentationProfile",
+    "labels": { "cs": "Oddělení", "en": "Department" },
+    "descriptions": {
+      "cs": "Organizační jednotka modelované organizace.",
+      "en": "Organizational unit of the modeled organization."
+    },
+    "properties": {
+      "profileCode": "department",
+      "profileVersion": "1.0.0",
+      "minCatalogVersion": "3.1.0",
+      "isSystemDefault": true,
+      "archimateElementType": "BusinessActor",
+      "matchProperties": "{\"actorKind\":\"organizationalUnit\",\"organizationScope\":\"internal\"}",
+      "fieldProperties": "actorKind,organizationScope",
+      "labelCs": "Oddělení",
+      "labelEn": "Department",
+      "sortOrder": 1
+    }
+  },
+  {
+    "iriLocal": "card-profile-person",
+    "class": "PresentationProfile",
+    "labels": { "cs": "Osoba", "en": "Person" },
+    "descriptions": {
+      "cs": "Jmenovaná osoba uvnitř modelované organizace.",
+      "en": "Named person inside the modeled organization."
+    },
+    "properties": {
+      "profileCode": "person",
+      "profileVersion": "1.0.0",
+      "minCatalogVersion": "3.1.0",
+      "isSystemDefault": true,
+      "archimateElementType": "BusinessActor",
+      "matchProperties": "{\"actorKind\":\"person\",\"organizationScope\":\"internal\"}",
+      "fieldProperties": "actorKind,organizationScope",
+      "labelCs": "Osoba",
+      "labelEn": "Person",
+      "sortOrder": 2
+    }
+  },
+  {
+    "iriLocal": "card-profile-external-organization",
+    "class": "PresentationProfile",
+    "labels": { "cs": "Externí organizace", "en": "External organization" },
+    "descriptions": {
+      "cs": "Organizace mimo modelovanou organizaci (dodavatel, regulátor, partner).",
+      "en": "Organization outside the modeled org (vendor, regulator, partner)."
+    },
+    "properties": {
+      "profileCode": "externalOrganization",
+      "profileVersion": "1.0.0",
+      "minCatalogVersion": "3.1.0",
+      "isSystemDefault": true,
+      "archimateElementType": "BusinessActor",
+      "matchProperties": "{\"actorKind\":\"organization\",\"organizationScope\":\"external\"}",
+      "fieldProperties": "actorKind,organizationScope",
+      "labelCs": "Externí organizace",
+      "labelEn": "External organization",
+      "sortOrder": 3
+    }
+  },
+  {
+    "iriLocal": "card-profile-application",
+    "class": "PresentationProfile",
+    "labels": { "cs": "Aplikace", "en": "Application" },
+    "descriptions": {
+      "cs": "Aplikační komponenta.",
+      "en": "Application component."
+    },
+    "properties": {
+      "profileCode": "application",
+      "profileVersion": "1.0.0",
+      "minCatalogVersion": "3.1.0",
+      "isSystemDefault": true,
+      "archimateElementType": "ApplicationComponent",
+      "matchProperties": "{}",
+      "fieldProperties": "criticality,ownership",
+      "labelCs": "Aplikace",
+      "labelEn": "Application",
+      "sortOrder": 4
+    }
+  },
+  {
+    "iriLocal": "card-slot-department-parts",
+    "class": "RelationSlot",
+    "labels": { "cs": "Části / podřízené jednotky" },
+    "properties": {
+      "parentProfile": "card-profile-department",
+      "slotCode": "parts",
+      "slotLabelCs": "Části / podřízené jednotky",
+      "relationshipType": "Composition",
+      "traverseDirection": "outgoing",
+      "targetClasses": "BusinessActor",
+      "targetProfileCodes": "department",
+      "importance": "recommended",
+      "sortOrder": 1
+    }
+  },
+  {
+    "iriLocal": "card-slot-department-parent",
+    "class": "RelationSlot",
+    "labels": { "cs": "Nadřízená jednotka" },
+    "properties": {
+      "parentProfile": "card-profile-department",
+      "slotCode": "parent",
+      "slotLabelCs": "Nadřízená jednotka",
+      "relationshipType": "Composition",
+      "traverseDirection": "incoming",
+      "targetClasses": "BusinessActor",
+      "importance": "optional",
+      "sortOrder": 2
+    }
+  },
+  {
+    "iriLocal": "card-slot-department-roles",
+    "class": "RelationSlot",
+    "labels": { "cs": "Zastává role" },
+    "properties": {
+      "parentProfile": "card-profile-department",
+      "slotCode": "roles",
+      "slotLabelCs": "Zastává role",
+      "relationshipType": "Assignment",
+      "traverseDirection": "outgoing",
+      "targetClasses": "BusinessRole",
+      "importance": "recommended",
+      "sortOrder": 3
+    }
+  },
+  {
+    "iriLocal": "card-slot-department-people",
+    "class": "RelationSlot",
+    "labels": { "cs": "Osoby v jednotce" },
+    "properties": {
+      "parentProfile": "card-profile-department",
+      "slotCode": "people",
+      "slotLabelCs": "Osoby v jednotce",
+      "relationshipType": "Composition",
+      "traverseDirection": "outgoing",
+      "targetClasses": "BusinessActor",
+      "targetProfileCodes": "person",
+      "importance": "recommended",
+      "sortOrder": 4
+    }
+  },
+  {
+    "iriLocal": "card-slot-person-roles",
+    "class": "RelationSlot",
+    "labels": { "cs": "Zastává role" },
+    "properties": {
+      "parentProfile": "card-profile-person",
+      "slotCode": "roles",
+      "slotLabelCs": "Zastává role",
+      "relationshipType": "Assignment",
+      "traverseDirection": "outgoing",
+      "targetClasses": "BusinessRole",
+      "importance": "recommended",
+      "sortOrder": 1
+    }
+  },
+  {
+    "iriLocal": "card-slot-person-unit",
+    "class": "RelationSlot",
+    "labels": { "cs": "Patří do jednotky" },
+    "properties": {
+      "parentProfile": "card-profile-person",
+      "slotCode": "unit",
+      "slotLabelCs": "Patří do jednotky",
+      "relationshipType": "Composition",
+      "traverseDirection": "incoming",
+      "targetClasses": "BusinessActor",
+      "targetProfileCodes": "department",
+      "importance": "recommended",
+      "sortOrder": 2
+    }
+  },
+  {
+    "iriLocal": "card-slot-person-reports-to",
+    "class": "RelationSlot",
+    "labels": { "cs": "Nadřízený" },
+    "properties": {
+      "parentProfile": "card-profile-person",
+      "slotCode": "reportsTo",
+      "slotLabelCs": "Nadřízený",
+      "relationshipType": "Association",
+      "traverseDirection": "outgoing",
+      "targetClasses": "BusinessActor",
+      "importance": "optional",
+      "sortOrder": 3
+    }
+  },
+  {
+    "iriLocal": "card-slot-external-organization-roles",
+    "class": "RelationSlot",
+    "labels": { "cs": "Zastává role" },
+    "properties": {
+      "parentProfile": "card-profile-external-organization",
+      "slotCode": "roles",
+      "slotLabelCs": "Zastává role",
+      "relationshipType": "Assignment",
+      "traverseDirection": "outgoing",
+      "targetClasses": "BusinessRole",
+      "importance": "optional",
+      "sortOrder": 1
+    }
+  },
+  {
+    "iriLocal": "card-slot-application-provides",
+    "class": "RelationSlot",
+    "labels": { "cs": "Poskytuje služby" },
+    "properties": {
+      "parentProfile": "card-profile-application",
+      "slotCode": "provides",
+      "slotLabelCs": "Poskytuje služby",
+      "relationshipType": "Realization",
+      "traverseDirection": "outgoing",
+      "targetClasses": "ApplicationService",
+      "importance": "recommended",
+      "sortOrder": 1
+    }
+  },
+  {
+    "iriLocal": "card-slot-application-business-services",
+    "class": "RelationSlot",
+    "labels": { "cs": "Realizuje business služby" },
+    "properties": {
+      "parentProfile": "card-profile-application",
+      "slotCode": "businessServices",
+      "slotLabelCs": "Realizuje business služby",
+      "relationshipType": "Realization",
+      "traverseDirection": "outgoing",
+      "targetClasses": "BusinessService",
+      "importance": "recommended",
+      "sortOrder": 2
+    }
+  },
+  {
+    "iriLocal": "card-slot-application-data",
+    "class": "RelationSlot",
+    "labels": { "cs": "Data" },
+    "properties": {
+      "parentProfile": "card-profile-application",
+      "slotCode": "data",
+      "slotLabelCs": "Data",
+      "relationshipType": "Access",
+      "traverseDirection": "outgoing",
+      "targetClasses": "DataObject",
+      "importance": "optional",
+      "sortOrder": 3
+    }
+  },
+  {
+    "iriLocal": "card-slot-application-composed-of",
+    "class": "RelationSlot",
+    "labels": { "cs": "Části" },
+    "properties": {
+      "parentProfile": "card-profile-application",
+      "slotCode": "composedOf",
+      "slotLabelCs": "Části",
+      "relationshipType": "Composition",
+      "traverseDirection": "outgoing",
+      "targetClasses": "ApplicationComponent",
+      "importance": "optional",
+      "sortOrder": 4
+    }
+  },
+  {
+    "iriLocal": "card-slot-application-part-of",
+    "class": "RelationSlot",
+    "labels": { "cs": "Součást" },
+    "properties": {
+      "parentProfile": "card-profile-application",
+      "slotCode": "partOf",
+      "slotLabelCs": "Součást",
+      "relationshipType": "Composition",
+      "traverseDirection": "incoming",
+      "targetClasses": "ApplicationComponent",
+      "importance": "optional",
+      "sortOrder": 5
+    }
+  },
+  {
+    "iriLocal": "card-slot-application-served-by-tech",
+    "class": "RelationSlot",
+    "labels": { "cs": "Infrastrukturní služby" },
+    "properties": {
+      "parentProfile": "card-profile-application",
+      "slotCode": "servedByTech",
+      "slotLabelCs": "Infrastrukturní služby",
+      "relationshipType": "Serving",
+      "traverseDirection": "incoming",
+      "targetClasses": "TechnologyService",
+      "importance": "optional",
+      "sortOrder": 6
+    }
+  }
+]

@@ -1,0 +1,358 @@
+{
+  "version": "1.0.0",
+  "package": {
+    "code": "archimate-ui-cards",
+    "lifecycle": "continuous",
+    "iriBase": "https://knowledge-core.local/archimate-ui-cards/",
+    "labels": {
+      "en": "ArchiMate UI Cards",
+      "cs": "ArchiMate UI Karty"
+    },
+    "descriptions": {
+      "en": "IT Map element-card presentation profiles and relation slots. Depends on kc-base and archimate-lite. Not part of knowledge-core.",
+      "cs": "IT Map prezentační profily karet elementů a relation slots. Závisí na kc-base a archimate-lite. Není součástí jádra knowledge-core."
+    },
+    "dependencies": [
+      {
+        "dependsOnCode": "kc-base",
+        "versionRange": "*",
+        "releaseVersion": "1.1.0"
+      },
+      {
+        "dependsOnCode": "archimate-lite",
+        "versionRange": "^3.1.0",
+        "releaseVersion": "3.1.0"
+      }
+    ]
+  },
+  "classes": [
+    {
+      "iriLocal": "UiCardsMeta",
+      "labels": {
+        "en": "UI cards meta",
+        "cs": "UI karty meta"
+      },
+      "descriptions": {
+        "en": "Not an ArchiMate concept. Root for IT Map element-card presentation metadata.",
+        "cs": "Není ArchiMate koncept. Kořen metadat IT Map karet elementů."
+      },
+      "usageGuidance": "Root for card presentation profile data. Not used in architecture diagrams.",
+      "usageExamples": "PresentationProfile, RelationSlot."
+    },
+    {
+      "iriLocal": "PresentationProfile",
+      "parent": "UiCardsMeta",
+      "labels": {
+        "en": "Presentation profile",
+        "cs": "Prezentační profil"
+      },
+      "descriptions": {
+        "en": "Domain presentation of an ArchiMate element type for the IT Map card UI."
+      },
+      "usageGuidance": "Maps a domain concept (e.g. Oddělení) to an ArchiMate class plus match properties. Does not invent new architecture semantics.",
+      "usageExamples": "department → BusinessActor with actorKind=organizationalUnit and organizationScope=internal."
+    },
+    {
+      "iriLocal": "RelationSlot",
+      "parent": "UiCardsMeta",
+      "labels": {
+        "en": "Relation slot",
+        "cs": "Relation slot"
+      },
+      "descriptions": {
+        "en": "One card section for inbound or outbound relationships of a presentation profile."
+      },
+      "usageGuidance": "Declares which ArchiMate relationship and direction appear on the card, with a domain label. Must stay within AllowedRelationship.",
+      "usageExamples": "department.roles: Assignment outgoing to BusinessRole."
+    }
+  ],
+  "properties": [
+    {
+      "iriLocal": "profileCode",
+      "datatype": "String",
+      "domain": ["PresentationProfile"],
+      "minCount": 1,
+      "maxCount": 1,
+      "severity": "error",
+      "labels": { "en": "Profile code", "cs": "Kód profilu" },
+      "descriptions": {
+        "en": "Stable code identifying a presentation profile.",
+        "cs": "Stabilní kód identifikující prezentační profil."
+      },
+      "usageGuidance": "Unique code within the cards package.",
+      "usageExamples": "department; person; application."
+    },
+    {
+      "iriLocal": "profileVersion",
+      "datatype": "String",
+      "domain": ["PresentationProfile"],
+      "minCount": 1,
+      "maxCount": 1,
+      "severity": "error",
+      "labels": { "en": "Profile version", "cs": "Verze profilu" },
+      "descriptions": {
+        "en": "Semantic version of the presentation profile content.",
+        "cs": "Sémantická verze obsahu prezentačního profilu."
+      },
+      "usageGuidance": "Semver of profile content.",
+      "usageExamples": "1.0.0."
+    },
+    {
+      "iriLocal": "minCatalogVersion",
+      "datatype": "String",
+      "domain": ["PresentationProfile"],
+      "maxCount": 1,
+      "labels": { "en": "Minimum catalog version", "cs": "Minimální verze katalogu" },
+      "descriptions": {
+        "en": "Minimum archimate-lite catalog version required by this profile.",
+        "cs": "Minimální verze katalogu archimate-lite vyžadovaná tímto profilem."
+      },
+      "usageGuidance": "Minimum archimate-lite version.",
+      "usageExamples": "3.1.0."
+    },
+    {
+      "iriLocal": "isSystemDefault",
+      "datatype": "Boolean",
+      "domain": ["PresentationProfile"],
+      "maxCount": 1,
+      "labels": { "en": "System default profile", "cs": "Systémový výchozí profil" },
+      "descriptions": {
+        "en": "True for seeded system presentation profiles in archimate-ui-cards.",
+        "cs": "True u seedovaných systémových prezentačních profilů v archimate-ui-cards."
+      },
+      "usageGuidance": "Mark seeded system profiles.",
+      "usageExamples": "true on card-profile-department."
+    },
+    {
+      "iriLocal": "archimateElementType",
+      "datatype": "String",
+      "domain": ["PresentationProfile"],
+      "minCount": 1,
+      "maxCount": 1,
+      "severity": "error",
+      "labels": { "en": "ArchiMate element type", "cs": "Typ ArchiMate elementu" },
+      "descriptions": {
+        "en": "iriLocal of the ArchiMate element class this profile presents.",
+        "cs": "iriLocal třídy ArchiMate elementu, kterou profil prezentuje."
+      },
+      "usageGuidance": "Must be an archimate-lite element class local name.",
+      "usageExamples": "BusinessActor; ApplicationComponent."
+    },
+    {
+      "iriLocal": "matchProperties",
+      "datatype": "String",
+      "domain": ["PresentationProfile"],
+      "maxCount": 1,
+      "labels": { "en": "Match properties", "cs": "Match properties" },
+      "descriptions": {
+        "en": "JSON object of property local → value that must all match for profile resolution.",
+        "cs": "JSON objekt property local → hodnota; všechny musí sedět pro resoluci profilu."
+      },
+      "usageGuidance": "JSON whitelist of instance property values.",
+      "usageExamples": "{\"actorKind\":\"organizationalUnit\",\"organizationScope\":\"internal\"}."
+    },
+    {
+      "iriLocal": "fieldProperties",
+      "datatype": "String",
+      "domain": ["PresentationProfile"],
+      "maxCount": 1,
+      "labels": { "en": "Field properties", "cs": "Pole na kartě" },
+      "descriptions": {
+        "en": "CSV of AML property iriLocals to show on the card (labels from schema).",
+        "cs": "CSV iriLocal AML properties zobrazených na kartě (labely ze schema)."
+      },
+      "usageGuidance": "References only; do not redefine datatypes or enums.",
+      "usageExamples": "actorKind,organizationScope; criticality."
+    },
+    {
+      "iriLocal": "labelCs",
+      "datatype": "String",
+      "domain": ["PresentationProfile"],
+      "minCount": 1,
+      "maxCount": 1,
+      "severity": "error",
+      "labels": { "en": "Czech label", "cs": "Český label" },
+      "descriptions": {
+        "en": "Czech domain name of the presentation profile.",
+        "cs": "Český doménový název prezentačního profilu."
+      },
+      "usageGuidance": "Shown as the card type title.",
+      "usageExamples": "Oddělení; Aplikace."
+    },
+    {
+      "iriLocal": "labelEn",
+      "datatype": "String",
+      "domain": ["PresentationProfile"],
+      "maxCount": 1,
+      "labels": { "en": "English label", "cs": "Anglický label" },
+      "descriptions": {
+        "en": "English domain name of the presentation profile.",
+        "cs": "Anglický doménový název prezentačního profilu."
+      },
+      "usageGuidance": "Optional English label.",
+      "usageExamples": "Department; Application."
+    },
+    {
+      "iriLocal": "sortOrder",
+      "datatype": "Integer",
+      "domain": ["PresentationProfile", "RelationSlot"],
+      "maxCount": 1,
+      "labels": { "en": "Sort order", "cs": "Pořadí" },
+      "descriptions": {
+        "en": "Display order among profiles or slots.",
+        "cs": "Pořadí zobrazení mezi profily nebo sloty."
+      },
+      "usageGuidance": "Lower numbers first.",
+      "usageExamples": "1; 2; 3."
+    },
+    {
+      "iriLocal": "slotCode",
+      "datatype": "String",
+      "domain": ["RelationSlot"],
+      "minCount": 1,
+      "maxCount": 1,
+      "severity": "error",
+      "labels": { "en": "Slot code", "cs": "Kód slotu" },
+      "descriptions": {
+        "en": "Stable code of the relation slot within its profile.",
+        "cs": "Stabilní kód relation slotu v rámci profilu."
+      },
+      "usageGuidance": "Unique within parent profile.",
+      "usageExamples": "roles; provides; parts."
+    },
+    {
+      "iriLocal": "parentProfile",
+      "datatype": "EntityReference",
+      "domain": ["RelationSlot"],
+      "range": ["PresentationProfile"],
+      "minCount": 1,
+      "maxCount": 1,
+      "severity": "error",
+      "labels": { "en": "Parent presentation profile", "cs": "Nadřazený prezentační profil" },
+      "descriptions": {
+        "en": "Owning PresentationProfile for this relation slot.",
+        "cs": "Vlastnící PresentationProfile tohoto relation slotu."
+      },
+      "usageGuidance": "Required owning profile.",
+      "usageExamples": "card-slot-department-roles → card-profile-department."
+    },
+    {
+      "iriLocal": "slotLabelCs",
+      "datatype": "String",
+      "domain": ["RelationSlot"],
+      "minCount": 1,
+      "maxCount": 1,
+      "severity": "error",
+      "labels": { "en": "Czech slot label", "cs": "Český label slotu" },
+      "descriptions": {
+        "en": "Domain label for the card section (not the ArchiMate relationship name).",
+        "cs": "Doménový label sekce na kartě (ne název ArchiMate vztahu)."
+      },
+      "usageGuidance": "Human-readable section title.",
+      "usageExamples": "Poskytuje služby; Zastává role."
+    },
+    {
+      "iriLocal": "relationshipType",
+      "datatype": "String",
+      "domain": ["RelationSlot"],
+      "minCount": 1,
+      "maxCount": 1,
+      "severity": "error",
+      "labels": { "en": "Relationship type", "cs": "Typ vztahu" },
+      "descriptions": {
+        "en": "iriLocal of the ArchiMate relationship class.",
+        "cs": "iriLocal třídy ArchiMate vztahu."
+      },
+      "usageGuidance": "Must be an archimate-lite relationship class.",
+      "usageExamples": "Assignment; Composition; Realization; Serving."
+    },
+    {
+      "iriLocal": "traverseDirection",
+      "datatype": "String",
+      "domain": ["RelationSlot"],
+      "minCount": 1,
+      "maxCount": 1,
+      "severity": "error",
+      "labels": { "en": "Traverse direction", "cs": "Směr průchodu" },
+      "descriptions": {
+        "en": "Whether the slot follows outgoing (source→target) or incoming (target←source) edges from the card subject.",
+        "cs": "Zda slot sleduje odchozí (source→target) nebo příchozí (target←source) hrany od subjektu karty."
+      },
+      "usageGuidance": "outgoing = subject is relationship source; incoming = subject is relationship target.",
+      "usageExamples": "outgoing; incoming."
+    },
+    {
+      "iriLocal": "targetClasses",
+      "datatype": "String",
+      "domain": ["RelationSlot"],
+      "maxCount": 1,
+      "labels": { "en": "Target classes", "cs": "Cílové třídy" },
+      "descriptions": {
+        "en": "CSV of allowed neighbor ArchiMate element class locals.",
+        "cs": "CSV povolených tříd sousedních ArchiMate elementů."
+      },
+      "usageGuidance": "Soft filter on neighbor class.",
+      "usageExamples": "BusinessRole; ApplicationService,BusinessService."
+    },
+    {
+      "iriLocal": "targetProfileCodes",
+      "datatype": "String",
+      "domain": ["RelationSlot"],
+      "maxCount": 1,
+      "labels": { "en": "Target profile codes", "cs": "Kódy cílových profilů" },
+      "descriptions": {
+        "en": "CSV of presentation profile codes the neighbor should resolve to.",
+        "cs": "CSV kódů prezentačních profilů, na které by soused měl resolvovat."
+      },
+      "usageGuidance": "Optional soft filter after profile resolution of neighbors.",
+      "usageExamples": "person; department."
+    },
+    {
+      "iriLocal": "importance",
+      "datatype": "String",
+      "domain": ["RelationSlot"],
+      "minCount": 1,
+      "maxCount": 1,
+      "severity": "error",
+      "labels": { "en": "Importance", "cs": "Důležitost" },
+      "descriptions": {
+        "en": "Whether an empty slot is shown by default (recommended) or only when filled / in expert mode (optional).",
+        "cs": "Zda se prázdný slot zobrazí defaultně (recommended) nebo jen vyplněný / v expert režimu (optional)."
+      },
+      "usageGuidance": "recommended slots show empty placeholders; optional hide when empty unless expert.",
+      "usageExamples": "recommended; optional."
+    }
+  ],
+  "shapes": [
+    {
+      "code": "ui-cards-presentation-profile",
+      "class": "PresentationProfile",
+      "required": ["profileCode", "profileVersion", "archimateElementType", "labelCs"],
+      "severity": "error"
+    },
+    {
+      "code": "ui-cards-relation-slot",
+      "class": "RelationSlot",
+      "required": [
+        "parentProfile",
+        "slotCode",
+        "slotLabelCs",
+        "relationshipType",
+        "traverseDirection",
+        "importance"
+      ],
+      "severity": "error"
+    }
+  ],
+  "enums": {
+    "traverseDirection": {
+      "property": "traverseDirection",
+      "values": ["outgoing", "incoming"]
+    },
+    "importance": {
+      "property": "importance",
+      "values": ["recommended", "optional"]
+    }
+  },
+  "instancesFile": "ui-cards-seed.json"
+}
