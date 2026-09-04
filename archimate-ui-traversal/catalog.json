@@ -20,8 +20,8 @@
       },
       {
         "dependsOnCode": "archimate-lite",
-        "versionRange": "^3.0.0",
-        "releaseVersion": "3.0.0"
+        "versionRange": "^3.1.0",
+        "releaseVersion": "3.1.0"
       }
     ]
   },
@@ -76,7 +76,7 @@
         "en": "One column in the traversal browser."
       },
       "usageGuidance": "Defines which ArchiMate classes appear in a column and optional instance filters.",
-      "usageExamples": "organization stage with BusinessActor and actorKinds=department."
+      "usageExamples": "organization stage with BusinessActor and actorKinds=organizationalUnit."
     },
     {
       "iriLocal": "UiTransition",
@@ -418,11 +418,11 @@
       "labels": {
         "en": "Instance filter"
       },
-      "usageGuidance": "JSON whitelist filter on instance properties (actorKind, ownership, associationKind, accessMode).",
-      "usageExamples": "{\"property\":\"actorKind\",\"value\":\"department\"}.",
+      "usageGuidance": "JSON whitelist filter on instance properties (actorKind, organizationScope, ownership, associationKind, accessMode).",
+      "usageExamples": "{\"property\":\"actorKind\",\"value\":\"organizationalUnit\"}.",
       "descriptions": {
-        "en": "JSON whitelist filter on instance properties, e.g. actorKind or ownership.",
-        "cs": "JSON whitelist filtr na vlastnostech instance, např. actorKind nebo ownership."
+        "en": "JSON whitelist filter on instance properties, e.g. actorKind, organizationScope, or ownership.",
+        "cs": "JSON whitelist filtr na vlastnostech instance, např. actorKind, organizationScope nebo ownership."
       }
     },
     {
@@ -436,10 +436,10 @@
         "en": "Actor kinds"
       },
       "usageGuidance": "CSV of actorKind enum values for soft filtering.",
-      "usageExamples": "department; person,external.",
+      "usageExamples": "organizationalUnit; person.",
       "descriptions": {
-        "en": "Comma-separated actorKind enum values for soft filtering in a stage, e.g. department or person,external.",
-        "cs": "CSV hodnot enum actorKind pro měkké filtrování ve stage, např. department nebo person,external."
+        "en": "Comma-separated actorKind enum values for soft filtering in a stage, e.g. organizationalUnit or person.",
+        "cs": "CSV hodnot enum actorKind pro měkké filtrování ve stage, např. organizationalUnit nebo person."
       }
     },
     {
@@ -656,7 +656,7 @@
         "en": "Default properties"
       },
       "usageGuidance": "JSON Record<string,string> set on the new entity.",
-      "usageExamples": "{\"actorKind\":\"department\"}; {\"ownership\":\"internal\"}.",
+      "usageExamples": "{\"actorKind\":\"organizationalUnit\",\"organizationScope\":\"internal\"}; {\"ownership\":\"internal\"}.",
       "descriptions": {
         "en": "JSON map of property values preset on the newly created entity.",
         "cs": "JSON mapa hodnot vlastností přednastavených na nově vytvořené entitě."

@@ -1,6 +1,6 @@
 # ArchiMate Lite demo instances
 
-Compliance + network acceptance instances. Depends on **archimate-lite ^3.0.0**.
+Compliance + network acceptance instances. Depends on **archimate-lite ^3.1.0**.
 
 ```bash
 export KC_BASE_URL=http://localhost:8080

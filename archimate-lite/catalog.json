@@ -1,5 +1,5 @@
 {
-  "version": "3.0.0",
+  "version": "3.1.0",
   "package": {
     "code": "archimate-lite",
     "lifecycle": "continuous",
@@ -99,8 +99,8 @@
       "labels": {
         "en": "Business actor"
       },
-      "usageGuidance": "An organizational entity capable of performing behavior — the owner, unit, or external party accountable for a system or service.",
-      "usageExamples": "Business unit owning CRM; external payment provider; operations department; customer organization."
+      "usageGuidance": "An organizational entity capable of performing behavior — a person, organizational unit, or organization. Classify nature with actorKind and relation to the modeled org with organizationScope (not ownership).",
+      "usageExamples": "Organizational unit owning CRM (organizationalUnit+internal); named person Petr Novák (person+internal); external payment provider (organization+external)."
     },
     {
       "iriLocal": "BusinessRole",
@@ -676,14 +676,35 @@
       "maxCount": 1,
       "severity": "error",
       "labels": {
-        "en": "Actor kind"
+        "en": "Actor kind",
+        "cs": "Druh actora"
       },
       "descriptions": {
-        "en": "Distinguishes whether a BusinessActor is a department, person, or external party.",
-        "cs": "Rozlišuje, zda je BusinessActor oddělení (department), osoba (person) nebo externí subjekt (external)."
+        "en": "Nature of a BusinessActor: person, organizational unit, or organization as a whole. Orthogonal to organizationScope.",
+        "cs": "Povaha BusinessActoru: osoba (person), organizační jednotka (organizationalUnit) nebo organizace jako celek (organization). Ortogonální k organizationScope."
       },
-      "usageGuidance": "Distinguishes an organizational unit, a named person, and an external party on BusinessActor. Required on every BusinessActor (shape aml-business-actor). department = org unit; person = named individual; external = party outside the organization.",
-      "usageExamples": "department for Odbor Compliance; person for Petr Novák; external for EU Registry."
+      "usageGuidance": "Nature of the actor only — not internal vs external. person = named individual; organizationalUnit = department/team/unit; organization = firm, institution, or partner as a whole. Required on every BusinessActor (shape aml-business-actor). Use organizationScope for relation to the modeled organization.",
+      "usageExamples": "organizationalUnit for Odbor Compliance; person for Petr Novák; organization for EU Registry or a legal entity in the group."
+    },
+    {
+      "iriLocal": "organizationScope",
+      "datatype": "String",
+      "domain": [
+        "BusinessActor"
+      ],
+      "minCount": 1,
+      "maxCount": 1,
+      "severity": "error",
+      "labels": {
+        "en": "Organization scope",
+        "cs": "Vztah k organizaci"
+      },
+      "descriptions": {
+        "en": "Whether a BusinessActor is internal or external relative to the modeled organization.",
+        "cs": "Určuje, zda je BusinessActor interní vůči modelované organizaci, nebo externí."
+      },
+      "usageGuidance": "Orthogonal to actorKind. A person may be internal or external; an organization is often external (vendor, regulator) but may be internal (legal entity inside the group). Do not use ownership for this — ownership is for who operates ApplicationComponent / TechnologyService / CommunicationNetwork.",
+      "usageExamples": "internal for Odbor Compliance and Petr Novák; external for a vendor organization or a consultant person."
     },
     {
       "iriLocal": "ownership",
@@ -2020,7 +2041,8 @@
       "code": "aml-business-actor",
       "class": "BusinessActor",
       "required": [
-        "actorKind"
+        "actorKind",
+        "organizationScope"
       ],
       "severity": "error"
     },
@@ -2351,8 +2373,12 @@
       "network"
     ],
     "actorKind": [
-      "department",
       "person",
+      "organizationalUnit",
+      "organization"
+    ],
+    "organizationScope": [
+      "internal",
       "external"
     ],
     "ownership": [

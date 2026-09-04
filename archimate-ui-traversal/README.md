@@ -1,7 +1,7 @@
 # ArchiMate UI Traversal (data, ne jádro)
 
 IT Map column-browser navigace: profily, šablony, stage, přechody a add akce.
-**Není** součástí Go služby. Závisí na **`kc-base`** a **`archimate-lite`** ^3.0.0.
+**Není** součástí Go služby. Závisí na **`kc-base`** a **`archimate-lite`** ^3.1.0.
 
 | Soubor | Účel |
 |--------|------|
@@ -17,8 +17,8 @@ IT Map column-browser navigace: profily, šablony, stage, přechody a add akce.
 ## Import
 
 1. `kc-base` 1.1.0
-2. `archimate-lite` 3.0.0
-3. Tento package 1.0.0
+2. `archimate-lite` 3.1.0
+3. Tento package 1.0.0 (seed filtruje `organizationalUnit` / `person` dle AML 3.1.0 — nasadit současně)
 
 Klientská migrace ze starých IRI pod `archimate-lite` (2.3.1): viz [`../migrations/`](../migrations/).
 

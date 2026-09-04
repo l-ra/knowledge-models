@@ -6,7 +6,7 @@ Navigační metadata pro IT Map column-browser. **Není** ArchiMate vocabulary.
 - Instances: [`ui-profile-seed.json`](../archimate-ui-traversal/ui-profile-seed.json)
 - Bundle: [`archimate-ui-traversal-1.0.0`](../archimate-ui-traversal/releases/archimate-ui-traversal-1.0.0.bundle.json)
 - IRI base: `https://knowledge-core.local/archimate-ui-traversal/`
-- Závislosti: `kc-base@1.1.0`, `archimate-lite@3.0.0`
+- Závislosti: `kc-base@1.1.0`, `archimate-lite@3.1.0`
 
 ## Třídy
 

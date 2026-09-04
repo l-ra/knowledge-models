@@ -63,7 +63,7 @@ Pro modelování konkrétních hloubek a úrovní granularity v Archimate bude v
 | ArchiMate prvek        | Použití                                                |
 | ---------------------- | ------------------------------------------------------ |
 | `BusinessService`      | služba poskytovaná organizaci nebo zákazníkům          |
-| `BusinessActor`        | vlastník, organizace nebo odpovědný útvar (`actorKind`: department / person / external) |
+| `BusinessActor`        | vlastník, organizace nebo odpovědný útvar (`actorKind` + `organizationScope`) |
 | `BusinessRole`         | business owner, system owner, provozní role            |
 | `BusinessFunction`     | stabilní oblast odpovědnosti (za co jednotka odpovídá) |
 | `ApplicationComponent` | systém jako jeden celek                                |
@@ -96,7 +96,8 @@ Assessment --Influence--> Requirement
 ### Povinné atributy
 
 ```yaml
-actorKind: department | person | external   # povinné na BusinessActor
+actorKind: person | organizationalUnit | organization   # povinné na BusinessActor
+organizationScope: internal | external                  # povinné na BusinessActor
 owner:
 technical_owner:
 criticality:
@@ -506,7 +507,9 @@ Additive rozšíření vůči 2.0.0 (bez breaking changes).
 
 ### Actor kind a Association
 
-Každý `BusinessActor` musí mít `actorKind` (`department` / `person` / `external`). Reportní linie mezi osobami je `Association` s `associationKind=reportsTo`, ne `Composition` (ta je pro útvar → osoba). `associationKind=other` vyžaduje `relationshipNote`.
+Každý `BusinessActor` musí mít `actorKind` (`person` / `organizationalUnit` / `organization`) a `organizationScope` (`internal` / `external`). Tyto dvě osy jsou ortogonální: povaha actora vs. vztah k modelované organizaci. Property `ownership` (`internal` / `external` / `shared`) **není** pro BusinessActor — slouží k provoznímu vlastnictví ApplicationComponent / TechnologyService / CommunicationNetwork.
+
+Reportní linie mezi osobami je `Association` s `associationKind=reportsTo`, ne `Composition` (ta je pro útvar → osoba). `associationKind=other` vyžaduje `relationshipNote`.
 
 ### Flow
 
@@ -526,12 +529,18 @@ Na L3/L4 (`modelingDepth` infrastructure_detail / network_detail) shape `aml-flo
 
 ---
 
+# 3.1.0 — taxonomie BusinessActor
+
+`compat_breaking` vůči 3.0.0: enum `actorKind` už neobsahuje `department` / `external`; přibyla povinná property `organizationScope`. Migrační tabulka: [RELEASE_NOTES-3.1.0.md](../archimate-lite/RELEASE_NOTES-3.1.0.md).
+
+---
+
 # Mapování do knowledge-core
 
 ArchiMate Lite je **doménový package nad jádrem**, ne součást knowledge-core. Jádro se nemění.
 
 - Foundation: package [`kc-base`](../kc-base/) (`instanceOf`, `usageGuidance`/`usageExamples`, `StringEnum`)
-- Doménový metamodel: package `archimate-lite` 3.0.0 (závisí na `kc-base`). UI traversal: `archimate-ui-traversal` 1.0.0. Seed: [`catalog.json`](../archimate-lite/catalog.json), bundles [`kc-base-1.1.0`](../kc-base/releases/kc-base-1.1.0.bundle.json) + [`archimate-lite-3.0.0`](../archimate-lite/releases/archimate-lite-3.0.0.bundle.json) + [`archimate-ui-traversal-1.0.0`](../archimate-ui-traversal/releases/archimate-ui-traversal-1.0.0.bundle.json)
+- Doménový metamodel: package `archimate-lite` 3.1.0 (závisí na `kc-base`). UI traversal: `archimate-ui-traversal` 1.0.0 (seed upraven současně s 3.1.0). Seed: [`catalog.json`](../archimate-lite/catalog.json), bundles [`kc-base-1.1.0`](../kc-base/releases/kc-base-1.1.0.bundle.json) + [`archimate-lite-3.1.0`](../archimate-lite/releases/archimate-lite-3.1.0.bundle.json) + [`archimate-ui-traversal-1.0.0`](../archimate-ui-traversal/releases/archimate-ui-traversal-1.0.0.bundle.json)
 - Demo instance (Compliance + síť): [`archimate-lite-demo`](../archimate-lite-demo/)
 - Po loadu/importu čte tool **jen KC** (třídy, properties, tvary, anotace `archiLayer`/`overlay`/`exchangeType`/`usageGuidance`/`usageExamples`, instance `AllowedRelationship` / enumů / `ExchangeSpec`)
 - Prvek, vazba i view = entita s `instanceOf` (z `kc-base`) na třídu z package (public ID = IRI)

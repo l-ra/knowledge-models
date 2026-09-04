@@ -8,7 +8,7 @@ Tento dokument je kontrakt pro **samostatný nástroj** (export/import Open Exch
 Rozsah modelování (L0–L4): [archimate-lite.md](archimate-lite.md).  
 Foundation: [`kc-base/`](../kc-base/) (`instanceOf`, usage anotace, `StringEnum`).  
 Datový katalog: [`archimate-lite/catalog.json`](../archimate-lite/catalog.json).  
-Release bundles: [`kc-base-1.1.0`](../kc-base/releases/kc-base-1.1.0.bundle.json), [`archimate-lite-3.0.0`](../archimate-lite/releases/archimate-lite-3.0.0.bundle.json), [`archimate-ui-traversal-1.0.0`](../archimate-ui-traversal/releases/archimate-ui-traversal-1.0.0.bundle.json).  
+Release bundles: [`kc-base-1.1.0`](../kc-base/releases/kc-base-1.1.0.bundle.json), [`archimate-lite-3.1.0`](../archimate-lite/releases/archimate-lite-3.1.0.bundle.json), [`archimate-ui-traversal-1.0.0`](../archimate-ui-traversal/releases/archimate-ui-traversal-1.0.0.bundle.json).  
 Nahrání přes API: [`archimate-lite/load.py`](../archimate-lite/load.py) (načte i `kc-base`). Po nahrání/importu je **zdroj pravdy v KC**, ne JSON v gitu.
 
 ## Hranice
@@ -52,7 +52,7 @@ curl -X POST "$KC_BASE_URL/v1/releases/import" \
 curl -X POST "$KC_BASE_URL/v1/releases/import" \
   -H "Authorization: Bearer $KC_TOKEN" \
   -H "Content-Type: application/json" \
-  --data-binary @archimate-lite/releases/archimate-lite-3.0.0.bundle.json
+  --data-binary @archimate-lite/releases/archimate-lite-3.1.0.bundle.json
 ```
 
 UI: **Packages → Import release bundle** — nejdřív `kc-base`, pak `archimate-lite`.  
@@ -102,7 +102,7 @@ Stránkování: `nextCursor` → `?cursor=`.
 
 Tvary patří do package (a do release bundle, `objectType: "shape"`). Kódy v `archimate-lite`: `aml-element`, `aml-relationship`, `aml-view-connection`, `aml-allowed-relationship`, `aml-business-function`, `aml-business-actor`, `aml-association`, `aml-flow`, `aml-communication-network`, `aml-flow-network-detail`. V `kc-base`: `string-enum`. `document.requiredProperties` jsou IRI properties.
 
-Podmínka `when` u `aml-flow-network-detail` (modelingDepth ≥ infrastructure/network) je v `catalog.json` jako nápověda pro nástroje; KC ji na shape dokumentu neukládá a shape se vztahuje na všechny instance `Flow` (warning bez `protocol`). `actorKind` u `BusinessActor` vynucuje class-specific shape `aml-business-actor`, ne rozšíření `aml-element`.
+Podmínka `when` u `aml-flow-network-detail` (modelingDepth ≥ infrastructure/network) je v `catalog.json` jako nápověda pro nástroje; KC ji na shape dokumentu neukládá a shape se vztahuje na všechny instance `Flow` (warning bez `protocol`). `actorKind` a `organizationScope` u `BusinessActor` vynucuje class-specific shape `aml-business-actor`, ne rozšíření `aml-element`.
 
 ## Policy data v KC
 
@@ -156,11 +156,13 @@ Instance s hodnotami žijí v **`archimate-lite`** (`iriLocal` `enum/{name}`, ob
 ```text
 GET /v1/entities?package=archimate-lite&iriLocal=enum/modelingDepth
 GET /v1/entities?package=archimate-lite&iriLocal=enum/actorKind
+GET /v1/entities?package=archimate-lite&iriLocal=enum/organizationScope
 GET /v1/entities?package=archimate-lite&iriLocal=enum/flowDirection
 GET /v1/entities?package=kc-base&iriLocal=StringEnum
 ```
 
 Instance 2.1.0 (kromě již existujících `modelingDepth`, `dependencyStrength`, `accessMode`, `nodeKind`, `viewpoint`): `actorKind`, `ownership`, `associationKind`, `networkKind`, `networkRole`, `flowKind`, `flowDirection` (property `direction`), `dependencyType`.  
+Od 3.1.0: `actorKind` = `person` | `organizationalUnit` | `organization`; nový enum `organizationScope` = `internal` | `external` (povinné na `BusinessActor`).  
 Do 2.3.1 (v lite): `traverseDirection` (property `traverseDirection`), `relationshipDirection` (property `relationshipDirection`).
 
 ### Exchange poznámky
@@ -374,7 +376,7 @@ Lenses (`POST /v1/lenses`, `GET/PATCH .../instances/{key}`) jsou volitelné; ná
 KC `relaxed`: zápis projde, findings v odpovědi / `GET .../validation`.  
 Shape `aml-relationship` vyžaduje `relSource`+`relTarget` (error).  
 Shape `aml-element` varuje bez `modelingDepth`.  
-Shape `aml-business-actor` vyžaduje `actorKind` (error).  
+Shape `aml-business-actor` vyžaduje `actorKind` a `organizationScope` (error).  
 Shape `aml-flow` vyžaduje `flowLabel` (error).  
 Shape `aml-association` varuje bez `associationKind`.  
 Shape `aml-communication-network` varuje bez `networkKind`.  

@@ -9,7 +9,7 @@
     "properties": {
       "profileCode": "itmap-default",
       "profileVersion": "1.0.0",
-      "minCatalogVersion": "3.0.0",
+      "minCatalogVersion": "3.1.0",
       "isSystemDefault": true,
       "labelCs": "IT Map — výchozí navigace",
       "labelEn": "IT Map default navigation"
@@ -44,7 +44,7 @@
       "targetClasses": [
         "BusinessActor"
       ],
-      "actorKinds": "department"
+      "actorKinds": "organizationalUnit"
     }
   },
   {
@@ -62,7 +62,7 @@
         "BusinessActor",
         "BusinessRole"
       ],
-      "actorKinds": "person,external"
+      "actorKinds": "person"
     }
   },
   {
@@ -527,7 +527,7 @@
       "domainLabelCs": "Organizační jednotka",
       "createsClass": "BusinessActor",
       "sortOrder": 1,
-      "defaultProperties": "{\"actorKind\": \"department\"}",
+      "defaultProperties": "{\"actorKind\": \"organizationalUnit\", \"organizationScope\": \"internal\"}",
       "derivesRelationship": "Composition",
       "relationshipDirection": "from-selected-to-new"
     }
@@ -545,7 +545,7 @@
       "domainLabelCs": "Osoba",
       "createsClass": "BusinessActor",
       "sortOrder": 2,
-      "defaultProperties": "{\"actorKind\": \"person\"}",
+      "defaultProperties": "{\"actorKind\": \"person\", \"organizationScope\": \"internal\"}",
       "derivesRelationship": "Composition",
       "relationshipDirection": "from-selected-to-new"
     }

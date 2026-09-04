@@ -9,14 +9,14 @@
       "cs": "ArchiMate Lite demo"
     },
     "descriptions": {
-      "en": "Compliance + network acceptance instance against archimate-lite 3.0.0. Not part of the metamodel.",
-      "cs": "Akceptační instance Compliance + síť proti archimate-lite 3.0.0. Není součástí metamodelu."
+      "en": "Compliance + network acceptance instance against archimate-lite 3.1.0. Not part of the metamodel.",
+      "cs": "Akceptační instance Compliance + síť proti archimate-lite 3.1.0. Není součástí metamodelu."
     },
     "dependencies": [
       {
         "dependsOnCode": "archimate-lite",
-        "versionRange": "^3.0.0",
-        "releaseVersion": "3.0.0"
+        "versionRange": "^3.1.0",
+        "releaseVersion": "3.1.0"
       }
     ]
   },
@@ -29,7 +29,8 @@
         "cs": "Odbor Compliance"
       },
       "properties": {
-        "actorKind": "department",
+        "actorKind": "organizationalUnit",
+        "organizationScope": "internal",
         "modelingDepth": "catalog"
       }
     },
@@ -42,6 +43,7 @@
       },
       "properties": {
         "actorKind": "person",
+        "organizationScope": "internal",
         "modelingDepth": "catalog"
       }
     },
@@ -54,6 +56,7 @@
       },
       "properties": {
         "actorKind": "person",
+        "organizationScope": "internal",
         "modelingDepth": "catalog"
       }
     },

@@ -17,7 +17,7 @@
       },
       {
         "dependencyCode": "archimate-lite",
-        "dependencyVersion": "3.0.0"
+        "dependencyVersion": "3.1.0"
       }
     ],
     "objectIndex": [
@@ -3612,7 +3612,7 @@
         },
         {
           "dependencyCode": "archimate-lite",
-          "dependencyVersion": "3.0.0"
+          "dependencyVersion": "3.1.0"
         }
       ],
       "objectIndex": [
@@ -7659,8 +7659,8 @@
         "en": "Instance filter"
       },
       "descriptions": {
-        "en": "JSON whitelist filter on instance properties, e.g. actorKind or ownership.",
-        "cs": "JSON whitelist filtr na vlastnostech instance, např. actorKind nebo ownership."
+        "en": "JSON whitelist filter on instance properties, e.g. actorKind, organizationScope, or ownership.",
+        "cs": "JSON whitelist filtr na vlastnostech instance, např. actorKind, organizationScope nebo ownership."
       },
       "constraints": {
         "domainClasses": [
@@ -7680,8 +7680,8 @@
         "en": "Actor kinds"
       },
       "descriptions": {
-        "en": "Comma-separated actorKind enum values for soft filtering in a stage, e.g. department or person,external.",
-        "cs": "CSV hodnot enum actorKind pro měkké filtrování ve stage, např. department nebo person,external."
+        "en": "Comma-separated actorKind enum values for soft filtering in a stage, e.g. organizationalUnit or person.",
+        "cs": "CSV hodnot enum actorKind pro měkké filtrování ve stage, např. organizationalUnit nebo person."
       },
       "constraints": {
         "domainClasses": [
@@ -8973,7 +8973,7 @@
       "status": "active",
       "value": {
         "type": "String",
-        "string": "organization stage with BusinessActor and actorKinds=department."
+        "string": "organization stage with BusinessActor and actorKinds=organizationalUnit."
       }
     },
     {
@@ -9417,7 +9417,7 @@
       "status": "active",
       "value": {
         "type": "String",
-        "string": "JSON whitelist filter on instance properties (actorKind, ownership, associationKind, accessMode)."
+        "string": "JSON whitelist filter on instance properties (actorKind, organizationScope, ownership, associationKind, accessMode)."
       }
     },
     {
@@ -9429,7 +9429,7 @@
       "status": "active",
       "value": {
         "type": "String",
-        "string": "{\"property\":\"actorKind\",\"value\":\"department\"}."
+        "string": "{\"property\":\"actorKind\",\"value\":\"organizationalUnit\"}."
       }
     },
     {
@@ -9453,7 +9453,7 @@
       "status": "active",
       "value": {
         "type": "String",
-        "string": "department; person,external."
+        "string": "organizationalUnit; person."
       }
     },
     {
@@ -9717,7 +9717,7 @@
       "status": "active",
       "value": {
         "type": "String",
-        "string": "{\"actorKind\":\"department\"}; {\"ownership\":\"internal\"}."
+        "string": "{\"actorKind\":\"organizationalUnit\",\"organizationScope\":\"internal\"}; {\"ownership\":\"internal\"}."
       }
     },
     {
@@ -10785,7 +10785,7 @@
       "status": "active",
       "value": {
         "type": "String",
-        "string": "3.0.0"
+        "string": "3.1.0"
       }
     },
     {
@@ -10965,7 +10965,7 @@
       "status": "active",
       "value": {
         "type": "String",
-        "string": "department"
+        "string": "organizationalUnit"
       }
     },
     {
@@ -11049,7 +11049,7 @@
       "status": "active",
       "value": {
         "type": "String",
-        "string": "person,external"
+        "string": "person"
       }
     },
     {
@@ -13149,7 +13149,7 @@
       "status": "active",
       "value": {
         "type": "String",
-        "string": "{\"actorKind\": \"department\"}"
+        "string": "{\"actorKind\": \"organizationalUnit\", \"organizationScope\": \"internal\"}"
       }
     },
     {
@@ -13257,7 +13257,7 @@
       "status": "active",
       "value": {
         "type": "String",
-        "string": "{\"actorKind\": \"person\"}"
+        "string": "{\"actorKind\": \"person\", \"organizationScope\": \"internal\"}"
       }
     },
     {

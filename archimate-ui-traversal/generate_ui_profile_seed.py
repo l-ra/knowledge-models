@@ -16,8 +16,8 @@ TEMPLATES = [
         "sortOrder": 1,
         "startStage": "organization",
         "stages": [
-            {"code": "organization", "labelCs": "Organizace", "classes": ["BusinessActor"], "actorKinds": ["department"]},
-            {"code": "people-roles", "labelCs": "Lidé / Role", "classes": ["BusinessActor", "BusinessRole"], "actorKinds": ["person", "external"]},
+            {"code": "organization", "labelCs": "Organizace", "classes": ["BusinessActor"], "actorKinds": ["organizationalUnit"]},
+            {"code": "people-roles", "labelCs": "Lidé / Role", "classes": ["BusinessActor", "BusinessRole"], "actorKinds": ["person"]},
             {"code": "functions", "labelCs": "Oblasti odpovědnosti", "classes": ["BusinessFunction"]},
             {"code": "processes", "labelCs": "Procesy", "classes": ["BusinessProcess"]},
             {"code": "biz-services", "labelCs": "Business služby", "classes": ["BusinessService"]},
@@ -51,8 +51,8 @@ TEMPLATES = [
             {"from": "facilities", "to": "facilities", "relationship": "Association", "direction": "model", "edgeLabelCs": "Lokace"},
         ],
         "addActions": [
-            {"stage": "organization", "code": "add-dept", "labelCs": "Organizační jednotka", "createsClass": "BusinessActor", "defaults": {"actorKind": "department"}, "derivesRelationship": "Composition", "relationshipDirection": "from-selected-to-new"},
-            {"stage": "people-roles", "code": "add-person", "labelCs": "Osoba", "createsClass": "BusinessActor", "defaults": {"actorKind": "person"}, "derivesRelationship": "Composition", "relationshipDirection": "from-selected-to-new"},
+            {"stage": "organization", "code": "add-dept", "labelCs": "Organizační jednotka", "createsClass": "BusinessActor", "defaults": {"actorKind": "organizationalUnit", "organizationScope": "internal"}, "derivesRelationship": "Composition", "relationshipDirection": "from-selected-to-new"},
+            {"stage": "people-roles", "code": "add-person", "labelCs": "Osoba", "createsClass": "BusinessActor", "defaults": {"actorKind": "person", "organizationScope": "internal"}, "derivesRelationship": "Composition", "relationshipDirection": "from-selected-to-new"},
             {"stage": "people-roles", "code": "add-role", "labelCs": "Role", "createsClass": "BusinessRole", "derivesRelationship": "Assignment", "relationshipDirection": "from-selected-to-new"},
             {"stage": "functions", "code": "add-function", "labelCs": "Oblast odpovědnosti", "createsClass": "BusinessFunction", "derivesRelationship": "Assignment", "relationshipDirection": "from-selected-to-new"},
             {"stage": "processes", "code": "add-process", "labelCs": "Proces / aktivita", "createsClass": "BusinessProcess", "derivesRelationship": "Composition", "relationshipDirection": "from-selected-to-new"},
@@ -136,7 +136,7 @@ def build_instances() -> list[dict]:
             "properties": {
                 "profileCode": "itmap-default",
                 "profileVersion": "1.0.0",
-                "minCatalogVersion": "3.0.0",
+                "minCatalogVersion": "3.1.0",
                 "isSystemDefault": True,
                 "labelCs": "IT Map — výchozí navigace",
                 "labelEn": "IT Map default navigation",
