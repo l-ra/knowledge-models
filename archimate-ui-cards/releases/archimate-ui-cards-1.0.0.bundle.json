@@ -613,11 +613,6 @@
       },
       {
         "objectType": "statement",
-        "objectPublicId": "https://knowledge-core.local/archimate-ui-cards/statement/card-profile-department/fieldProperties",
-        "revisionNo": 1
-      },
-      {
-        "objectType": "statement",
         "objectPublicId": "https://knowledge-core.local/archimate-ui-cards/statement/card-profile-department/labelCs",
         "revisionNo": 1
       },
@@ -648,22 +643,12 @@
       },
       {
         "objectType": "statement",
-        "objectPublicId": "https://knowledge-core.local/archimate-ui-cards/statement/card-profile-person/isSystemDefault",
-        "revisionNo": 1
-      },
-      {
-        "objectType": "statement",
         "objectPublicId": "https://knowledge-core.local/archimate-ui-cards/statement/card-profile-person/archimateElementType",
         "revisionNo": 1
       },
       {
         "objectType": "statement",
         "objectPublicId": "https://knowledge-core.local/archimate-ui-cards/statement/card-profile-person/matchProperties",
-        "revisionNo": 1
-      },
-      {
-        "objectType": "statement",
-        "objectPublicId": "https://knowledge-core.local/archimate-ui-cards/statement/card-profile-person/fieldProperties",
         "revisionNo": 1
       },
       {
@@ -698,22 +683,12 @@
       },
       {
         "objectType": "statement",
-        "objectPublicId": "https://knowledge-core.local/archimate-ui-cards/statement/card-profile-external-organization/isSystemDefault",
-        "revisionNo": 1
-      },
-      {
-        "objectType": "statement",
         "objectPublicId": "https://knowledge-core.local/archimate-ui-cards/statement/card-profile-external-organization/archimateElementType",
         "revisionNo": 1
       },
       {
         "objectType": "statement",
         "objectPublicId": "https://knowledge-core.local/archimate-ui-cards/statement/card-profile-external-organization/matchProperties",
-        "revisionNo": 1
-      },
-      {
-        "objectType": "statement",
-        "objectPublicId": "https://knowledge-core.local/archimate-ui-cards/statement/card-profile-external-organization/fieldProperties",
         "revisionNo": 1
       },
       {
@@ -748,22 +723,12 @@
       },
       {
         "objectType": "statement",
-        "objectPublicId": "https://knowledge-core.local/archimate-ui-cards/statement/card-profile-application/isSystemDefault",
-        "revisionNo": 1
-      },
-      {
-        "objectType": "statement",
         "objectPublicId": "https://knowledge-core.local/archimate-ui-cards/statement/card-profile-application/archimateElementType",
         "revisionNo": 1
       },
       {
         "objectType": "statement",
         "objectPublicId": "https://knowledge-core.local/archimate-ui-cards/statement/card-profile-application/matchProperties",
-        "revisionNo": 1
-      },
-      {
-        "objectType": "statement",
-        "objectPublicId": "https://knowledge-core.local/archimate-ui-cards/statement/card-profile-application/fieldProperties",
         "revisionNo": 1
       },
       {
@@ -1983,11 +1948,6 @@
         },
         {
           "objectType": "statement",
-          "objectPublicId": "https://knowledge-core.local/archimate-ui-cards/statement/card-profile-department/fieldProperties",
-          "revisionNo": 1
-        },
-        {
-          "objectType": "statement",
           "objectPublicId": "https://knowledge-core.local/archimate-ui-cards/statement/card-profile-department/labelCs",
           "revisionNo": 1
         },
@@ -2018,22 +1978,12 @@
         },
         {
           "objectType": "statement",
-          "objectPublicId": "https://knowledge-core.local/archimate-ui-cards/statement/card-profile-person/isSystemDefault",
-          "revisionNo": 1
-        },
-        {
-          "objectType": "statement",
           "objectPublicId": "https://knowledge-core.local/archimate-ui-cards/statement/card-profile-person/archimateElementType",
           "revisionNo": 1
         },
         {
           "objectType": "statement",
           "objectPublicId": "https://knowledge-core.local/archimate-ui-cards/statement/card-profile-person/matchProperties",
-          "revisionNo": 1
-        },
-        {
-          "objectType": "statement",
-          "objectPublicId": "https://knowledge-core.local/archimate-ui-cards/statement/card-profile-person/fieldProperties",
           "revisionNo": 1
         },
         {
@@ -2068,22 +2018,12 @@
         },
         {
           "objectType": "statement",
-          "objectPublicId": "https://knowledge-core.local/archimate-ui-cards/statement/card-profile-external-organization/isSystemDefault",
-          "revisionNo": 1
-        },
-        {
-          "objectType": "statement",
           "objectPublicId": "https://knowledge-core.local/archimate-ui-cards/statement/card-profile-external-organization/archimateElementType",
           "revisionNo": 1
         },
         {
           "objectType": "statement",
           "objectPublicId": "https://knowledge-core.local/archimate-ui-cards/statement/card-profile-external-organization/matchProperties",
-          "revisionNo": 1
-        },
-        {
-          "objectType": "statement",
-          "objectPublicId": "https://knowledge-core.local/archimate-ui-cards/statement/card-profile-external-organization/fieldProperties",
           "revisionNo": 1
         },
         {
@@ -2118,22 +2058,12 @@
         },
         {
           "objectType": "statement",
-          "objectPublicId": "https://knowledge-core.local/archimate-ui-cards/statement/card-profile-application/isSystemDefault",
-          "revisionNo": 1
-        },
-        {
-          "objectType": "statement",
           "objectPublicId": "https://knowledge-core.local/archimate-ui-cards/statement/card-profile-application/archimateElementType",
           "revisionNo": 1
         },
         {
           "objectType": "statement",
           "objectPublicId": "https://knowledge-core.local/archimate-ui-cards/statement/card-profile-application/matchProperties",
-          "revisionNo": 1
-        },
-        {
-          "objectType": "statement",
-          "objectPublicId": "https://knowledge-core.local/archimate-ui-cards/statement/card-profile-application/fieldProperties",
           "revisionNo": 1
         },
         {
@@ -4363,18 +4293,6 @@
       }
     },
     {
-      "id": "https://knowledge-core.local/archimate-ui-cards/statement/card-profile-department/fieldProperties",
-      "packageCode": "archimate-ui-cards",
-      "revisionNo": 1,
-      "subject": "https://knowledge-core.local/archimate-ui-cards/card-profile-department",
-      "property": "https://knowledge-core.local/archimate-ui-cards/fieldProperties",
-      "status": "active",
-      "value": {
-        "type": "String",
-        "string": "actorKind,organizationScope"
-      }
-    },
-    {
       "id": "https://knowledge-core.local/archimate-ui-cards/statement/card-profile-department/labelCs",
       "packageCode": "archimate-ui-cards",
       "revisionNo": 1,
@@ -4447,18 +4365,6 @@
       }
     },
     {
-      "id": "https://knowledge-core.local/archimate-ui-cards/statement/card-profile-person/isSystemDefault",
-      "packageCode": "archimate-ui-cards",
-      "revisionNo": 1,
-      "subject": "https://knowledge-core.local/archimate-ui-cards/card-profile-person",
-      "property": "https://knowledge-core.local/archimate-ui-cards/isSystemDefault",
-      "status": "active",
-      "value": {
-        "type": "Boolean",
-        "bool": true
-      }
-    },
-    {
       "id": "https://knowledge-core.local/archimate-ui-cards/statement/card-profile-person/archimateElementType",
       "packageCode": "archimate-ui-cards",
       "revisionNo": 1,
@@ -4480,18 +4386,6 @@
       "value": {
         "type": "String",
         "string": "{\"actorKind\":\"person\",\"organizationScope\":\"internal\"}"
-      }
-    },
-    {
-      "id": "https://knowledge-core.local/archimate-ui-cards/statement/card-profile-person/fieldProperties",
-      "packageCode": "archimate-ui-cards",
-      "revisionNo": 1,
-      "subject": "https://knowledge-core.local/archimate-ui-cards/card-profile-person",
-      "property": "https://knowledge-core.local/archimate-ui-cards/fieldProperties",
-      "status": "active",
-      "value": {
-        "type": "String",
-        "string": "actorKind,organizationScope"
       }
     },
     {
@@ -4567,18 +4461,6 @@
       }
     },
     {
-      "id": "https://knowledge-core.local/archimate-ui-cards/statement/card-profile-external-organization/isSystemDefault",
-      "packageCode": "archimate-ui-cards",
-      "revisionNo": 1,
-      "subject": "https://knowledge-core.local/archimate-ui-cards/card-profile-external-organization",
-      "property": "https://knowledge-core.local/archimate-ui-cards/isSystemDefault",
-      "status": "active",
-      "value": {
-        "type": "Boolean",
-        "bool": true
-      }
-    },
-    {
       "id": "https://knowledge-core.local/archimate-ui-cards/statement/card-profile-external-organization/archimateElementType",
       "packageCode": "archimate-ui-cards",
       "revisionNo": 1,
@@ -4600,18 +4482,6 @@
       "value": {
         "type": "String",
         "string": "{\"actorKind\":\"organization\",\"organizationScope\":\"external\"}"
-      }
-    },
-    {
-      "id": "https://knowledge-core.local/archimate-ui-cards/statement/card-profile-external-organization/fieldProperties",
-      "packageCode": "archimate-ui-cards",
-      "revisionNo": 1,
-      "subject": "https://knowledge-core.local/archimate-ui-cards/card-profile-external-organization",
-      "property": "https://knowledge-core.local/archimate-ui-cards/fieldProperties",
-      "status": "active",
-      "value": {
-        "type": "String",
-        "string": "actorKind,organizationScope"
       }
     },
     {
@@ -4687,18 +4557,6 @@
       }
     },
     {
-      "id": "https://knowledge-core.local/archimate-ui-cards/statement/card-profile-application/isSystemDefault",
-      "packageCode": "archimate-ui-cards",
-      "revisionNo": 1,
-      "subject": "https://knowledge-core.local/archimate-ui-cards/card-profile-application",
-      "property": "https://knowledge-core.local/archimate-ui-cards/isSystemDefault",
-      "status": "active",
-      "value": {
-        "type": "Boolean",
-        "bool": true
-      }
-    },
-    {
       "id": "https://knowledge-core.local/archimate-ui-cards/statement/card-profile-application/archimateElementType",
       "packageCode": "archimate-ui-cards",
       "revisionNo": 1,
@@ -4720,18 +4578,6 @@
       "value": {
         "type": "String",
         "string": "{}"
-      }
-    },
-    {
-      "id": "https://knowledge-core.local/archimate-ui-cards/statement/card-profile-application/fieldProperties",
-      "packageCode": "archimate-ui-cards",
-      "revisionNo": 1,
-      "subject": "https://knowledge-core.local/archimate-ui-cards/card-profile-application",
-      "property": "https://knowledge-core.local/archimate-ui-cards/fieldProperties",
-      "status": "active",
-      "value": {
-        "type": "String",
-        "string": "criticality,ownership"
       }
     },
     {

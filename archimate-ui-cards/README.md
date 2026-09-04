@@ -1,6 +1,7 @@
 # ArchiMate UI Cards (data, ne jádro)
 
 IT Map režim **Karty**: prezentační profily elementů a relation slots.
+IT Map **Cards** mode: element presentation profiles and relationship slots.
 **Není** součástí Go služby. Závisí na **`kc-base`** a **`archimate-lite`** ^3.1.0.
 
 Odděleno od [`archimate-ui-traversal`](../archimate-ui-traversal/) (column browser).

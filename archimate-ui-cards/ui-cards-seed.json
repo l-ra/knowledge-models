@@ -14,7 +14,6 @@
       "isSystemDefault": true,
       "archimateElementType": "BusinessActor",
       "matchProperties": "{\"actorKind\":\"organizationalUnit\",\"organizationScope\":\"internal\"}",
-      "fieldProperties": "actorKind,organizationScope",
       "labelCs": "Oddělení",
       "labelEn": "Department",
       "sortOrder": 1
@@ -32,10 +31,8 @@
       "profileCode": "person",
       "profileVersion": "1.0.0",
       "minCatalogVersion": "3.1.0",
-      "isSystemDefault": true,
       "archimateElementType": "BusinessActor",
       "matchProperties": "{\"actorKind\":\"person\",\"organizationScope\":\"internal\"}",
-      "fieldProperties": "actorKind,organizationScope",
       "labelCs": "Osoba",
       "labelEn": "Person",
       "sortOrder": 2
@@ -53,10 +50,8 @@
       "profileCode": "externalOrganization",
       "profileVersion": "1.0.0",
       "minCatalogVersion": "3.1.0",
-      "isSystemDefault": true,
       "archimateElementType": "BusinessActor",
       "matchProperties": "{\"actorKind\":\"organization\",\"organizationScope\":\"external\"}",
-      "fieldProperties": "actorKind,organizationScope",
       "labelCs": "Externí organizace",
       "labelEn": "External organization",
       "sortOrder": 3
@@ -74,10 +69,8 @@
       "profileCode": "application",
       "profileVersion": "1.0.0",
       "minCatalogVersion": "3.1.0",
-      "isSystemDefault": true,
       "archimateElementType": "ApplicationComponent",
       "matchProperties": "{}",
-      "fieldProperties": "criticality,ownership",
       "labelCs": "Aplikace",
       "labelEn": "Application",
       "sortOrder": 4
