@@ -1,5 +1,5 @@
 {
-  "version": "3.1.0",
+  "version": "3.2.1",
   "package": {
     "code": "archimate-lite",
     "lifecycle": "continuous",
@@ -141,6 +141,51 @@
       },
       "usageGuidance": "Stable area of responsibility or work. Answers 'what is this unit accountable for?' — unlike BusinessProcess, which answers 'what happens when…'. Use as the primary business-layer decomposition.",
       "usageExamples": "Data Protection; Compliance Management; Customer Onboarding as a standing function (not a process run)."
+    },
+    {
+      "iriLocal": "BusinessEvent",
+      "parent": "ArchiMateElement",
+      "layer": "business",
+      "labels": {
+        "en": "Business event",
+        "cs": "Business událost"
+      },
+      "descriptions": {
+        "en": "A business-relevant state change that triggers or results from business behavior.",
+        "cs": "Obchodně významná změna stavu, která spouští business chování nebo z něj vzniká."
+      },
+      "usageGuidance": "Use for events that start a business process, result from a process, or mark a significant business state change. Prefer Triggering to/from BusinessProcess. Not only a migration helper — a lasting part of the target model.",
+      "usageExamples": "Přijetí dat měření; Přijetí nominace; Uzavření trhu; Vznik požadavku; Přijetí regulačního rozhodnutí."
+    },
+    {
+      "iriLocal": "BusinessCollaboration",
+      "parent": "ArchiMateElement",
+      "layer": "business",
+      "labels": {
+        "en": "Business collaboration",
+        "cs": "Business spolupráce"
+      },
+      "descriptions": {
+        "en": "Collective behavior of several business actors acting together as one architectural unit.",
+        "cs": "Společné působení více business aktérů jako jedna architektonická jednotka."
+      },
+      "usageGuidance": "Use only when the object truly represents joint action of multiple actors. Do not use for a single external organization, vendor, or partner — those are BusinessActor with actorKind=organization and organizationScope=external. Compose of BusinessActors; assign to processes/functions; optionally realize a BusinessService.",
+      "usageExamples": "Cross-org market settlement collaboration; joint incident response cell spanning two units — not Microsoft, T-Mobile, or a bank as a whole."
+    },
+    {
+      "iriLocal": "BusinessObject",
+      "parent": "ArchiMateElement",
+      "layer": "business",
+      "labels": {
+        "en": "Business object",
+        "cs": "Business objekt"
+      },
+      "descriptions": {
+        "en": "Passive business information structure — the business meaning of information, not its application representation.",
+        "cs": "Pasivní business informační struktura — význam informace z pohledu businessu, ne její aplikační reprezentace."
+      },
+      "usageGuidance": "BusinessObject = business meaning of information. DataObject = application/technical representation. Access from BusinessProcess, BusinessFunction, or BusinessService. Do not model SAP tables or APIs as BusinessObject.",
+      "usageExamples": "Měřená data; Nominace; Výsledky trhu; Smlouva; Faktura; Platební příkaz; Požadavek zákazníka."
     },
     {
       "iriLocal": "ApplicationComponent",
@@ -430,8 +475,8 @@
       "labels": {
         "en": "Access"
       },
-      "usageGuidance": "Behavioral element accesses a data object. Set accessMode to read, write, or readWrite.",
-      "usageExamples": "Backend→CustomerData (readWrite); Worker→AuditLog (write); Reporting→Orders (read)."
+      "usageGuidance": "Behavioral element accesses a passive information structure. Prefer BusinessObject on the business layer and DataObject on the application layer. Set accessMode to read, write, or readWrite.",
+      "usageExamples": "BusinessProcess→Měřená data (BusinessObject, readWrite); Backend→CustomerData (DataObject, readWrite); Reporting→Orders (read)."
     },
     {
       "iriLocal": "Flow",
@@ -451,7 +496,7 @@
         "en": "Triggering"
       },
       "usageGuidance": "Temporal or causal triggering: source triggers target behavior.",
-      "usageExamples": "ApplicationEvent→ApplicationProcess; Process A triggers Process B; schedule triggers batch."
+      "usageExamples": "BusinessEvent→BusinessProcess; ApplicationEvent→ApplicationProcess; Process A triggers Process B; schedule triggers batch."
     },
     {
       "iriLocal": "Specialization",
@@ -522,6 +567,34 @@
       },
       "usageGuidance": "A visual edge in a diagram referencing a relationship entity and its source/target view nodes.",
       "usageExamples": "Line for Serving between two ViewNodes; Flow edge with bendpoints."
+    },
+    {
+      "iriLocal": "ExchangeForeignElement",
+      "parent": "ArchiMateElement",
+      "labels": {
+        "en": "Exchange foreign element",
+        "cs": "Cizí Open Exchange prvek"
+      },
+      "descriptions": {
+        "en": "Element type present in Open Exchange but not modeled as a first-class Lite class. Holds opaque Exchange payload for round-trip.",
+        "cs": "Typ prvku z Open Exchange, který není první třídou v Lite. Drží opaque payload pro round-trip."
+      },
+      "usageGuidance": "Created by Open Exchange import for unknown element xsi:types (e.g. AndJunction). Prefer promoting to a Lite class when the type is adopted.",
+      "usageExamples": "xsi:type=AndJunction imported as ExchangeForeignElement with exchangeXsiType=AndJunction."
+    },
+    {
+      "iriLocal": "ExchangeForeignRelationship",
+      "parent": "ArchiMateRelationship",
+      "labels": {
+        "en": "Exchange foreign relationship",
+        "cs": "Cizí Open Exchange vztah"
+      },
+      "descriptions": {
+        "en": "Relationship type from Open Exchange that is not a first-class Lite relationship class. Still requires relSource/relTarget.",
+        "cs": "Typ vztahu z Open Exchange mimo Lite slovník. Stále vyžaduje relSource/relTarget."
+      },
+      "usageGuidance": "Import unknown relationship xsi:types here. Preserve original type via exchangeXsiType for re-export.",
+      "usageExamples": "Unknown relationship subtype with exchangeXsiType and opaque properties."
     }
   ],
   "properties": [
@@ -707,6 +780,24 @@
       "usageExamples": "internal for Odbor Compliance and Petr Novák; external for a vendor organization or a consultant person."
     },
     {
+      "iriLocal": "processLevel",
+      "datatype": "String",
+      "domain": [
+        "BusinessProcess"
+      ],
+      "maxCount": 1,
+      "labels": {
+        "en": "Process level",
+        "cs": "Úroveň procesu"
+      },
+      "descriptions": {
+        "en": "Hierarchy level of a BusinessProcess (L0–L4). Orthogonal to modelingDepth.",
+        "cs": "Hierarchická úroveň BusinessProcess (L0–L4). Ortogonální k modelingDepth."
+      },
+      "usageGuidance": "Expresses process hierarchy depth, not technology modeling depth. L0 = top business domain; L1 = main process; L2 = process; L3 = subprocess/detail; L4 = finer detail if needed. Prefer Composition BusinessProcess→BusinessProcess for the structural hierarchy; do not use Aggregation for ORGX process trees. Does not replace modelingDepth.",
+      "usageExamples": "L0 Provoz trhu domain; L1 Vyhodnocení trhu; L2 Vyhodnocení odchylek; L3 detailní podproces."
+    },
+    {
       "iriLocal": "ownership",
       "datatype": "String",
       "domain": [
@@ -771,6 +862,60 @@
         "en": "Recovery Point Objective — maximum acceptable data loss window, e.g. 15m, 1h, or zero with sync replication.",
         "cs": "Recovery Point Objective — maximální přípustné okno ztráty dat, např. 15m, 1h nebo zero při synchronní replikaci."
       }
+    },
+    {
+      "iriLocal": "criticalitySource",
+      "datatype": "String",
+      "domain": [
+        "ArchiMateElement"
+      ],
+      "maxCount": 1,
+      "labels": {
+        "en": "Criticality source",
+        "cs": "Zdroj kritičnosti"
+      },
+      "descriptions": {
+        "en": "Whether criticality was declared, inherited, or calculated.",
+        "cs": "Zda byla criticality stanovena přímo (declared), převzata (inherited), nebo vypočtena (calculated)."
+      },
+      "usageGuidance": "Distinguishes declared BIA values from inherited or automatically calculated ones. Use with criticality primarily on BusinessProcess / BusinessService before dependency propagation.",
+      "usageExamples": "declared from BIA workshop; inherited from parent L1 process; calculated from mandatory dependencies."
+    },
+    {
+      "iriLocal": "rtoSource",
+      "datatype": "String",
+      "domain": [
+        "ArchiMateElement"
+      ],
+      "maxCount": 1,
+      "labels": {
+        "en": "RTO source",
+        "cs": "Zdroj RTO"
+      },
+      "descriptions": {
+        "en": "Whether rto was declared, inherited, or calculated.",
+        "cs": "Zda bylo RTO stanoveno přímo (declared), převzato (inherited), nebo vypočteno (calculated)."
+      },
+      "usageGuidance": "Companion to rto. declared = owner/BIA; inherited = taken from related element; calculated = derived by dependency analysis.",
+      "usageExamples": "declared RTO 4h on order-to-cash; inherited on supporting subprocess; calculated on ApplicationComponent."
+    },
+    {
+      "iriLocal": "rpoSource",
+      "datatype": "String",
+      "domain": [
+        "ArchiMateElement"
+      ],
+      "maxCount": 1,
+      "labels": {
+        "en": "RPO source",
+        "cs": "Zdroj RPO"
+      },
+      "descriptions": {
+        "en": "Whether rpo was declared, inherited, or calculated.",
+        "cs": "Zda bylo RPO stanoveno přímo (declared), převzato (inherited), nebo vypočteno (calculated)."
+      },
+      "usageGuidance": "Companion to rpo. Same value space as criticalitySource / rtoSource: declared | inherited | calculated.",
+      "usageExamples": "declared RPO 15m on measurement process; calculated on DataObject from process RPO."
     },
     {
       "iriLocal": "dependencyType",
@@ -1026,10 +1171,10 @@
         "en": "Access mode"
       },
       "descriptions": {
-        "en": "How a behavioral element accesses a DataObject: read, write, or readWrite.",
-        "cs": "Způsob přístupu behaviorálního prvku k DataObject: read, write nebo readWrite."
+        "en": "How a behavioral element accesses a BusinessObject or DataObject: read, write, or readWrite.",
+        "cs": "Způsob přístupu behaviorálního prvku k BusinessObject nebo DataObject: read, write nebo readWrite."
       },
-      "usageGuidance": "How a behavioral element accesses a DataObject (Access relationships).",
+      "usageGuidance": "How a behavioral element accesses a BusinessObject or DataObject (Access relationships).",
       "usageExamples": "read; write; readWrite."
     },
     {
@@ -1865,7 +2010,7 @@
         "en": "Catalog version"
       },
       "usageGuidance": "Version string of the ArchiMate Lite catalog carried on ExchangeSpec.",
-      "usageExamples": "2.1.0.",
+      "usageExamples": "2.3.1; 3.2.0.",
       "descriptions": {
         "en": "Version string of the ArchiMate Lite catalog carried on ExchangeSpec, e.g. 2.3.1.",
         "cs": "Řetězec verze katalogu ArchiMate Lite na ExchangeSpec, např. 2.3.1."
@@ -1988,6 +2133,103 @@
       "descriptions": {
         "en": "Rule for how instance identifiers are chosen when exporting to Open Exchange.",
         "cs": "Pravidlo výběru identifikátorů instancí při exportu do Open Exchange."
+      }
+    },
+    {
+      "iriLocal": "inView",
+      "datatype": "EntityReference",
+      "domain": [
+        "ViewNode",
+        "ViewConnection"
+      ],
+      "range": [
+        "DiagramView"
+      ],
+      "minCount": 1,
+      "maxCount": 1,
+      "severity": "error",
+      "labels": {
+        "en": "In view",
+        "cs": "Ve view"
+      },
+      "usageGuidance": "DiagramView that owns this view node or connection. Required for Open Exchange round-trip of diagrams.",
+      "usageExamples": "ViewNode belonging to sys-crm catalog DiagramView.",
+      "descriptions": {
+        "en": "Links a ViewNode or ViewConnection to its owning DiagramView.",
+        "cs": "Propojuje ViewNode nebo ViewConnection s vlastnícím DiagramView."
+      }
+    },
+    {
+      "iriLocal": "exchangeXsiType",
+      "datatype": "String",
+      "domain": [
+        "ArchiMateElement",
+        "ArchiMateRelationship"
+      ],
+      "maxCount": 1,
+      "labels": {
+        "en": "Exchange xsi:type",
+        "cs": "Exchange xsi:type"
+      },
+      "usageGuidance": "Original Open Exchange xsi:type on an instance. Required on ExchangeForeign*; usually absent on first-class Lite types. Distinct from class annotation exchangeType.",
+      "usageExamples": "AndJunction; Capability.",
+      "descriptions": {
+        "en": "Original Open Exchange xsi:type string preserved for foreign or atypical instances.",
+        "cs": "Původní Open Exchange xsi:type zachovaný pro cizí nebo atypické instance."
+      }
+    },
+    {
+      "iriLocal": "exchangeOpaqueProperties",
+      "datatype": "String",
+      "domain": [
+        "ArchiMateConcept"
+      ],
+      "maxCount": 1,
+      "labels": {
+        "en": "Exchange opaque properties JSON",
+        "cs": "Opaque Exchange properties (JSON)"
+      },
+      "usageGuidance": "JSON array of {key,value} (and optional XML attrs) not mapped to Lite properties. Re-emitted unchanged on export.",
+      "usageExamples": "[{\"key\":\"customKey\",\"value\":\"x\"}].",
+      "descriptions": {
+        "en": "JSON bag of Open Exchange properties/attributes not mapped onto Lite properties.",
+        "cs": "JSON bag Open Exchange properties/atributů nemapovaných na Lite properties."
+      }
+    },
+    {
+      "iriLocal": "exchangeOpaqueFragment",
+      "datatype": "String",
+      "domain": [
+        "ArchiMateConcept"
+      ],
+      "maxCount": 1,
+      "labels": {
+        "en": "Exchange opaque fragment",
+        "cs": "Opaque Exchange fragment"
+      },
+      "usageGuidance": "JSON/XML snippet for constructs Lite cannot structure (e.g. unknown view node kinds). Re-emitted on export for lossless round-trip.",
+      "usageExamples": "{\"kind\":\"node\",\"xsiType\":\"Label\",\"raw\":\"...\"}.",
+      "descriptions": {
+        "en": "Opaque fragment for Open Exchange constructs not represented as Lite statements.",
+        "cs": "Opaque fragment pro Open Exchange konstrukty bez Lite statementů."
+      }
+    },
+    {
+      "iriLocal": "exchangeManaged",
+      "datatype": "Boolean",
+      "domain": [
+        "ArchiMateConcept"
+      ],
+      "maxCount": 1,
+      "labels": {
+        "en": "Exchange managed",
+        "cs": "Spravováno Exchange importem"
+      },
+      "usageGuidance": "True when the instance was imported via Open Exchange (eligible for orphan review on re-import). Absent/false for natively authored KC entities.",
+      "usageExamples": "true on every entity created/updated by Open Exchange import.",
+      "descriptions": {
+        "en": "Marks instances owned by Open Exchange import for re-import orphan review.",
+        "cs": "Označuje instance z Open Exchange importu pro orphan review při reimportu."
       }
     }
   ],
@@ -2332,16 +2574,73 @@
       "type": "Flow",
       "source": "Path",
       "target": "Path"
+    },
+    {
+      "type": "Composition",
+      "source": "BusinessProcess",
+      "target": "BusinessProcess"
+    },
+    {
+      "type": "Triggering",
+      "source": "BusinessEvent",
+      "target": "BusinessProcess"
+    },
+    {
+      "type": "Triggering",
+      "source": "BusinessProcess",
+      "target": "BusinessEvent"
+    },
+    {
+      "type": "Triggering",
+      "source": "BusinessEvent",
+      "target": "BusinessFunction"
+    },
+    {
+      "type": "Composition",
+      "source": "BusinessCollaboration",
+      "target": "BusinessActor"
+    },
+    {
+      "type": "Assignment",
+      "source": "BusinessCollaboration",
+      "target": "BusinessProcess"
+    },
+    {
+      "type": "Assignment",
+      "source": "BusinessCollaboration",
+      "target": "BusinessFunction"
+    },
+    {
+      "type": "Realization",
+      "source": "BusinessCollaboration",
+      "target": "BusinessService"
+    },
+    {
+      "type": "Access",
+      "source": "BusinessProcess",
+      "target": "BusinessObject"
+    },
+    {
+      "type": "Access",
+      "source": "BusinessFunction",
+      "target": "BusinessObject"
+    },
+    {
+      "type": "Access",
+      "source": "BusinessService",
+      "target": "BusinessObject"
     }
   ],
   "exchange": {
     "format": "ArchiMate Model Exchange File Format 3.1/3.2 XML",
-    "elementXsiType": "class iriLocal (except Risk, View*, DeployedOn)",
-    "relationshipXsiType": "class iriLocal when exchangeType is set",
+    "elementXsiType": "class iriLocal (except Risk, View*, DeployedOn); unknown → ExchangeForeignElement + exchangeXsiType",
+    "relationshipXsiType": "class iriLocal when exchangeType is set; unknown → ExchangeForeignRelationship + exchangeXsiType",
     "deployedOn": "expand to Assignment",
     "risk": "Risk and Security overlay type, or Assessment plus property overlay=Risk",
-    "views": "DiagramView / ViewNode / ViewConnection → views/diagrams/view",
-    "identifier": "iriLocal of instance, else entity_iri_alias kind imported, else public id"
+    "views": "DiagramView / ViewNode / ViewConnection → views/diagrams/view; membership via inView; unknown node kinds → exchangeOpaqueFragment",
+    "identifier": "iriLocal of instance, else entity_iri_alias kind imported, else public id",
+    "opaque": "Unmapped properties/attrs → exchangeOpaqueProperties JSON; structural unknowns → exchangeOpaqueFragment; never drop on import",
+    "managed": "Imported instances set exchangeManaged=true for orphan review on re-import"
   },
   "enums": {
     "modelingDepth": [
@@ -2436,6 +2735,28 @@
       "network",
       "build-time",
       "organizational"
+    ],
+    "processLevel": [
+      "L0",
+      "L1",
+      "L2",
+      "L3",
+      "L4"
+    ],
+    "criticalitySource": [
+      "declared",
+      "inherited",
+      "calculated"
+    ],
+    "rtoSource": [
+      "declared",
+      "inherited",
+      "calculated"
+    ],
+    "rpoSource": [
+      "declared",
+      "inherited",
+      "calculated"
     ]
   }
 }

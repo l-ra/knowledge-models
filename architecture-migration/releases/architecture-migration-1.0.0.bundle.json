@@ -1,0 +1,1622 @@
+{
+  "manifest": {
+    "formatVersion": 1,
+    "package": "architecture-migration",
+    "version": "1.0.0",
+    "publishedAt": "2026-08-24T00:00:00.000000Z",
+    "iriBase": "https://knowledge-core.local/architecture-migration/",
+    "lifecycle": "continuous",
+    "labels": {
+      "en": "Architecture migration",
+      "cs": "Migrace architektury"
+    },
+    "dependencies": [
+      {
+        "dependencyCode": "kc-base",
+        "dependencyVersion": "1.1.0"
+      },
+      {
+        "dependencyCode": "archimate-lite",
+        "dependencyVersion": "3.2.0"
+      }
+    ],
+    "objectIndex": [
+      {
+        "objectType": "property",
+        "objectPublicId": "https://knowledge-core.local/architecture-migration/migrationStatus",
+        "revisionNo": 1
+      },
+      {
+        "objectType": "property",
+        "objectPublicId": "https://knowledge-core.local/architecture-migration/migrationAction",
+        "revisionNo": 1
+      },
+      {
+        "objectType": "property",
+        "objectPublicId": "https://knowledge-core.local/architecture-migration/migrationRule",
+        "revisionNo": 1
+      },
+      {
+        "objectType": "property",
+        "objectPublicId": "https://knowledge-core.local/architecture-migration/migrationSourceId",
+        "revisionNo": 1
+      },
+      {
+        "objectType": "property",
+        "objectPublicId": "https://knowledge-core.local/architecture-migration/migrationSourceIds",
+        "revisionNo": 1
+      },
+      {
+        "objectType": "property",
+        "objectPublicId": "https://knowledge-core.local/architecture-migration/migrationSourceType",
+        "revisionNo": 1
+      },
+      {
+        "objectType": "property",
+        "objectPublicId": "https://knowledge-core.local/architecture-migration/migrationSourceName",
+        "revisionNo": 1
+      },
+      {
+        "objectType": "property",
+        "objectPublicId": "https://knowledge-core.local/architecture-migration/migrationConfidence",
+        "revisionNo": 1
+      },
+      {
+        "objectType": "property",
+        "objectPublicId": "https://knowledge-core.local/architecture-migration/migrationBatch",
+        "revisionNo": 1
+      },
+      {
+        "objectType": "property",
+        "objectPublicId": "https://knowledge-core.local/architecture-migration/migrationTimestamp",
+        "revisionNo": 1
+      },
+      {
+        "objectType": "property",
+        "objectPublicId": "https://knowledge-core.local/architecture-migration/migrationNotes",
+        "revisionNo": 1
+      },
+      {
+        "objectType": "entity",
+        "objectPublicId": "https://knowledge-core.local/architecture-migration/",
+        "revisionNo": 1
+      },
+      {
+        "objectType": "entity",
+        "objectPublicId": "https://knowledge-core.local/architecture-migration/enum/migrationStatus",
+        "revisionNo": 1
+      },
+      {
+        "objectType": "entity",
+        "objectPublicId": "https://knowledge-core.local/architecture-migration/enum/migrationAction",
+        "revisionNo": 1
+      },
+      {
+        "objectType": "entity",
+        "objectPublicId": "https://knowledge-core.local/architecture-migration/enum/migrationConfidence",
+        "revisionNo": 1
+      },
+      {
+        "objectType": "statement",
+        "objectPublicId": "https://knowledge-core.local/architecture-migration/statement/.package/instanceOf",
+        "revisionNo": 1
+      },
+      {
+        "objectType": "statement",
+        "objectPublicId": "https://knowledge-core.local/architecture-migration/statement/.package/packageCode",
+        "revisionNo": 1
+      },
+      {
+        "objectType": "statement",
+        "objectPublicId": "https://knowledge-core.local/architecture-migration/statement/migrationStatus/usageGuidance",
+        "revisionNo": 1
+      },
+      {
+        "objectType": "statement",
+        "objectPublicId": "https://knowledge-core.local/architecture-migration/statement/migrationStatus/usageExamples",
+        "revisionNo": 1
+      },
+      {
+        "objectType": "statement",
+        "objectPublicId": "https://knowledge-core.local/architecture-migration/statement/migrationAction/usageGuidance",
+        "revisionNo": 1
+      },
+      {
+        "objectType": "statement",
+        "objectPublicId": "https://knowledge-core.local/architecture-migration/statement/migrationAction/usageExamples",
+        "revisionNo": 1
+      },
+      {
+        "objectType": "statement",
+        "objectPublicId": "https://knowledge-core.local/architecture-migration/statement/migrationRule/usageGuidance",
+        "revisionNo": 1
+      },
+      {
+        "objectType": "statement",
+        "objectPublicId": "https://knowledge-core.local/architecture-migration/statement/migrationRule/usageExamples",
+        "revisionNo": 1
+      },
+      {
+        "objectType": "statement",
+        "objectPublicId": "https://knowledge-core.local/architecture-migration/statement/migrationSourceId/usageGuidance",
+        "revisionNo": 1
+      },
+      {
+        "objectType": "statement",
+        "objectPublicId": "https://knowledge-core.local/architecture-migration/statement/migrationSourceId/usageExamples",
+        "revisionNo": 1
+      },
+      {
+        "objectType": "statement",
+        "objectPublicId": "https://knowledge-core.local/architecture-migration/statement/migrationSourceIds/usageGuidance",
+        "revisionNo": 1
+      },
+      {
+        "objectType": "statement",
+        "objectPublicId": "https://knowledge-core.local/architecture-migration/statement/migrationSourceIds/usageExamples",
+        "revisionNo": 1
+      },
+      {
+        "objectType": "statement",
+        "objectPublicId": "https://knowledge-core.local/architecture-migration/statement/migrationSourceType/usageGuidance",
+        "revisionNo": 1
+      },
+      {
+        "objectType": "statement",
+        "objectPublicId": "https://knowledge-core.local/architecture-migration/statement/migrationSourceType/usageExamples",
+        "revisionNo": 1
+      },
+      {
+        "objectType": "statement",
+        "objectPublicId": "https://knowledge-core.local/architecture-migration/statement/migrationSourceName/usageGuidance",
+        "revisionNo": 1
+      },
+      {
+        "objectType": "statement",
+        "objectPublicId": "https://knowledge-core.local/architecture-migration/statement/migrationSourceName/usageExamples",
+        "revisionNo": 1
+      },
+      {
+        "objectType": "statement",
+        "objectPublicId": "https://knowledge-core.local/architecture-migration/statement/migrationConfidence/usageGuidance",
+        "revisionNo": 1
+      },
+      {
+        "objectType": "statement",
+        "objectPublicId": "https://knowledge-core.local/architecture-migration/statement/migrationConfidence/usageExamples",
+        "revisionNo": 1
+      },
+      {
+        "objectType": "statement",
+        "objectPublicId": "https://knowledge-core.local/architecture-migration/statement/migrationBatch/usageGuidance",
+        "revisionNo": 1
+      },
+      {
+        "objectType": "statement",
+        "objectPublicId": "https://knowledge-core.local/architecture-migration/statement/migrationBatch/usageExamples",
+        "revisionNo": 1
+      },
+      {
+        "objectType": "statement",
+        "objectPublicId": "https://knowledge-core.local/architecture-migration/statement/migrationTimestamp/usageGuidance",
+        "revisionNo": 1
+      },
+      {
+        "objectType": "statement",
+        "objectPublicId": "https://knowledge-core.local/architecture-migration/statement/migrationTimestamp/usageExamples",
+        "revisionNo": 1
+      },
+      {
+        "objectType": "statement",
+        "objectPublicId": "https://knowledge-core.local/architecture-migration/statement/migrationNotes/usageGuidance",
+        "revisionNo": 1
+      },
+      {
+        "objectType": "statement",
+        "objectPublicId": "https://knowledge-core.local/architecture-migration/statement/migrationNotes/usageExamples",
+        "revisionNo": 1
+      },
+      {
+        "objectType": "statement",
+        "objectPublicId": "https://knowledge-core.local/architecture-migration/statement/enum/migrationStatus/instanceOf",
+        "revisionNo": 1
+      },
+      {
+        "objectType": "statement",
+        "objectPublicId": "https://knowledge-core.local/architecture-migration/statement/enum/migrationStatus/enumeratesProperty",
+        "revisionNo": 1
+      },
+      {
+        "objectType": "statement",
+        "objectPublicId": "https://knowledge-core.local/architecture-migration/statement/enum/migrationStatus/allowedValue/unchanged",
+        "revisionNo": 1
+      },
+      {
+        "objectType": "statement",
+        "objectPublicId": "https://knowledge-core.local/architecture-migration/statement/enum/migrationStatus/allowedValue/transformed",
+        "revisionNo": 1
+      },
+      {
+        "objectType": "statement",
+        "objectPublicId": "https://knowledge-core.local/architecture-migration/statement/enum/migrationStatus/allowedValue/split",
+        "revisionNo": 1
+      },
+      {
+        "objectType": "statement",
+        "objectPublicId": "https://knowledge-core.local/architecture-migration/statement/enum/migrationStatus/allowedValue/merged",
+        "revisionNo": 1
+      },
+      {
+        "objectType": "statement",
+        "objectPublicId": "https://knowledge-core.local/architecture-migration/statement/enum/migrationStatus/allowedValue/created",
+        "revisionNo": 1
+      },
+      {
+        "objectType": "statement",
+        "objectPublicId": "https://knowledge-core.local/architecture-migration/statement/enum/migrationStatus/allowedValue/deprecated",
+        "revisionNo": 1
+      },
+      {
+        "objectType": "statement",
+        "objectPublicId": "https://knowledge-core.local/architecture-migration/statement/enum/migrationStatus/allowedValue/needsReview",
+        "revisionNo": 1
+      },
+      {
+        "objectType": "statement",
+        "objectPublicId": "https://knowledge-core.local/architecture-migration/statement/enum/migrationStatus/allowedValue/rejected",
+        "revisionNo": 1
+      },
+      {
+        "objectType": "statement",
+        "objectPublicId": "https://knowledge-core.local/architecture-migration/statement/enum/migrationAction/instanceOf",
+        "revisionNo": 1
+      },
+      {
+        "objectType": "statement",
+        "objectPublicId": "https://knowledge-core.local/architecture-migration/statement/enum/migrationAction/enumeratesProperty",
+        "revisionNo": 1
+      },
+      {
+        "objectType": "statement",
+        "objectPublicId": "https://knowledge-core.local/architecture-migration/statement/enum/migrationAction/allowedValue/TYPE_CHANGED",
+        "revisionNo": 1
+      },
+      {
+        "objectType": "statement",
+        "objectPublicId": "https://knowledge-core.local/architecture-migration/statement/enum/migrationAction/allowedValue/RELATIONSHIP_CHANGED",
+        "revisionNo": 1
+      },
+      {
+        "objectType": "statement",
+        "objectPublicId": "https://knowledge-core.local/architecture-migration/statement/enum/migrationAction/allowedValue/NAME_NORMALIZED",
+        "revisionNo": 1
+      },
+      {
+        "objectType": "statement",
+        "objectPublicId": "https://knowledge-core.local/architecture-migration/statement/enum/migrationAction/allowedValue/SPLIT_ELEMENT",
+        "revisionNo": 1
+      },
+      {
+        "objectType": "statement",
+        "objectPublicId": "https://knowledge-core.local/architecture-migration/statement/enum/migrationAction/allowedValue/MERGED_DUPLICATE",
+        "revisionNo": 1
+      },
+      {
+        "objectType": "statement",
+        "objectPublicId": "https://knowledge-core.local/architecture-migration/statement/enum/migrationAction/allowedValue/CREATED_INTERMEDIATE",
+        "revisionNo": 1
+      },
+      {
+        "objectType": "statement",
+        "objectPublicId": "https://knowledge-core.local/architecture-migration/statement/enum/migrationAction/allowedValue/REMOVED_ORPHAN",
+        "revisionNo": 1
+      },
+      {
+        "objectType": "statement",
+        "objectPublicId": "https://knowledge-core.local/architecture-migration/statement/enum/migrationAction/allowedValue/FIXED_REFERENCE",
+        "revisionNo": 1
+      },
+      {
+        "objectType": "statement",
+        "objectPublicId": "https://knowledge-core.local/architecture-migration/statement/enum/migrationAction/allowedValue/UNCHANGED",
+        "revisionNo": 1
+      },
+      {
+        "objectType": "statement",
+        "objectPublicId": "https://knowledge-core.local/architecture-migration/statement/enum/migrationConfidence/instanceOf",
+        "revisionNo": 1
+      },
+      {
+        "objectType": "statement",
+        "objectPublicId": "https://knowledge-core.local/architecture-migration/statement/enum/migrationConfidence/enumeratesProperty",
+        "revisionNo": 1
+      },
+      {
+        "objectType": "statement",
+        "objectPublicId": "https://knowledge-core.local/architecture-migration/statement/enum/migrationConfidence/allowedValue/high",
+        "revisionNo": 1
+      },
+      {
+        "objectType": "statement",
+        "objectPublicId": "https://knowledge-core.local/architecture-migration/statement/enum/migrationConfidence/allowedValue/medium",
+        "revisionNo": 1
+      },
+      {
+        "objectType": "statement",
+        "objectPublicId": "https://knowledge-core.local/architecture-migration/statement/enum/migrationConfidence/allowedValue/low",
+        "revisionNo": 1
+      },
+      {
+        "objectType": "statement",
+        "objectPublicId": "https://knowledge-core.local/architecture-migration/statement/enum/migrationConfidence/allowedValue/manual",
+        "revisionNo": 1
+      }
+    ]
+  },
+  "releases": [
+    {
+      "formatVersion": 1,
+      "package": "architecture-migration",
+      "version": "1.0.0",
+      "publishedAt": "2026-08-24T00:00:00.000000Z",
+      "iriBase": "https://knowledge-core.local/architecture-migration/",
+      "lifecycle": "continuous",
+      "labels": {
+        "en": "Architecture migration",
+        "cs": "Migrace architektury"
+      },
+      "dependencies": [
+        {
+          "dependencyCode": "kc-base",
+          "dependencyVersion": "1.1.0"
+        },
+        {
+          "dependencyCode": "archimate-lite",
+          "dependencyVersion": "3.2.0"
+        }
+      ],
+      "objectIndex": [
+        {
+          "objectType": "property",
+          "objectPublicId": "https://knowledge-core.local/architecture-migration/migrationStatus",
+          "revisionNo": 1
+        },
+        {
+          "objectType": "property",
+          "objectPublicId": "https://knowledge-core.local/architecture-migration/migrationAction",
+          "revisionNo": 1
+        },
+        {
+          "objectType": "property",
+          "objectPublicId": "https://knowledge-core.local/architecture-migration/migrationRule",
+          "revisionNo": 1
+        },
+        {
+          "objectType": "property",
+          "objectPublicId": "https://knowledge-core.local/architecture-migration/migrationSourceId",
+          "revisionNo": 1
+        },
+        {
+          "objectType": "property",
+          "objectPublicId": "https://knowledge-core.local/architecture-migration/migrationSourceIds",
+          "revisionNo": 1
+        },
+        {
+          "objectType": "property",
+          "objectPublicId": "https://knowledge-core.local/architecture-migration/migrationSourceType",
+          "revisionNo": 1
+        },
+        {
+          "objectType": "property",
+          "objectPublicId": "https://knowledge-core.local/architecture-migration/migrationSourceName",
+          "revisionNo": 1
+        },
+        {
+          "objectType": "property",
+          "objectPublicId": "https://knowledge-core.local/architecture-migration/migrationConfidence",
+          "revisionNo": 1
+        },
+        {
+          "objectType": "property",
+          "objectPublicId": "https://knowledge-core.local/architecture-migration/migrationBatch",
+          "revisionNo": 1
+        },
+        {
+          "objectType": "property",
+          "objectPublicId": "https://knowledge-core.local/architecture-migration/migrationTimestamp",
+          "revisionNo": 1
+        },
+        {
+          "objectType": "property",
+          "objectPublicId": "https://knowledge-core.local/architecture-migration/migrationNotes",
+          "revisionNo": 1
+        },
+        {
+          "objectType": "entity",
+          "objectPublicId": "https://knowledge-core.local/architecture-migration/",
+          "revisionNo": 1
+        },
+        {
+          "objectType": "entity",
+          "objectPublicId": "https://knowledge-core.local/architecture-migration/enum/migrationStatus",
+          "revisionNo": 1
+        },
+        {
+          "objectType": "entity",
+          "objectPublicId": "https://knowledge-core.local/architecture-migration/enum/migrationAction",
+          "revisionNo": 1
+        },
+        {
+          "objectType": "entity",
+          "objectPublicId": "https://knowledge-core.local/architecture-migration/enum/migrationConfidence",
+          "revisionNo": 1
+        },
+        {
+          "objectType": "statement",
+          "objectPublicId": "https://knowledge-core.local/architecture-migration/statement/.package/instanceOf",
+          "revisionNo": 1
+        },
+        {
+          "objectType": "statement",
+          "objectPublicId": "https://knowledge-core.local/architecture-migration/statement/.package/packageCode",
+          "revisionNo": 1
+        },
+        {
+          "objectType": "statement",
+          "objectPublicId": "https://knowledge-core.local/architecture-migration/statement/migrationStatus/usageGuidance",
+          "revisionNo": 1
+        },
+        {
+          "objectType": "statement",
+          "objectPublicId": "https://knowledge-core.local/architecture-migration/statement/migrationStatus/usageExamples",
+          "revisionNo": 1
+        },
+        {
+          "objectType": "statement",
+          "objectPublicId": "https://knowledge-core.local/architecture-migration/statement/migrationAction/usageGuidance",
+          "revisionNo": 1
+        },
+        {
+          "objectType": "statement",
+          "objectPublicId": "https://knowledge-core.local/architecture-migration/statement/migrationAction/usageExamples",
+          "revisionNo": 1
+        },
+        {
+          "objectType": "statement",
+          "objectPublicId": "https://knowledge-core.local/architecture-migration/statement/migrationRule/usageGuidance",
+          "revisionNo": 1
+        },
+        {
+          "objectType": "statement",
+          "objectPublicId": "https://knowledge-core.local/architecture-migration/statement/migrationRule/usageExamples",
+          "revisionNo": 1
+        },
+        {
+          "objectType": "statement",
+          "objectPublicId": "https://knowledge-core.local/architecture-migration/statement/migrationSourceId/usageGuidance",
+          "revisionNo": 1
+        },
+        {
+          "objectType": "statement",
+          "objectPublicId": "https://knowledge-core.local/architecture-migration/statement/migrationSourceId/usageExamples",
+          "revisionNo": 1
+        },
+        {
+          "objectType": "statement",
+          "objectPublicId": "https://knowledge-core.local/architecture-migration/statement/migrationSourceIds/usageGuidance",
+          "revisionNo": 1
+        },
+        {
+          "objectType": "statement",
+          "objectPublicId": "https://knowledge-core.local/architecture-migration/statement/migrationSourceIds/usageExamples",
+          "revisionNo": 1
+        },
+        {
+          "objectType": "statement",
+          "objectPublicId": "https://knowledge-core.local/architecture-migration/statement/migrationSourceType/usageGuidance",
+          "revisionNo": 1
+        },
+        {
+          "objectType": "statement",
+          "objectPublicId": "https://knowledge-core.local/architecture-migration/statement/migrationSourceType/usageExamples",
+          "revisionNo": 1
+        },
+        {
+          "objectType": "statement",
+          "objectPublicId": "https://knowledge-core.local/architecture-migration/statement/migrationSourceName/usageGuidance",
+          "revisionNo": 1
+        },
+        {
+          "objectType": "statement",
+          "objectPublicId": "https://knowledge-core.local/architecture-migration/statement/migrationSourceName/usageExamples",
+          "revisionNo": 1
+        },
+        {
+          "objectType": "statement",
+          "objectPublicId": "https://knowledge-core.local/architecture-migration/statement/migrationConfidence/usageGuidance",
+          "revisionNo": 1
+        },
+        {
+          "objectType": "statement",
+          "objectPublicId": "https://knowledge-core.local/architecture-migration/statement/migrationConfidence/usageExamples",
+          "revisionNo": 1
+        },
+        {
+          "objectType": "statement",
+          "objectPublicId": "https://knowledge-core.local/architecture-migration/statement/migrationBatch/usageGuidance",
+          "revisionNo": 1
+        },
+        {
+          "objectType": "statement",
+          "objectPublicId": "https://knowledge-core.local/architecture-migration/statement/migrationBatch/usageExamples",
+          "revisionNo": 1
+        },
+        {
+          "objectType": "statement",
+          "objectPublicId": "https://knowledge-core.local/architecture-migration/statement/migrationTimestamp/usageGuidance",
+          "revisionNo": 1
+        },
+        {
+          "objectType": "statement",
+          "objectPublicId": "https://knowledge-core.local/architecture-migration/statement/migrationTimestamp/usageExamples",
+          "revisionNo": 1
+        },
+        {
+          "objectType": "statement",
+          "objectPublicId": "https://knowledge-core.local/architecture-migration/statement/migrationNotes/usageGuidance",
+          "revisionNo": 1
+        },
+        {
+          "objectType": "statement",
+          "objectPublicId": "https://knowledge-core.local/architecture-migration/statement/migrationNotes/usageExamples",
+          "revisionNo": 1
+        },
+        {
+          "objectType": "statement",
+          "objectPublicId": "https://knowledge-core.local/architecture-migration/statement/enum/migrationStatus/instanceOf",
+          "revisionNo": 1
+        },
+        {
+          "objectType": "statement",
+          "objectPublicId": "https://knowledge-core.local/architecture-migration/statement/enum/migrationStatus/enumeratesProperty",
+          "revisionNo": 1
+        },
+        {
+          "objectType": "statement",
+          "objectPublicId": "https://knowledge-core.local/architecture-migration/statement/enum/migrationStatus/allowedValue/unchanged",
+          "revisionNo": 1
+        },
+        {
+          "objectType": "statement",
+          "objectPublicId": "https://knowledge-core.local/architecture-migration/statement/enum/migrationStatus/allowedValue/transformed",
+          "revisionNo": 1
+        },
+        {
+          "objectType": "statement",
+          "objectPublicId": "https://knowledge-core.local/architecture-migration/statement/enum/migrationStatus/allowedValue/split",
+          "revisionNo": 1
+        },
+        {
+          "objectType": "statement",
+          "objectPublicId": "https://knowledge-core.local/architecture-migration/statement/enum/migrationStatus/allowedValue/merged",
+          "revisionNo": 1
+        },
+        {
+          "objectType": "statement",
+          "objectPublicId": "https://knowledge-core.local/architecture-migration/statement/enum/migrationStatus/allowedValue/created",
+          "revisionNo": 1
+        },
+        {
+          "objectType": "statement",
+          "objectPublicId": "https://knowledge-core.local/architecture-migration/statement/enum/migrationStatus/allowedValue/deprecated",
+          "revisionNo": 1
+        },
+        {
+          "objectType": "statement",
+          "objectPublicId": "https://knowledge-core.local/architecture-migration/statement/enum/migrationStatus/allowedValue/needsReview",
+          "revisionNo": 1
+        },
+        {
+          "objectType": "statement",
+          "objectPublicId": "https://knowledge-core.local/architecture-migration/statement/enum/migrationStatus/allowedValue/rejected",
+          "revisionNo": 1
+        },
+        {
+          "objectType": "statement",
+          "objectPublicId": "https://knowledge-core.local/architecture-migration/statement/enum/migrationAction/instanceOf",
+          "revisionNo": 1
+        },
+        {
+          "objectType": "statement",
+          "objectPublicId": "https://knowledge-core.local/architecture-migration/statement/enum/migrationAction/enumeratesProperty",
+          "revisionNo": 1
+        },
+        {
+          "objectType": "statement",
+          "objectPublicId": "https://knowledge-core.local/architecture-migration/statement/enum/migrationAction/allowedValue/TYPE_CHANGED",
+          "revisionNo": 1
+        },
+        {
+          "objectType": "statement",
+          "objectPublicId": "https://knowledge-core.local/architecture-migration/statement/enum/migrationAction/allowedValue/RELATIONSHIP_CHANGED",
+          "revisionNo": 1
+        },
+        {
+          "objectType": "statement",
+          "objectPublicId": "https://knowledge-core.local/architecture-migration/statement/enum/migrationAction/allowedValue/NAME_NORMALIZED",
+          "revisionNo": 1
+        },
+        {
+          "objectType": "statement",
+          "objectPublicId": "https://knowledge-core.local/architecture-migration/statement/enum/migrationAction/allowedValue/SPLIT_ELEMENT",
+          "revisionNo": 1
+        },
+        {
+          "objectType": "statement",
+          "objectPublicId": "https://knowledge-core.local/architecture-migration/statement/enum/migrationAction/allowedValue/MERGED_DUPLICATE",
+          "revisionNo": 1
+        },
+        {
+          "objectType": "statement",
+          "objectPublicId": "https://knowledge-core.local/architecture-migration/statement/enum/migrationAction/allowedValue/CREATED_INTERMEDIATE",
+          "revisionNo": 1
+        },
+        {
+          "objectType": "statement",
+          "objectPublicId": "https://knowledge-core.local/architecture-migration/statement/enum/migrationAction/allowedValue/REMOVED_ORPHAN",
+          "revisionNo": 1
+        },
+        {
+          "objectType": "statement",
+          "objectPublicId": "https://knowledge-core.local/architecture-migration/statement/enum/migrationAction/allowedValue/FIXED_REFERENCE",
+          "revisionNo": 1
+        },
+        {
+          "objectType": "statement",
+          "objectPublicId": "https://knowledge-core.local/architecture-migration/statement/enum/migrationAction/allowedValue/UNCHANGED",
+          "revisionNo": 1
+        },
+        {
+          "objectType": "statement",
+          "objectPublicId": "https://knowledge-core.local/architecture-migration/statement/enum/migrationConfidence/instanceOf",
+          "revisionNo": 1
+        },
+        {
+          "objectType": "statement",
+          "objectPublicId": "https://knowledge-core.local/architecture-migration/statement/enum/migrationConfidence/enumeratesProperty",
+          "revisionNo": 1
+        },
+        {
+          "objectType": "statement",
+          "objectPublicId": "https://knowledge-core.local/architecture-migration/statement/enum/migrationConfidence/allowedValue/high",
+          "revisionNo": 1
+        },
+        {
+          "objectType": "statement",
+          "objectPublicId": "https://knowledge-core.local/architecture-migration/statement/enum/migrationConfidence/allowedValue/medium",
+          "revisionNo": 1
+        },
+        {
+          "objectType": "statement",
+          "objectPublicId": "https://knowledge-core.local/architecture-migration/statement/enum/migrationConfidence/allowedValue/low",
+          "revisionNo": 1
+        },
+        {
+          "objectType": "statement",
+          "objectPublicId": "https://knowledge-core.local/architecture-migration/statement/enum/migrationConfidence/allowedValue/manual",
+          "revisionNo": 1
+        }
+      ]
+    }
+  ],
+  "classes": [],
+  "properties": [
+    {
+      "id": "https://knowledge-core.local/architecture-migration/migrationStatus",
+      "packageCode": "architecture-migration",
+      "iriLocal": "migrationStatus",
+      "revisionNo": 1,
+      "datatype": "String",
+      "status": "active",
+      "labels": {
+        "en": "Migration status",
+        "cs": "Stav migrace"
+      },
+      "descriptions": {
+        "en": "Outcome of migrating this concept relative to the source model.",
+        "cs": "Výsledek migrace tohoto konceptu vůči zdrojovému modelu."
+      },
+      "constraints": {
+        "domainClasses": [
+          "https://knowledge-core.local/archimate-lite/ArchiMateConcept"
+        ],
+        "maxCount": 1
+      }
+    },
+    {
+      "id": "https://knowledge-core.local/architecture-migration/migrationAction",
+      "packageCode": "architecture-migration",
+      "iriLocal": "migrationAction",
+      "revisionNo": 1,
+      "datatype": "String",
+      "status": "active",
+      "labels": {
+        "en": "Migration action",
+        "cs": "Migrační akce"
+      },
+      "descriptions": {
+        "en": "Primary transformation action applied to this concept during migration.",
+        "cs": "Hlavní transformační akce aplikovaná na tento koncept při migraci."
+      },
+      "constraints": {
+        "domainClasses": [
+          "https://knowledge-core.local/archimate-lite/ArchiMateConcept"
+        ],
+        "maxCount": 1
+      }
+    },
+    {
+      "id": "https://knowledge-core.local/architecture-migration/migrationRule",
+      "packageCode": "architecture-migration",
+      "iriLocal": "migrationRule",
+      "revisionNo": 1,
+      "datatype": "String",
+      "status": "active",
+      "labels": {
+        "en": "Migration rule",
+        "cs": "Migrační pravidlo"
+      },
+      "descriptions": {
+        "en": "Identifier or name of the transformation rule that produced this concept.",
+        "cs": "Identifikátor nebo název transformačního pravidla, které koncept vytvořilo."
+      },
+      "constraints": {
+        "domainClasses": [
+          "https://knowledge-core.local/archimate-lite/ArchiMateConcept"
+        ],
+        "maxCount": 1
+      }
+    },
+    {
+      "id": "https://knowledge-core.local/architecture-migration/migrationSourceId",
+      "packageCode": "architecture-migration",
+      "iriLocal": "migrationSourceId",
+      "revisionNo": 1,
+      "datatype": "String",
+      "status": "active",
+      "labels": {
+        "en": "Migration source id",
+        "cs": "ID zdroje migrace"
+      },
+      "descriptions": {
+        "en": "Primary source identifier in the legacy model for this concept.",
+        "cs": "Primární identifikátor zdroje v legacy modelu pro tento koncept."
+      },
+      "constraints": {
+        "domainClasses": [
+          "https://knowledge-core.local/archimate-lite/ArchiMateConcept"
+        ],
+        "maxCount": 1
+      }
+    },
+    {
+      "id": "https://knowledge-core.local/architecture-migration/migrationSourceIds",
+      "packageCode": "architecture-migration",
+      "iriLocal": "migrationSourceIds",
+      "revisionNo": 1,
+      "datatype": "String",
+      "status": "active",
+      "labels": {
+        "en": "Migration source ids",
+        "cs": "ID zdrojů migrace"
+      },
+      "descriptions": {
+        "en": "All source identifiers that contributed to this concept (multi-value; used for merges/splits).",
+        "cs": "Všechny identifikátory zdrojů, které přispěly k tomuto konceptu (více hodnot; pro merge/split)."
+      },
+      "constraints": {
+        "domainClasses": [
+          "https://knowledge-core.local/archimate-lite/ArchiMateConcept"
+        ]
+      }
+    },
+    {
+      "id": "https://knowledge-core.local/architecture-migration/migrationSourceType",
+      "packageCode": "architecture-migration",
+      "iriLocal": "migrationSourceType",
+      "revisionNo": 1,
+      "datatype": "String",
+      "status": "active",
+      "labels": {
+        "en": "Migration source type",
+        "cs": "Typ zdroje migrace"
+      },
+      "descriptions": {
+        "en": "Type or class name of the concept in the source model.",
+        "cs": "Typ nebo název třídy konceptu ve zdrojovém modelu."
+      },
+      "constraints": {
+        "domainClasses": [
+          "https://knowledge-core.local/archimate-lite/ArchiMateConcept"
+        ],
+        "maxCount": 1
+      }
+    },
+    {
+      "id": "https://knowledge-core.local/architecture-migration/migrationSourceName",
+      "packageCode": "architecture-migration",
+      "iriLocal": "migrationSourceName",
+      "revisionNo": 1,
+      "datatype": "String",
+      "status": "active",
+      "labels": {
+        "en": "Migration source name",
+        "cs": "Název zdroje migrace"
+      },
+      "descriptions": {
+        "en": "Display name of the concept in the source model at migration time.",
+        "cs": "Zobrazovaný název konceptu ve zdrojovém modelu v okamžiku migrace."
+      },
+      "constraints": {
+        "domainClasses": [
+          "https://knowledge-core.local/archimate-lite/ArchiMateConcept"
+        ],
+        "maxCount": 1
+      }
+    },
+    {
+      "id": "https://knowledge-core.local/architecture-migration/migrationConfidence",
+      "packageCode": "architecture-migration",
+      "iriLocal": "migrationConfidence",
+      "revisionNo": 1,
+      "datatype": "String",
+      "status": "active",
+      "labels": {
+        "en": "Migration confidence",
+        "cs": "Důvěra migrace"
+      },
+      "descriptions": {
+        "en": "Confidence that the transformation is correct.",
+        "cs": "Míra jistoty, že transformace je správná."
+      },
+      "constraints": {
+        "domainClasses": [
+          "https://knowledge-core.local/archimate-lite/ArchiMateConcept"
+        ],
+        "maxCount": 1
+      }
+    },
+    {
+      "id": "https://knowledge-core.local/architecture-migration/migrationBatch",
+      "packageCode": "architecture-migration",
+      "iriLocal": "migrationBatch",
+      "revisionNo": 1,
+      "datatype": "String",
+      "status": "active",
+      "labels": {
+        "en": "Migration batch",
+        "cs": "Migrační dávka"
+      },
+      "descriptions": {
+        "en": "Batch or run identifier grouping concepts migrated together.",
+        "cs": "Identifikátor dávky nebo běhu sdružující společně migrované koncepty."
+      },
+      "constraints": {
+        "domainClasses": [
+          "https://knowledge-core.local/archimate-lite/ArchiMateConcept"
+        ],
+        "maxCount": 1
+      }
+    },
+    {
+      "id": "https://knowledge-core.local/architecture-migration/migrationTimestamp",
+      "packageCode": "architecture-migration",
+      "iriLocal": "migrationTimestamp",
+      "revisionNo": 1,
+      "datatype": "String",
+      "status": "active",
+      "labels": {
+        "en": "Migration timestamp",
+        "cs": "Čas migrace"
+      },
+      "descriptions": {
+        "en": "When this concept was written or last updated by the migration (ISO-8601 preferred).",
+        "cs": "Kdy migrace tento koncept zapsala nebo naposledy aktualizovala (preferován ISO-8601)."
+      },
+      "constraints": {
+        "domainClasses": [
+          "https://knowledge-core.local/archimate-lite/ArchiMateConcept"
+        ],
+        "maxCount": 1
+      }
+    },
+    {
+      "id": "https://knowledge-core.local/architecture-migration/migrationNotes",
+      "packageCode": "architecture-migration",
+      "iriLocal": "migrationNotes",
+      "revisionNo": 1,
+      "datatype": "String",
+      "status": "active",
+      "labels": {
+        "en": "Migration notes",
+        "cs": "Poznámky k migraci"
+      },
+      "descriptions": {
+        "en": "Free-text audit note explaining the transformation decision.",
+        "cs": "Volný text s auditním vysvětlením rozhodnutí o transformaci."
+      },
+      "constraints": {
+        "domainClasses": [
+          "https://knowledge-core.local/archimate-lite/ArchiMateConcept"
+        ],
+        "maxCount": 1
+      }
+    }
+  ],
+  "entities": [
+    {
+      "id": "https://knowledge-core.local/architecture-migration/",
+      "packageCode": "architecture-migration",
+      "iriLocal": ".package",
+      "revisionNo": 1,
+      "status": "active",
+      "labels": {
+        "en": "Architecture migration",
+        "cs": "Migrace architektury"
+      },
+      "descriptions": {
+        "en": "Optional audit metadata for transforming an architecture model (e.g. legacy ArchiMate → archimate-lite ORGX). Not ArchiMate semantics. Depends on kc-base and archimate-lite. Drop after migration is complete.",
+        "cs": "Volitelná auditní metadata pro transformaci architektonického modelu (např. legacy ArchiMate → archimate-lite ORGX). Není ArchiMate sémantika. Závisí na kc-base a archimate-lite. Po dokončení migrace lze odstranit."
+      }
+    },
+    {
+      "id": "https://knowledge-core.local/architecture-migration/enum/migrationStatus",
+      "packageCode": "architecture-migration",
+      "iriLocal": "enum/migrationStatus",
+      "revisionNo": 1,
+      "status": "active",
+      "labels": {
+        "en": "Enum migrationStatus"
+      },
+      "descriptions": {}
+    },
+    {
+      "id": "https://knowledge-core.local/architecture-migration/enum/migrationAction",
+      "packageCode": "architecture-migration",
+      "iriLocal": "enum/migrationAction",
+      "revisionNo": 1,
+      "status": "active",
+      "labels": {
+        "en": "Enum migrationAction"
+      },
+      "descriptions": {}
+    },
+    {
+      "id": "https://knowledge-core.local/architecture-migration/enum/migrationConfidence",
+      "packageCode": "architecture-migration",
+      "iriLocal": "enum/migrationConfidence",
+      "revisionNo": 1,
+      "status": "active",
+      "labels": {
+        "en": "Enum migrationConfidence"
+      },
+      "descriptions": {}
+    }
+  ],
+  "statements": [
+    {
+      "id": "https://knowledge-core.local/architecture-migration/statement/.package/instanceOf",
+      "packageCode": "architecture-migration",
+      "revisionNo": 1,
+      "subject": "https://knowledge-core.local/architecture-migration/",
+      "property": "https://knowledge-core.local/kc-base/instanceOf",
+      "status": "active",
+      "value": {
+        "type": "EntityReference",
+        "entityId": "https://knowledge-core.local/kc-base/Package"
+      }
+    },
+    {
+      "id": "https://knowledge-core.local/architecture-migration/statement/.package/packageCode",
+      "packageCode": "architecture-migration",
+      "revisionNo": 1,
+      "subject": "https://knowledge-core.local/architecture-migration/",
+      "property": "https://knowledge-core.local/kc-base/packageCode",
+      "status": "active",
+      "value": {
+        "type": "String",
+        "string": "architecture-migration"
+      }
+    },
+    {
+      "id": "https://knowledge-core.local/architecture-migration/statement/migrationStatus/usageGuidance",
+      "packageCode": "architecture-migration",
+      "revisionNo": 1,
+      "subject": "https://knowledge-core.local/architecture-migration/migrationStatus",
+      "property": "https://knowledge-core.local/kc-base/usageGuidance",
+      "status": "active",
+      "value": {
+        "type": "String",
+        "string": "Audit field for architecture transformation. unchanged = kept as-is; transformed = type/shape changed; split/merged = cardinality change; created = new intermediate; deprecated/rejected = not carried forward; needsReview = requires human check. Not ArchiMate semantics — remove package when migration is done."
+      }
+    },
+    {
+      "id": "https://knowledge-core.local/architecture-migration/statement/migrationStatus/usageExamples",
+      "packageCode": "architecture-migration",
+      "revisionNo": 1,
+      "subject": "https://knowledge-core.local/architecture-migration/migrationStatus",
+      "property": "https://knowledge-core.local/kc-base/usageExamples",
+      "status": "active",
+      "value": {
+        "type": "String",
+        "string": "transformed after TYPE_CHANGED; merged for duplicate actors; needsReview when confidence is low; unchanged for stable Location."
+      }
+    },
+    {
+      "id": "https://knowledge-core.local/architecture-migration/statement/migrationAction/usageGuidance",
+      "packageCode": "architecture-migration",
+      "revisionNo": 1,
+      "subject": "https://knowledge-core.local/architecture-migration/migrationAction",
+      "property": "https://knowledge-core.local/kc-base/usageGuidance",
+      "status": "active",
+      "value": {
+        "type": "String",
+        "string": "Recommended vocabulary (open): TYPE_CHANGED, RELATIONSHIP_CHANGED, NAME_NORMALIZED, SPLIT_ELEMENT, MERGED_DUPLICATE, CREATED_INTERMEDIATE, REMOVED_ORPHAN, FIXED_REFERENCE, UNCHANGED. Prefer one primary action; detail in migrationNotes / migrationRule."
+      }
+    },
+    {
+      "id": "https://knowledge-core.local/architecture-migration/statement/migrationAction/usageExamples",
+      "packageCode": "architecture-migration",
+      "revisionNo": 1,
+      "subject": "https://knowledge-core.local/architecture-migration/migrationAction",
+      "property": "https://knowledge-core.local/kc-base/usageExamples",
+      "status": "active",
+      "value": {
+        "type": "String",
+        "string": "TYPE_CHANGED BusinessActor→BusinessRole; MERGED_DUPLICATE two CRM components; CREATED_INTERMEDIATE ApplicationService; UNCHANGED."
+      }
+    },
+    {
+      "id": "https://knowledge-core.local/architecture-migration/statement/migrationRule/usageGuidance",
+      "packageCode": "architecture-migration",
+      "revisionNo": 1,
+      "subject": "https://knowledge-core.local/architecture-migration/migrationRule",
+      "property": "https://knowledge-core.local/kc-base/usageGuidance",
+      "status": "active",
+      "value": {
+        "type": "String",
+        "string": "Stable rule id/name from the migration playbook or script (not free-form narrative — use migrationNotes for that)."
+      }
+    },
+    {
+      "id": "https://knowledge-core.local/architecture-migration/statement/migrationRule/usageExamples",
+      "packageCode": "architecture-migration",
+      "revisionNo": 1,
+      "subject": "https://knowledge-core.local/architecture-migration/migrationRule",
+      "property": "https://knowledge-core.local/kc-base/usageExamples",
+      "status": "active",
+      "value": {
+        "type": "String",
+        "string": "rule/actor-external-to-organization; rule/process-L1-composition; rule/flow-label-from-name."
+      }
+    },
+    {
+      "id": "https://knowledge-core.local/architecture-migration/statement/migrationSourceId/usageGuidance",
+      "packageCode": "architecture-migration",
+      "revisionNo": 1,
+      "subject": "https://knowledge-core.local/architecture-migration/migrationSourceId",
+      "property": "https://knowledge-core.local/kc-base/usageGuidance",
+      "status": "active",
+      "value": {
+        "type": "String",
+        "string": "Single primary source id (Exchange id, Archi UUID, or legacy iriLocal). For many-to-one merges prefer migrationSourceIds and set this to the canonical source."
+      }
+    },
+    {
+      "id": "https://knowledge-core.local/architecture-migration/statement/migrationSourceId/usageExamples",
+      "packageCode": "architecture-migration",
+      "revisionNo": 1,
+      "subject": "https://knowledge-core.local/architecture-migration/migrationSourceId",
+      "property": "https://knowledge-core.local/kc-base/usageExamples",
+      "status": "active",
+      "value": {
+        "type": "String",
+        "string": "id-1234; archi-element-abc; https://legacy.example/model/el/55."
+      }
+    },
+    {
+      "id": "https://knowledge-core.local/architecture-migration/statement/migrationSourceIds/usageGuidance",
+      "packageCode": "architecture-migration",
+      "revisionNo": 1,
+      "subject": "https://knowledge-core.local/architecture-migration/migrationSourceIds",
+      "property": "https://knowledge-core.local/kc-base/usageGuidance",
+      "status": "active",
+      "value": {
+        "type": "String",
+        "string": "Multi-valued. Use for MERGED_DUPLICATE / SPLIT_ELEMENT audit trails. Keep migrationSourceId as the primary/canonical source when one exists."
+      }
+    },
+    {
+      "id": "https://knowledge-core.local/architecture-migration/statement/migrationSourceIds/usageExamples",
+      "packageCode": "architecture-migration",
+      "revisionNo": 1,
+      "subject": "https://knowledge-core.local/architecture-migration/migrationSourceIds",
+      "property": "https://knowledge-core.local/kc-base/usageExamples",
+      "status": "active",
+      "value": {
+        "type": "String",
+        "string": "id-10 and id-11 merged into one BusinessActor; split sources listed on each resulting element."
+      }
+    },
+    {
+      "id": "https://knowledge-core.local/architecture-migration/statement/migrationSourceType/usageGuidance",
+      "packageCode": "architecture-migration",
+      "revisionNo": 1,
+      "subject": "https://knowledge-core.local/architecture-migration/migrationSourceType",
+      "property": "https://knowledge-core.local/kc-base/usageGuidance",
+      "status": "active",
+      "value": {
+        "type": "String",
+        "string": "Legacy ArchiMate (or other) type string before transformation — helps audit TYPE_CHANGED."
+      }
+    },
+    {
+      "id": "https://knowledge-core.local/architecture-migration/statement/migrationSourceType/usageExamples",
+      "packageCode": "architecture-migration",
+      "revisionNo": 1,
+      "subject": "https://knowledge-core.local/architecture-migration/migrationSourceType",
+      "property": "https://knowledge-core.local/kc-base/usageExamples",
+      "status": "active",
+      "value": {
+        "type": "String",
+        "string": "BusinessActor; ApplicationComponent; AndJunction; Grouping."
+      }
+    },
+    {
+      "id": "https://knowledge-core.local/architecture-migration/statement/migrationSourceName/usageGuidance",
+      "packageCode": "architecture-migration",
+      "revisionNo": 1,
+      "subject": "https://knowledge-core.local/architecture-migration/migrationSourceName",
+      "property": "https://knowledge-core.local/kc-base/usageGuidance",
+      "status": "active",
+      "value": {
+        "type": "String",
+        "string": "Snapshot of the legacy label for audit when NAME_NORMALIZED or when the target name differs."
+      }
+    },
+    {
+      "id": "https://knowledge-core.local/architecture-migration/statement/migrationSourceName/usageExamples",
+      "packageCode": "architecture-migration",
+      "revisionNo": 1,
+      "subject": "https://knowledge-core.local/architecture-migration/migrationSourceName",
+      "property": "https://knowledge-core.local/kc-base/usageExamples",
+      "status": "active",
+      "value": {
+        "type": "String",
+        "string": "CRM systém; Odbor ICT; SYSA → Data měření flow."
+      }
+    },
+    {
+      "id": "https://knowledge-core.local/architecture-migration/statement/migrationConfidence/usageGuidance",
+      "packageCode": "architecture-migration",
+      "revisionNo": 1,
+      "subject": "https://knowledge-core.local/architecture-migration/migrationConfidence",
+      "property": "https://knowledge-core.local/kc-base/usageGuidance",
+      "status": "active",
+      "value": {
+        "type": "String",
+        "string": "high = unambiguous from source data; medium = likely but needs review; low = working hypothesis; manual = human-confirmed. Pair medium/low with migrationStatus=needsReview until confirmed."
+      }
+    },
+    {
+      "id": "https://knowledge-core.local/architecture-migration/statement/migrationConfidence/usageExamples",
+      "packageCode": "architecture-migration",
+      "revisionNo": 1,
+      "subject": "https://knowledge-core.local/architecture-migration/migrationConfidence",
+      "property": "https://knowledge-core.local/kc-base/usageExamples",
+      "status": "active",
+      "value": {
+        "type": "String",
+        "string": "high for 1:1 type map; medium for inferred BusinessFunction; manual after architect review."
+      }
+    },
+    {
+      "id": "https://knowledge-core.local/architecture-migration/statement/migrationBatch/usageGuidance",
+      "packageCode": "architecture-migration",
+      "revisionNo": 1,
+      "subject": "https://knowledge-core.local/architecture-migration/migrationBatch",
+      "property": "https://knowledge-core.local/kc-base/usageGuidance",
+      "status": "active",
+      "value": {
+        "type": "String",
+        "string": "Use a stable batch id (date + wave, pipeline run id) so auditors can filter one transformation pass."
+      }
+    },
+    {
+      "id": "https://knowledge-core.local/architecture-migration/statement/migrationBatch/usageExamples",
+      "packageCode": "architecture-migration",
+      "revisionNo": 1,
+      "subject": "https://knowledge-core.local/architecture-migration/migrationBatch",
+      "property": "https://knowledge-core.local/kc-base/usageExamples",
+      "status": "active",
+      "value": {
+        "type": "String",
+        "string": "2026-09-04-wave1; job-77821; orgx-pilot-batch-a."
+      }
+    },
+    {
+      "id": "https://knowledge-core.local/architecture-migration/statement/migrationTimestamp/usageGuidance",
+      "packageCode": "architecture-migration",
+      "revisionNo": 1,
+      "subject": "https://knowledge-core.local/architecture-migration/migrationTimestamp",
+      "property": "https://knowledge-core.local/kc-base/usageGuidance",
+      "status": "active",
+      "value": {
+        "type": "String",
+        "string": "Prefer UTC ISO-8601 (e.g. 2026-09-04T09:15:00Z). Tool-written; do not use as ArchiMate lifecycleState."
+      }
+    },
+    {
+      "id": "https://knowledge-core.local/architecture-migration/statement/migrationTimestamp/usageExamples",
+      "packageCode": "architecture-migration",
+      "revisionNo": 1,
+      "subject": "https://knowledge-core.local/architecture-migration/migrationTimestamp",
+      "property": "https://knowledge-core.local/kc-base/usageExamples",
+      "status": "active",
+      "value": {
+        "type": "String",
+        "string": "2026-09-04T09:15:00Z; 2026-09-04T11:00:00+02:00."
+      }
+    },
+    {
+      "id": "https://knowledge-core.local/architecture-migration/statement/migrationNotes/usageGuidance",
+      "packageCode": "architecture-migration",
+      "revisionNo": 1,
+      "subject": "https://knowledge-core.local/architecture-migration/migrationNotes",
+      "property": "https://knowledge-core.local/kc-base/usageGuidance",
+      "status": "active",
+      "value": {
+        "type": "String",
+        "string": "Human-readable rationale, exceptions, and follow-ups. Keep machine rule ids in migrationRule; status/action in their properties."
+      }
+    },
+    {
+      "id": "https://knowledge-core.local/architecture-migration/statement/migrationNotes/usageExamples",
+      "packageCode": "architecture-migration",
+      "revisionNo": 1,
+      "subject": "https://knowledge-core.local/architecture-migration/migrationNotes",
+      "property": "https://knowledge-core.local/kc-base/usageExamples",
+      "status": "active",
+      "value": {
+        "type": "String",
+        "string": "External vendor was incorrectly typed as Collaboration — remapped to BusinessActor organization+external.; Split L1 process into L1+L2 per ORGX hierarchy."
+      }
+    },
+    {
+      "id": "https://knowledge-core.local/architecture-migration/statement/enum/migrationStatus/instanceOf",
+      "packageCode": "architecture-migration",
+      "revisionNo": 1,
+      "subject": "https://knowledge-core.local/architecture-migration/enum/migrationStatus",
+      "property": "https://knowledge-core.local/kc-base/instanceOf",
+      "status": "active",
+      "value": {
+        "type": "EntityReference",
+        "entityId": "https://knowledge-core.local/kc-base/StringEnum"
+      }
+    },
+    {
+      "id": "https://knowledge-core.local/architecture-migration/statement/enum/migrationStatus/enumeratesProperty",
+      "packageCode": "architecture-migration",
+      "revisionNo": 1,
+      "subject": "https://knowledge-core.local/architecture-migration/enum/migrationStatus",
+      "property": "https://knowledge-core.local/kc-base/enumeratesProperty",
+      "status": "active",
+      "value": {
+        "type": "EntityReference",
+        "entityId": "https://knowledge-core.local/architecture-migration/migrationStatus"
+      }
+    },
+    {
+      "id": "https://knowledge-core.local/architecture-migration/statement/enum/migrationStatus/allowedValue/unchanged",
+      "packageCode": "architecture-migration",
+      "revisionNo": 1,
+      "subject": "https://knowledge-core.local/architecture-migration/enum/migrationStatus",
+      "property": "https://knowledge-core.local/kc-base/allowedValue",
+      "status": "active",
+      "value": {
+        "type": "String",
+        "string": "unchanged"
+      }
+    },
+    {
+      "id": "https://knowledge-core.local/architecture-migration/statement/enum/migrationStatus/allowedValue/transformed",
+      "packageCode": "architecture-migration",
+      "revisionNo": 1,
+      "subject": "https://knowledge-core.local/architecture-migration/enum/migrationStatus",
+      "property": "https://knowledge-core.local/kc-base/allowedValue",
+      "status": "active",
+      "value": {
+        "type": "String",
+        "string": "transformed"
+      }
+    },
+    {
+      "id": "https://knowledge-core.local/architecture-migration/statement/enum/migrationStatus/allowedValue/split",
+      "packageCode": "architecture-migration",
+      "revisionNo": 1,
+      "subject": "https://knowledge-core.local/architecture-migration/enum/migrationStatus",
+      "property": "https://knowledge-core.local/kc-base/allowedValue",
+      "status": "active",
+      "value": {
+        "type": "String",
+        "string": "split"
+      }
+    },
+    {
+      "id": "https://knowledge-core.local/architecture-migration/statement/enum/migrationStatus/allowedValue/merged",
+      "packageCode": "architecture-migration",
+      "revisionNo": 1,
+      "subject": "https://knowledge-core.local/architecture-migration/enum/migrationStatus",
+      "property": "https://knowledge-core.local/kc-base/allowedValue",
+      "status": "active",
+      "value": {
+        "type": "String",
+        "string": "merged"
+      }
+    },
+    {
+      "id": "https://knowledge-core.local/architecture-migration/statement/enum/migrationStatus/allowedValue/created",
+      "packageCode": "architecture-migration",
+      "revisionNo": 1,
+      "subject": "https://knowledge-core.local/architecture-migration/enum/migrationStatus",
+      "property": "https://knowledge-core.local/kc-base/allowedValue",
+      "status": "active",
+      "value": {
+        "type": "String",
+        "string": "created"
+      }
+    },
+    {
+      "id": "https://knowledge-core.local/architecture-migration/statement/enum/migrationStatus/allowedValue/deprecated",
+      "packageCode": "architecture-migration",
+      "revisionNo": 1,
+      "subject": "https://knowledge-core.local/architecture-migration/enum/migrationStatus",
+      "property": "https://knowledge-core.local/kc-base/allowedValue",
+      "status": "active",
+      "value": {
+        "type": "String",
+        "string": "deprecated"
+      }
+    },
+    {
+      "id": "https://knowledge-core.local/architecture-migration/statement/enum/migrationStatus/allowedValue/needsReview",
+      "packageCode": "architecture-migration",
+      "revisionNo": 1,
+      "subject": "https://knowledge-core.local/architecture-migration/enum/migrationStatus",
+      "property": "https://knowledge-core.local/kc-base/allowedValue",
+      "status": "active",
+      "value": {
+        "type": "String",
+        "string": "needsReview"
+      }
+    },
+    {
+      "id": "https://knowledge-core.local/architecture-migration/statement/enum/migrationStatus/allowedValue/rejected",
+      "packageCode": "architecture-migration",
+      "revisionNo": 1,
+      "subject": "https://knowledge-core.local/architecture-migration/enum/migrationStatus",
+      "property": "https://knowledge-core.local/kc-base/allowedValue",
+      "status": "active",
+      "value": {
+        "type": "String",
+        "string": "rejected"
+      }
+    },
+    {
+      "id": "https://knowledge-core.local/architecture-migration/statement/enum/migrationAction/instanceOf",
+      "packageCode": "architecture-migration",
+      "revisionNo": 1,
+      "subject": "https://knowledge-core.local/architecture-migration/enum/migrationAction",
+      "property": "https://knowledge-core.local/kc-base/instanceOf",
+      "status": "active",
+      "value": {
+        "type": "EntityReference",
+        "entityId": "https://knowledge-core.local/kc-base/StringEnum"
+      }
+    },
+    {
+      "id": "https://knowledge-core.local/architecture-migration/statement/enum/migrationAction/enumeratesProperty",
+      "packageCode": "architecture-migration",
+      "revisionNo": 1,
+      "subject": "https://knowledge-core.local/architecture-migration/enum/migrationAction",
+      "property": "https://knowledge-core.local/kc-base/enumeratesProperty",
+      "status": "active",
+      "value": {
+        "type": "EntityReference",
+        "entityId": "https://knowledge-core.local/architecture-migration/migrationAction"
+      }
+    },
+    {
+      "id": "https://knowledge-core.local/architecture-migration/statement/enum/migrationAction/allowedValue/TYPE_CHANGED",
+      "packageCode": "architecture-migration",
+      "revisionNo": 1,
+      "subject": "https://knowledge-core.local/architecture-migration/enum/migrationAction",
+      "property": "https://knowledge-core.local/kc-base/allowedValue",
+      "status": "active",
+      "value": {
+        "type": "String",
+        "string": "TYPE_CHANGED"
+      }
+    },
+    {
+      "id": "https://knowledge-core.local/architecture-migration/statement/enum/migrationAction/allowedValue/RELATIONSHIP_CHANGED",
+      "packageCode": "architecture-migration",
+      "revisionNo": 1,
+      "subject": "https://knowledge-core.local/architecture-migration/enum/migrationAction",
+      "property": "https://knowledge-core.local/kc-base/allowedValue",
+      "status": "active",
+      "value": {
+        "type": "String",
+        "string": "RELATIONSHIP_CHANGED"
+      }
+    },
+    {
+      "id": "https://knowledge-core.local/architecture-migration/statement/enum/migrationAction/allowedValue/NAME_NORMALIZED",
+      "packageCode": "architecture-migration",
+      "revisionNo": 1,
+      "subject": "https://knowledge-core.local/architecture-migration/enum/migrationAction",
+      "property": "https://knowledge-core.local/kc-base/allowedValue",
+      "status": "active",
+      "value": {
+        "type": "String",
+        "string": "NAME_NORMALIZED"
+      }
+    },
+    {
+      "id": "https://knowledge-core.local/architecture-migration/statement/enum/migrationAction/allowedValue/SPLIT_ELEMENT",
+      "packageCode": "architecture-migration",
+      "revisionNo": 1,
+      "subject": "https://knowledge-core.local/architecture-migration/enum/migrationAction",
+      "property": "https://knowledge-core.local/kc-base/allowedValue",
+      "status": "active",
+      "value": {
+        "type": "String",
+        "string": "SPLIT_ELEMENT"
+      }
+    },
+    {
+      "id": "https://knowledge-core.local/architecture-migration/statement/enum/migrationAction/allowedValue/MERGED_DUPLICATE",
+      "packageCode": "architecture-migration",
+      "revisionNo": 1,
+      "subject": "https://knowledge-core.local/architecture-migration/enum/migrationAction",
+      "property": "https://knowledge-core.local/kc-base/allowedValue",
+      "status": "active",
+      "value": {
+        "type": "String",
+        "string": "MERGED_DUPLICATE"
+      }
+    },
+    {
+      "id": "https://knowledge-core.local/architecture-migration/statement/enum/migrationAction/allowedValue/CREATED_INTERMEDIATE",
+      "packageCode": "architecture-migration",
+      "revisionNo": 1,
+      "subject": "https://knowledge-core.local/architecture-migration/enum/migrationAction",
+      "property": "https://knowledge-core.local/kc-base/allowedValue",
+      "status": "active",
+      "value": {
+        "type": "String",
+        "string": "CREATED_INTERMEDIATE"
+      }
+    },
+    {
+      "id": "https://knowledge-core.local/architecture-migration/statement/enum/migrationAction/allowedValue/REMOVED_ORPHAN",
+      "packageCode": "architecture-migration",
+      "revisionNo": 1,
+      "subject": "https://knowledge-core.local/architecture-migration/enum/migrationAction",
+      "property": "https://knowledge-core.local/kc-base/allowedValue",
+      "status": "active",
+      "value": {
+        "type": "String",
+        "string": "REMOVED_ORPHAN"
+      }
+    },
+    {
+      "id": "https://knowledge-core.local/architecture-migration/statement/enum/migrationAction/allowedValue/FIXED_REFERENCE",
+      "packageCode": "architecture-migration",
+      "revisionNo": 1,
+      "subject": "https://knowledge-core.local/architecture-migration/enum/migrationAction",
+      "property": "https://knowledge-core.local/kc-base/allowedValue",
+      "status": "active",
+      "value": {
+        "type": "String",
+        "string": "FIXED_REFERENCE"
+      }
+    },
+    {
+      "id": "https://knowledge-core.local/architecture-migration/statement/enum/migrationAction/allowedValue/UNCHANGED",
+      "packageCode": "architecture-migration",
+      "revisionNo": 1,
+      "subject": "https://knowledge-core.local/architecture-migration/enum/migrationAction",
+      "property": "https://knowledge-core.local/kc-base/allowedValue",
+      "status": "active",
+      "value": {
+        "type": "String",
+        "string": "UNCHANGED"
+      }
+    },
+    {
+      "id": "https://knowledge-core.local/architecture-migration/statement/enum/migrationConfidence/instanceOf",
+      "packageCode": "architecture-migration",
+      "revisionNo": 1,
+      "subject": "https://knowledge-core.local/architecture-migration/enum/migrationConfidence",
+      "property": "https://knowledge-core.local/kc-base/instanceOf",
+      "status": "active",
+      "value": {
+        "type": "EntityReference",
+        "entityId": "https://knowledge-core.local/kc-base/StringEnum"
+      }
+    },
+    {
+      "id": "https://knowledge-core.local/architecture-migration/statement/enum/migrationConfidence/enumeratesProperty",
+      "packageCode": "architecture-migration",
+      "revisionNo": 1,
+      "subject": "https://knowledge-core.local/architecture-migration/enum/migrationConfidence",
+      "property": "https://knowledge-core.local/kc-base/enumeratesProperty",
+      "status": "active",
+      "value": {
+        "type": "EntityReference",
+        "entityId": "https://knowledge-core.local/architecture-migration/migrationConfidence"
+      }
+    },
+    {
+      "id": "https://knowledge-core.local/architecture-migration/statement/enum/migrationConfidence/allowedValue/high",
+      "packageCode": "architecture-migration",
+      "revisionNo": 1,
+      "subject": "https://knowledge-core.local/architecture-migration/enum/migrationConfidence",
+      "property": "https://knowledge-core.local/kc-base/allowedValue",
+      "status": "active",
+      "value": {
+        "type": "String",
+        "string": "high"
+      }
+    },
+    {
+      "id": "https://knowledge-core.local/architecture-migration/statement/enum/migrationConfidence/allowedValue/medium",
+      "packageCode": "architecture-migration",
+      "revisionNo": 1,
+      "subject": "https://knowledge-core.local/architecture-migration/enum/migrationConfidence",
+      "property": "https://knowledge-core.local/kc-base/allowedValue",
+      "status": "active",
+      "value": {
+        "type": "String",
+        "string": "medium"
+      }
+    },
+    {
+      "id": "https://knowledge-core.local/architecture-migration/statement/enum/migrationConfidence/allowedValue/low",
+      "packageCode": "architecture-migration",
+      "revisionNo": 1,
+      "subject": "https://knowledge-core.local/architecture-migration/enum/migrationConfidence",
+      "property": "https://knowledge-core.local/kc-base/allowedValue",
+      "status": "active",
+      "value": {
+        "type": "String",
+        "string": "low"
+      }
+    },
+    {
+      "id": "https://knowledge-core.local/architecture-migration/statement/enum/migrationConfidence/allowedValue/manual",
+      "packageCode": "architecture-migration",
+      "revisionNo": 1,
+      "subject": "https://knowledge-core.local/architecture-migration/enum/migrationConfidence",
+      "property": "https://knowledge-core.local/kc-base/allowedValue",
+      "status": "active",
+      "value": {
+        "type": "String",
+        "string": "manual"
+      }
+    }
+  ],
+  "shapes": [],
+  "references": []
+}

@@ -8,7 +8,7 @@ Tento dokument je kontrakt pro **samostatný nástroj** (export/import Open Exch
 Rozsah modelování (L0–L4): [archimate-lite.md](archimate-lite.md).  
 Foundation: [`kc-base/`](../kc-base/) (`instanceOf`, usage anotace, `StringEnum`).  
 Datový katalog: [`archimate-lite/catalog.json`](../archimate-lite/catalog.json).  
-Release bundles: [`kc-base-1.1.0`](../kc-base/releases/kc-base-1.1.0.bundle.json), [`archimate-lite-3.1.0`](../archimate-lite/releases/archimate-lite-3.1.0.bundle.json), [`archimate-ui-traversal-1.0.0`](../archimate-ui-traversal/releases/archimate-ui-traversal-1.0.0.bundle.json).  
+Release bundles: [`kc-base-1.1.0`](../kc-base/releases/kc-base-1.1.0.bundle.json), [`archimate-lite-3.2.1`](../archimate-lite/releases/archimate-lite-3.2.1.bundle.json), [`archimate-ui-traversal-1.0.0`](../archimate-ui-traversal/releases/archimate-ui-traversal-1.0.0.bundle.json), volitelně [`architecture-migration-1.0.0`](../architecture-migration/releases/architecture-migration-1.0.0.bundle.json).  
 Nahrání přes API: [`archimate-lite/load.py`](../archimate-lite/load.py) (načte i `kc-base`). Po nahrání/importu je **zdroj pravdy v KC**, ne JSON v gitu.
 
 ## Hranice
@@ -18,6 +18,7 @@ Nahrání přes API: [`archimate-lite/load.py`](../archimate-lite/load.py) (nač
 | knowledge-core | `internal/`, migrace, `/v1/*` | Ne. Obecný graf (IRI entity/property/class, statement, package, shape, lens). |
 | Package `kc-base` | data v KC | Ne. Globální typing, usage anotace, mechanismus string enumů. |
 | Package `archimate-lite` | data v KC | Ano. Třídy, vlastnosti, tvary, anotace tříd, lite matice, enum *hodnoty*, exchange poznámky. Závisí na `kc-base`. UI traversal je v `archimate-ui-traversal`. |
+| Package `architecture-migration` | data v KC | Ne ArchiMate sémantika. Volitelná auditní metadata migrace (`migration*`). Závisí na `kc-base` + `archimate-lite`. Po migraci lze odstranit. |
 | Package `archimate-ui-traversal` | data v KC | Ne ArchiMate. IT Map navigační profil, šablony, stage, přechody, add akce. Závisí na `kc-base` + `archimate-lite`. |
 | Instance packages | data v KC | Ano. Konkrétní systémy, sdílené služby, views. |
 | Exchange XML nástroj | mimo KC | Ano. Čte/zapisuje `/v1`, emituje ArchiMate XML. |
@@ -52,14 +53,19 @@ curl -X POST "$KC_BASE_URL/v1/releases/import" \
 curl -X POST "$KC_BASE_URL/v1/releases/import" \
   -H "Authorization: Bearer $KC_TOKEN" \
   -H "Content-Type: application/json" \
-  --data-binary @archimate-lite/releases/archimate-lite-3.1.0.bundle.json
+  --data-binary @archimate-lite/releases/archimate-lite-3.2.1.bundle.json
+# 3) optional migration audit metadata
+curl -X POST "$KC_BASE_URL/v1/releases/import" \
+  -H "Authorization: Bearer $KC_TOKEN" \
+  -H "Content-Type: application/json" \
+  --data-binary @architecture-migration/releases/architecture-migration-1.0.0.bundle.json
 ```
 
-UI: **Packages → Import release bundle** — nejdřív `kc-base`, pak `archimate-lite`.  
+UI: **Packages → Import release bundle** — nejdřív `kc-base`, pak `archimate-lite`, volitelně `architecture-migration`.  
 Po importu kc-base knowledge-core automaticky nastaví `instanceOfProperty` na  
 `https://knowledge-core.local/kc-base/instanceOf`, pokud bylo prázdné.
 
-Přegenerování: `python3 kc-base/build_bundle.py && python3 archimate-lite/build_bundle.py && python3 archimate-ui-traversal/build_bundle.py`.
+Přegenerování: `python3 kc-base/build_bundle.py && python3 archimate-lite/build_bundle.py && python3 architecture-migration/build_bundle.py && python3 archimate-ui-traversal/build_bundle.py`.
 
 ### Load přes API (authoring)
 
@@ -362,14 +368,21 @@ Lenses (`POST /v1/lenses`, `GET/PATCH .../instances/{key}`) jsou volitelné; ná
 
 ## Open Exchange — povinnosti nástroje (ne jádra)
 
-- prvek → `<element identifier xsi:type="{iriLocal}">`
-- vazba → `<relationship identifier xsi:type="{iriLocal}" source= target=>` (`relSource` / `relTarget`)
-- literály properties → `<properties>`
+Referenční implementace: **IT Map** [`knowledge-itmap/docs/open-exchange.md`](../../knowledge-itmap/docs/open-exchange.md) (`src/domain/openExchange/`), UI Packages.
+
+- prvek → `<element identifier xsi:type="{iriLocal}">` (neznámý typ → `ExchangeForeignElement` + `exchangeXsiType`)
+- vazba → `<relationship identifier xsi:type source target>` (`relSource` / `relTarget`; neznámý typ → `ExchangeForeignRelationship`)
+- literály properties → `<properties>`; nemapované → `exchangeOpaqueProperties`
 - `DeployedOn` → `Assignment` řetězec
 - `Risk` → overlay nebo Assessment
-- View* → `<views><diagrams><view>`
-- `<organizations>` z packages
+- View* → `<views><diagrams><view>`; membership `inView`; neznámé konstrukty → `exchangeOpaqueFragment`
+- identifikátor instance = `iriLocal` (+ alias `imported`)
+- importované instance: `exchangeManaged=true` (orphan review při reimportu)
+- export org package = všechny aktivní ArchiMate instance balíku (včetně KC-native)
+- `<organizations>` dopočítané z obsahu (layer folders); ne filtr jen posledního XML
 - RDF projekce KC **není** ArchiMate XML
+
+Od **archimate-lite 3.2.1**: `ExchangeForeignElement` / `ExchangeForeignRelationship`, `inView`, `exchangeXsiType`, `exchangeOpaqueProperties`, `exchangeOpaqueFragment`, `exchangeManaged`. Junctions **nejsou** nativní Lite třídy.
 
 ## Validace
 

@@ -1,0 +1,258 @@
+{
+  "version": "1.0.0",
+  "package": {
+    "code": "architecture-migration",
+    "lifecycle": "continuous",
+    "iriBase": "https://knowledge-core.local/architecture-migration/",
+    "labels": {
+      "en": "Architecture migration",
+      "cs": "Migrace architektury"
+    },
+    "descriptions": {
+      "en": "Optional audit metadata for transforming an architecture model (e.g. legacy ArchiMate → archimate-lite ORGX). Not ArchiMate semantics. Depends on kc-base and archimate-lite. Drop after migration is complete.",
+      "cs": "Volitelná auditní metadata pro transformaci architektonického modelu (např. legacy ArchiMate → archimate-lite ORGX). Není ArchiMate sémantika. Závisí na kc-base a archimate-lite. Po dokončení migrace lze odstranit."
+    },
+    "dependencies": [
+      {
+        "dependsOnCode": "kc-base",
+        "versionRange": "*",
+        "releaseVersion": "1.1.0"
+      },
+      {
+        "dependsOnCode": "archimate-lite",
+        "versionRange": "^3.2.0",
+        "releaseVersion": "3.2.0"
+      }
+    ]
+  },
+  "classes": [],
+  "properties": [
+    {
+      "iriLocal": "migrationStatus",
+      "datatype": "String",
+      "domain": [
+        "ArchiMateConcept"
+      ],
+      "maxCount": 1,
+      "labels": {
+        "en": "Migration status",
+        "cs": "Stav migrace"
+      },
+      "descriptions": {
+        "en": "Outcome of migrating this concept relative to the source model.",
+        "cs": "Výsledek migrace tohoto konceptu vůči zdrojovému modelu."
+      },
+      "usageGuidance": "Audit field for architecture transformation. unchanged = kept as-is; transformed = type/shape changed; split/merged = cardinality change; created = new intermediate; deprecated/rejected = not carried forward; needsReview = requires human check. Not ArchiMate semantics — remove package when migration is done.",
+      "usageExamples": "transformed after TYPE_CHANGED; merged for duplicate actors; needsReview when confidence is low; unchanged for stable Location."
+    },
+    {
+      "iriLocal": "migrationAction",
+      "datatype": "String",
+      "domain": [
+        "ArchiMateConcept"
+      ],
+      "maxCount": 1,
+      "labels": {
+        "en": "Migration action",
+        "cs": "Migrační akce"
+      },
+      "descriptions": {
+        "en": "Primary transformation action applied to this concept during migration.",
+        "cs": "Hlavní transformační akce aplikovaná na tento koncept při migraci."
+      },
+      "usageGuidance": "Recommended vocabulary (open): TYPE_CHANGED, RELATIONSHIP_CHANGED, NAME_NORMALIZED, SPLIT_ELEMENT, MERGED_DUPLICATE, CREATED_INTERMEDIATE, REMOVED_ORPHAN, FIXED_REFERENCE, UNCHANGED. Prefer one primary action; detail in migrationNotes / migrationRule.",
+      "usageExamples": "TYPE_CHANGED BusinessActor→BusinessRole; MERGED_DUPLICATE two CRM components; CREATED_INTERMEDIATE ApplicationService; UNCHANGED."
+    },
+    {
+      "iriLocal": "migrationRule",
+      "datatype": "String",
+      "domain": [
+        "ArchiMateConcept"
+      ],
+      "maxCount": 1,
+      "labels": {
+        "en": "Migration rule",
+        "cs": "Migrační pravidlo"
+      },
+      "descriptions": {
+        "en": "Identifier or name of the transformation rule that produced this concept.",
+        "cs": "Identifikátor nebo název transformačního pravidla, které koncept vytvořilo."
+      },
+      "usageGuidance": "Stable rule id/name from the migration playbook or script (not free-form narrative — use migrationNotes for that).",
+      "usageExamples": "rule/actor-external-to-organization; rule/process-L1-composition; rule/flow-label-from-name."
+    },
+    {
+      "iriLocal": "migrationSourceId",
+      "datatype": "String",
+      "domain": [
+        "ArchiMateConcept"
+      ],
+      "maxCount": 1,
+      "labels": {
+        "en": "Migration source id",
+        "cs": "ID zdroje migrace"
+      },
+      "descriptions": {
+        "en": "Primary source identifier in the legacy model for this concept.",
+        "cs": "Primární identifikátor zdroje v legacy modelu pro tento koncept."
+      },
+      "usageGuidance": "Single primary source id (Exchange id, Archi UUID, or legacy iriLocal). For many-to-one merges prefer migrationSourceIds and set this to the canonical source.",
+      "usageExamples": "id-1234; archi-element-abc; https://legacy.example/model/el/55."
+    },
+    {
+      "iriLocal": "migrationSourceIds",
+      "datatype": "String",
+      "domain": [
+        "ArchiMateConcept"
+      ],
+      "labels": {
+        "en": "Migration source ids",
+        "cs": "ID zdrojů migrace"
+      },
+      "descriptions": {
+        "en": "All source identifiers that contributed to this concept (multi-value; used for merges/splits).",
+        "cs": "Všechny identifikátory zdrojů, které přispěly k tomuto konceptu (více hodnot; pro merge/split)."
+      },
+      "usageGuidance": "Multi-valued. Use for MERGED_DUPLICATE / SPLIT_ELEMENT audit trails. Keep migrationSourceId as the primary/canonical source when one exists.",
+      "usageExamples": "id-10 and id-11 merged into one BusinessActor; split sources listed on each resulting element."
+    },
+    {
+      "iriLocal": "migrationSourceType",
+      "datatype": "String",
+      "domain": [
+        "ArchiMateConcept"
+      ],
+      "maxCount": 1,
+      "labels": {
+        "en": "Migration source type",
+        "cs": "Typ zdroje migrace"
+      },
+      "descriptions": {
+        "en": "Type or class name of the concept in the source model.",
+        "cs": "Typ nebo název třídy konceptu ve zdrojovém modelu."
+      },
+      "usageGuidance": "Legacy ArchiMate (or other) type string before transformation — helps audit TYPE_CHANGED.",
+      "usageExamples": "BusinessActor; ApplicationComponent; AndJunction; Grouping."
+    },
+    {
+      "iriLocal": "migrationSourceName",
+      "datatype": "String",
+      "domain": [
+        "ArchiMateConcept"
+      ],
+      "maxCount": 1,
+      "labels": {
+        "en": "Migration source name",
+        "cs": "Název zdroje migrace"
+      },
+      "descriptions": {
+        "en": "Display name of the concept in the source model at migration time.",
+        "cs": "Zobrazovaný název konceptu ve zdrojovém modelu v okamžiku migrace."
+      },
+      "usageGuidance": "Snapshot of the legacy label for audit when NAME_NORMALIZED or when the target name differs.",
+      "usageExamples": "CRM systém; Odbor ICT; SYSA → Data měření flow."
+    },
+    {
+      "iriLocal": "migrationConfidence",
+      "datatype": "String",
+      "domain": [
+        "ArchiMateConcept"
+      ],
+      "maxCount": 1,
+      "labels": {
+        "en": "Migration confidence",
+        "cs": "Důvěra migrace"
+      },
+      "descriptions": {
+        "en": "Confidence that the transformation is correct.",
+        "cs": "Míra jistoty, že transformace je správná."
+      },
+      "usageGuidance": "high = unambiguous from source data; medium = likely but needs review; low = working hypothesis; manual = human-confirmed. Pair medium/low with migrationStatus=needsReview until confirmed.",
+      "usageExamples": "high for 1:1 type map; medium for inferred BusinessFunction; manual after architect review."
+    },
+    {
+      "iriLocal": "migrationBatch",
+      "datatype": "String",
+      "domain": [
+        "ArchiMateConcept"
+      ],
+      "maxCount": 1,
+      "labels": {
+        "en": "Migration batch",
+        "cs": "Migrační dávka"
+      },
+      "descriptions": {
+        "en": "Batch or run identifier grouping concepts migrated together.",
+        "cs": "Identifikátor dávky nebo běhu sdružující společně migrované koncepty."
+      },
+      "usageGuidance": "Use a stable batch id (date + wave, pipeline run id) so auditors can filter one transformation pass.",
+      "usageExamples": "2026-09-04-wave1; job-77821; orgx-pilot-batch-a."
+    },
+    {
+      "iriLocal": "migrationTimestamp",
+      "datatype": "String",
+      "domain": [
+        "ArchiMateConcept"
+      ],
+      "maxCount": 1,
+      "labels": {
+        "en": "Migration timestamp",
+        "cs": "Čas migrace"
+      },
+      "descriptions": {
+        "en": "When this concept was written or last updated by the migration (ISO-8601 preferred).",
+        "cs": "Kdy migrace tento koncept zapsala nebo naposledy aktualizovala (preferován ISO-8601)."
+      },
+      "usageGuidance": "Prefer UTC ISO-8601 (e.g. 2026-09-04T09:15:00Z). Tool-written; do not use as ArchiMate lifecycleState.",
+      "usageExamples": "2026-09-04T09:15:00Z; 2026-09-04T11:00:00+02:00."
+    },
+    {
+      "iriLocal": "migrationNotes",
+      "datatype": "String",
+      "domain": [
+        "ArchiMateConcept"
+      ],
+      "maxCount": 1,
+      "labels": {
+        "en": "Migration notes",
+        "cs": "Poznámky k migraci"
+      },
+      "descriptions": {
+        "en": "Free-text audit note explaining the transformation decision.",
+        "cs": "Volný text s auditním vysvětlením rozhodnutí o transformaci."
+      },
+      "usageGuidance": "Human-readable rationale, exceptions, and follow-ups. Keep machine rule ids in migrationRule; status/action in their properties.",
+      "usageExamples": "External vendor was incorrectly typed as Collaboration — remapped to BusinessActor organization+external.; Split L1 process into L1+L2 per ORGX hierarchy."
+    }
+  ],
+  "shapes": [],
+  "enums": {
+    "migrationStatus": [
+      "unchanged",
+      "transformed",
+      "split",
+      "merged",
+      "created",
+      "deprecated",
+      "needsReview",
+      "rejected"
+    ],
+    "migrationAction": [
+      "TYPE_CHANGED",
+      "RELATIONSHIP_CHANGED",
+      "NAME_NORMALIZED",
+      "SPLIT_ELEMENT",
+      "MERGED_DUPLICATE",
+      "CREATED_INTERMEDIATE",
+      "REMOVED_ORPHAN",
+      "FIXED_REFERENCE",
+      "UNCHANGED"
+    ],
+    "migrationConfidence": [
+      "high",
+      "medium",
+      "low",
+      "manual"
+    ]
+  }
+}

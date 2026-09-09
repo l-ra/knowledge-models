@@ -77,6 +77,128 @@
     }
   },
   {
+    "iriLocal": "card-profile-business-process",
+    "class": "PresentationProfile",
+    "labels": { "cs": "Proces", "en": "Process" },
+    "descriptions": {
+      "cs": "Konkrétní business aktivita / průběh (co se děje, když…).",
+      "en": "Concrete business activity / flow (what happens when…)."
+    },
+    "properties": {
+      "profileCode": "businessProcess",
+      "profileVersion": "1.0.0",
+      "minCatalogVersion": "3.2.0",
+      "isSystemDefault": true,
+      "archimateElementType": "BusinessProcess",
+      "matchProperties": "{}",
+      "fieldProperties": "processLevel",
+      "labelCs": "Proces",
+      "labelEn": "Process",
+      "sortOrder": 5
+    }
+  },
+  {
+    "iriLocal": "card-profile-business-collaboration",
+    "class": "PresentationProfile",
+    "labels": { "cs": "Business spolupráce", "en": "Business collaboration" },
+    "descriptions": {
+      "cs": "Společné působení více business aktérů jako jedna architektonická jednotka.",
+      "en": "Collective behavior of several business actors acting as one architectural unit."
+    },
+    "properties": {
+      "profileCode": "businessCollaboration",
+      "profileVersion": "1.0.0",
+      "minCatalogVersion": "3.2.0",
+      "isSystemDefault": true,
+      "archimateElementType": "BusinessCollaboration",
+      "matchProperties": "{}",
+      "labelCs": "Business spolupráce",
+      "labelEn": "Business collaboration",
+      "sortOrder": 6
+    }
+  },
+  {
+    "iriLocal": "card-profile-business-event",
+    "class": "PresentationProfile",
+    "labels": { "cs": "Business událost", "en": "Business event" },
+    "descriptions": {
+      "cs": "Obchodně významná změna stavu, která spouští business chování nebo z něj vzniká.",
+      "en": "A business-relevant state change that triggers or results from business behavior."
+    },
+    "properties": {
+      "profileCode": "businessEvent",
+      "profileVersion": "1.0.0",
+      "minCatalogVersion": "3.2.0",
+      "isSystemDefault": true,
+      "archimateElementType": "BusinessEvent",
+      "matchProperties": "{}",
+      "labelCs": "Business událost",
+      "labelEn": "Business event",
+      "sortOrder": 7
+    }
+  },
+  {
+    "iriLocal": "card-profile-application-service",
+    "class": "PresentationProfile",
+    "labels": { "cs": "Aplikační služba", "en": "Application service" },
+    "descriptions": {
+      "cs": "Funkcionalita systému vystavená okolí (uživatelům nebo jiným systémům).",
+      "en": "Application behavior exposed to the environment (users or other systems)."
+    },
+    "properties": {
+      "profileCode": "applicationService",
+      "profileVersion": "1.0.0",
+      "minCatalogVersion": "3.2.0",
+      "isSystemDefault": true,
+      "archimateElementType": "ApplicationService",
+      "matchProperties": "{}",
+      "labelCs": "Aplikační služba",
+      "labelEn": "Application service",
+      "sortOrder": 8
+    }
+  },
+  {
+    "iriLocal": "card-profile-device",
+    "class": "PresentationProfile",
+    "labels": { "cs": "Zařízení", "en": "Device" },
+    "descriptions": {
+      "cs": "Fyzické ICT zařízení (server, appliance, síťový prvek), pokud na fyzické podobě záleží.",
+      "en": "Physical ICT resource when the appliance matters (server, appliance, network gear)."
+    },
+    "properties": {
+      "profileCode": "device",
+      "profileVersion": "1.0.0",
+      "minCatalogVersion": "3.2.0",
+      "isSystemDefault": true,
+      "archimateElementType": "Device",
+      "matchProperties": "{}",
+      "labelCs": "Zařízení",
+      "labelEn": "Device",
+      "sortOrder": 9
+    }
+  },
+  {
+    "iriLocal": "card-profile-communication-network",
+    "class": "PresentationProfile",
+    "labels": { "cs": "Síť", "en": "Network" },
+    "descriptions": {
+      "cs": "Komunikační médium nebo logický síťový segment (VLAN, subnet, WAN, DMZ).",
+      "en": "Communication medium or logical network segment (VLAN, subnet, WAN, DMZ)."
+    },
+    "properties": {
+      "profileCode": "communicationNetwork",
+      "profileVersion": "1.0.0",
+      "minCatalogVersion": "3.2.0",
+      "isSystemDefault": true,
+      "archimateElementType": "CommunicationNetwork",
+      "matchProperties": "{}",
+      "fieldProperties": "networkKind,networkRole,cidr,vlanId,ownership",
+      "labelCs": "Síť",
+      "labelEn": "Network",
+      "sortOrder": 10
+    }
+  },
+  {
     "iriLocal": "card-slot-department-parts",
     "class": "RelationSlot",
     "labels": { "cs": "Části / podřízené jednotky" },
@@ -287,6 +409,456 @@
       "targetClasses": "TechnologyService",
       "importance": "optional",
       "sortOrder": 6
+    }
+  },
+  {
+    "iriLocal": "card-slot-business-process-supported-by",
+    "class": "RelationSlot",
+    "labels": { "cs": "Podporováno službami" },
+    "properties": {
+      "parentProfile": "card-profile-business-process",
+      "slotCode": "supportedBy",
+      "slotLabelCs": "Podporováno službami",
+      "relationshipType": "Serving",
+      "traverseDirection": "incoming",
+      "targetClasses": "ApplicationService",
+      "importance": "recommended",
+      "sortOrder": 1
+    }
+  },
+  {
+    "iriLocal": "card-slot-business-process-roles",
+    "class": "RelationSlot",
+    "labels": { "cs": "Provádějí role" },
+    "properties": {
+      "parentProfile": "card-profile-business-process",
+      "slotCode": "roles",
+      "slotLabelCs": "Provádějí role",
+      "relationshipType": "Assignment",
+      "traverseDirection": "incoming",
+      "targetClasses": "BusinessRole",
+      "importance": "recommended",
+      "sortOrder": 2
+    }
+  },
+  {
+    "iriLocal": "card-slot-business-process-realizes",
+    "class": "RelationSlot",
+    "labels": { "cs": "Realizuje služby" },
+    "properties": {
+      "parentProfile": "card-profile-business-process",
+      "slotCode": "realizes",
+      "slotLabelCs": "Realizuje služby",
+      "relationshipType": "Realization",
+      "traverseDirection": "outgoing",
+      "targetClasses": "BusinessService",
+      "importance": "recommended",
+      "sortOrder": 3
+    }
+  },
+  {
+    "iriLocal": "card-slot-business-process-subprocesses",
+    "class": "RelationSlot",
+    "labels": { "cs": "Podprocesy" },
+    "properties": {
+      "parentProfile": "card-profile-business-process",
+      "slotCode": "subprocesses",
+      "slotLabelCs": "Podprocesy",
+      "relationshipType": "Composition",
+      "traverseDirection": "outgoing",
+      "targetClasses": "BusinessProcess",
+      "importance": "optional",
+      "sortOrder": 4
+    }
+  },
+  {
+    "iriLocal": "card-slot-business-process-parent-process",
+    "class": "RelationSlot",
+    "labels": { "cs": "Nadřazený proces" },
+    "properties": {
+      "parentProfile": "card-profile-business-process",
+      "slotCode": "parentProcess",
+      "slotLabelCs": "Nadřazený proces",
+      "relationshipType": "Composition",
+      "traverseDirection": "incoming",
+      "targetClasses": "BusinessProcess",
+      "importance": "optional",
+      "sortOrder": 5
+    }
+  },
+  {
+    "iriLocal": "card-slot-business-process-part-of-function",
+    "class": "RelationSlot",
+    "labels": { "cs": "Součást funkce" },
+    "properties": {
+      "parentProfile": "card-profile-business-process",
+      "slotCode": "partOfFunction",
+      "slotLabelCs": "Součást funkce",
+      "relationshipType": "Composition",
+      "traverseDirection": "incoming",
+      "targetClasses": "BusinessFunction",
+      "importance": "optional",
+      "sortOrder": 6
+    }
+  },
+  {
+    "iriLocal": "card-slot-business-process-information",
+    "class": "RelationSlot",
+    "labels": { "cs": "Pracuje s informacemi" },
+    "properties": {
+      "parentProfile": "card-profile-business-process",
+      "slotCode": "information",
+      "slotLabelCs": "Pracuje s informacemi",
+      "relationshipType": "Access",
+      "traverseDirection": "outgoing",
+      "targetClasses": "BusinessObject",
+      "importance": "optional",
+      "sortOrder": 7
+    }
+  },
+  {
+    "iriLocal": "card-slot-business-process-triggers",
+    "class": "RelationSlot",
+    "labels": { "cs": "Spouští" },
+    "properties": {
+      "parentProfile": "card-profile-business-process",
+      "slotCode": "triggers",
+      "slotLabelCs": "Spouští",
+      "relationshipType": "Triggering",
+      "traverseDirection": "outgoing",
+      "targetClasses": "BusinessProcess,BusinessEvent",
+      "importance": "optional",
+      "sortOrder": 8
+    }
+  },
+  {
+    "iriLocal": "card-slot-business-process-triggered-by",
+    "class": "RelationSlot",
+    "labels": { "cs": "Spouštěno" },
+    "properties": {
+      "parentProfile": "card-profile-business-process",
+      "slotCode": "triggeredBy",
+      "slotLabelCs": "Spouštěno",
+      "relationshipType": "Triggering",
+      "traverseDirection": "incoming",
+      "targetClasses": "BusinessProcess,BusinessEvent",
+      "importance": "optional",
+      "sortOrder": 9
+    }
+  },
+  {
+    "iriLocal": "card-slot-business-collaboration-participants",
+    "class": "RelationSlot",
+    "labels": { "cs": "Účastníci" },
+    "properties": {
+      "parentProfile": "card-profile-business-collaboration",
+      "slotCode": "participants",
+      "slotLabelCs": "Účastníci",
+      "relationshipType": "Composition",
+      "traverseDirection": "outgoing",
+      "targetClasses": "BusinessActor",
+      "importance": "recommended",
+      "sortOrder": 1
+    }
+  },
+  {
+    "iriLocal": "card-slot-business-collaboration-processes",
+    "class": "RelationSlot",
+    "labels": { "cs": "Provádí procesy" },
+    "properties": {
+      "parentProfile": "card-profile-business-collaboration",
+      "slotCode": "processes",
+      "slotLabelCs": "Provádí procesy",
+      "relationshipType": "Assignment",
+      "traverseDirection": "outgoing",
+      "targetClasses": "BusinessProcess",
+      "importance": "recommended",
+      "sortOrder": 2
+    }
+  },
+  {
+    "iriLocal": "card-slot-business-collaboration-functions",
+    "class": "RelationSlot",
+    "labels": { "cs": "Provádí funkce" },
+    "properties": {
+      "parentProfile": "card-profile-business-collaboration",
+      "slotCode": "functions",
+      "slotLabelCs": "Provádí funkce",
+      "relationshipType": "Assignment",
+      "traverseDirection": "outgoing",
+      "targetClasses": "BusinessFunction",
+      "importance": "optional",
+      "sortOrder": 3
+    }
+  },
+  {
+    "iriLocal": "card-slot-business-collaboration-realizes",
+    "class": "RelationSlot",
+    "labels": { "cs": "Realizuje služby" },
+    "properties": {
+      "parentProfile": "card-profile-business-collaboration",
+      "slotCode": "realizes",
+      "slotLabelCs": "Realizuje služby",
+      "relationshipType": "Realization",
+      "traverseDirection": "outgoing",
+      "targetClasses": "BusinessService",
+      "importance": "optional",
+      "sortOrder": 4
+    }
+  },
+  {
+    "iriLocal": "card-slot-business-event-triggers-processes",
+    "class": "RelationSlot",
+    "labels": { "cs": "Spouští procesy" },
+    "properties": {
+      "parentProfile": "card-profile-business-event",
+      "slotCode": "triggersProcesses",
+      "slotLabelCs": "Spouští procesy",
+      "relationshipType": "Triggering",
+      "traverseDirection": "outgoing",
+      "targetClasses": "BusinessProcess",
+      "importance": "recommended",
+      "sortOrder": 1
+    }
+  },
+  {
+    "iriLocal": "card-slot-business-event-triggers-functions",
+    "class": "RelationSlot",
+    "labels": { "cs": "Spouští funkce" },
+    "properties": {
+      "parentProfile": "card-profile-business-event",
+      "slotCode": "triggersFunctions",
+      "slotLabelCs": "Spouští funkce",
+      "relationshipType": "Triggering",
+      "traverseDirection": "outgoing",
+      "targetClasses": "BusinessFunction",
+      "importance": "optional",
+      "sortOrder": 2
+    }
+  },
+  {
+    "iriLocal": "card-slot-business-event-resulted-from",
+    "class": "RelationSlot",
+    "labels": { "cs": "Vzniká z procesu" },
+    "properties": {
+      "parentProfile": "card-profile-business-event",
+      "slotCode": "resultedFrom",
+      "slotLabelCs": "Vzniká z procesu",
+      "relationshipType": "Triggering",
+      "traverseDirection": "incoming",
+      "targetClasses": "BusinessProcess",
+      "importance": "optional",
+      "sortOrder": 3
+    }
+  },
+  {
+    "iriLocal": "card-slot-application-service-realized-by",
+    "class": "RelationSlot",
+    "labels": { "cs": "Realizováno aplikacemi" },
+    "properties": {
+      "parentProfile": "card-profile-application-service",
+      "slotCode": "realizedBy",
+      "slotLabelCs": "Realizováno aplikacemi",
+      "relationshipType": "Realization",
+      "traverseDirection": "incoming",
+      "targetClasses": "ApplicationComponent",
+      "importance": "recommended",
+      "sortOrder": 1
+    }
+  },
+  {
+    "iriLocal": "card-slot-application-service-serves-processes",
+    "class": "RelationSlot",
+    "labels": { "cs": "Podporuje procesy" },
+    "properties": {
+      "parentProfile": "card-profile-application-service",
+      "slotCode": "servesProcesses",
+      "slotLabelCs": "Podporuje procesy",
+      "relationshipType": "Serving",
+      "traverseDirection": "outgoing",
+      "targetClasses": "BusinessProcess",
+      "importance": "recommended",
+      "sortOrder": 2
+    }
+  },
+  {
+    "iriLocal": "card-slot-application-service-serves-functions",
+    "class": "RelationSlot",
+    "labels": { "cs": "Podporuje funkce" },
+    "properties": {
+      "parentProfile": "card-profile-application-service",
+      "slotCode": "servesFunctions",
+      "slotLabelCs": "Podporuje funkce",
+      "relationshipType": "Serving",
+      "traverseDirection": "outgoing",
+      "targetClasses": "BusinessFunction",
+      "importance": "optional",
+      "sortOrder": 3
+    }
+  },
+  {
+    "iriLocal": "card-slot-application-service-served-by-tech",
+    "class": "RelationSlot",
+    "labels": { "cs": "Infrastrukturní služby" },
+    "properties": {
+      "parentProfile": "card-profile-application-service",
+      "slotCode": "servedByTech",
+      "slotLabelCs": "Infrastrukturní služby",
+      "relationshipType": "Serving",
+      "traverseDirection": "incoming",
+      "targetClasses": "TechnologyService",
+      "importance": "optional",
+      "sortOrder": 4
+    }
+  },
+  {
+    "iriLocal": "card-slot-device-assigned-to-node",
+    "class": "RelationSlot",
+    "labels": { "cs": "Přiřazeno k uzlu" },
+    "properties": {
+      "parentProfile": "card-profile-device",
+      "slotCode": "assignedToNode",
+      "slotLabelCs": "Přiřazeno k uzlu",
+      "relationshipType": "Assignment",
+      "traverseDirection": "outgoing",
+      "targetClasses": "Node",
+      "importance": "recommended",
+      "sortOrder": 1
+    }
+  },
+  {
+    "iriLocal": "card-slot-device-serves-network",
+    "class": "RelationSlot",
+    "labels": { "cs": "Obsluhuje síť" },
+    "properties": {
+      "parentProfile": "card-profile-device",
+      "slotCode": "servesNetwork",
+      "slotLabelCs": "Obsluhuje síť",
+      "relationshipType": "Serving",
+      "traverseDirection": "outgoing",
+      "targetClasses": "CommunicationNetwork",
+      "importance": "recommended",
+      "sortOrder": 2
+    }
+  },
+  {
+    "iriLocal": "card-slot-device-facility",
+    "class": "RelationSlot",
+    "labels": { "cs": "Umístění" },
+    "properties": {
+      "parentProfile": "card-profile-device",
+      "slotCode": "facility",
+      "slotLabelCs": "Umístění",
+      "relationshipType": "Association",
+      "traverseDirection": "outgoing",
+      "targetClasses": "Facility",
+      "importance": "optional",
+      "sortOrder": 3
+    }
+  },
+  {
+    "iriLocal": "card-slot-communication-network-nodes",
+    "class": "RelationSlot",
+    "labels": { "cs": "Připojené uzly" },
+    "properties": {
+      "parentProfile": "card-profile-communication-network",
+      "slotCode": "nodes",
+      "slotLabelCs": "Připojené uzly",
+      "relationshipType": "Association",
+      "traverseDirection": "incoming",
+      "targetClasses": "Node",
+      "importance": "recommended",
+      "sortOrder": 1
+    }
+  },
+  {
+    "iriLocal": "card-slot-communication-network-devices",
+    "class": "RelationSlot",
+    "labels": { "cs": "Obsluhováno zařízeními" },
+    "properties": {
+      "parentProfile": "card-profile-communication-network",
+      "slotCode": "devices",
+      "slotLabelCs": "Obsluhováno zařízeními",
+      "relationshipType": "Serving",
+      "traverseDirection": "incoming",
+      "targetClasses": "Device",
+      "importance": "recommended",
+      "sortOrder": 2
+    }
+  },
+  {
+    "iriLocal": "card-slot-communication-network-segments",
+    "class": "RelationSlot",
+    "labels": { "cs": "Podsegmenty" },
+    "properties": {
+      "parentProfile": "card-profile-communication-network",
+      "slotCode": "segments",
+      "slotLabelCs": "Podsegmenty",
+      "relationshipType": "Composition",
+      "traverseDirection": "outgoing",
+      "targetClasses": "CommunicationNetwork",
+      "importance": "optional",
+      "sortOrder": 3
+    }
+  },
+  {
+    "iriLocal": "card-slot-communication-network-parent",
+    "class": "RelationSlot",
+    "labels": { "cs": "Nadřazená síť" },
+    "properties": {
+      "parentProfile": "card-profile-communication-network",
+      "slotCode": "parentNetwork",
+      "slotLabelCs": "Nadřazená síť",
+      "relationshipType": "Composition",
+      "traverseDirection": "incoming",
+      "targetClasses": "CommunicationNetwork",
+      "importance": "optional",
+      "sortOrder": 4
+    }
+  },
+  {
+    "iriLocal": "card-slot-communication-network-paths",
+    "class": "RelationSlot",
+    "labels": { "cs": "Spoje (Path)" },
+    "properties": {
+      "parentProfile": "card-profile-communication-network",
+      "slotCode": "paths",
+      "slotLabelCs": "Spoje (Path)",
+      "relationshipType": "Association",
+      "traverseDirection": "incoming",
+      "targetClasses": "Path",
+      "importance": "optional",
+      "sortOrder": 5
+    }
+  },
+  {
+    "iriLocal": "card-slot-communication-network-flows-to",
+    "class": "RelationSlot",
+    "labels": { "cs": "Toky do sítí" },
+    "properties": {
+      "parentProfile": "card-profile-communication-network",
+      "slotCode": "flowsTo",
+      "slotLabelCs": "Toky do sítí",
+      "relationshipType": "Flow",
+      "traverseDirection": "outgoing",
+      "targetClasses": "CommunicationNetwork",
+      "importance": "optional",
+      "sortOrder": 6
+    }
+  },
+  {
+    "iriLocal": "card-slot-communication-network-flows-from",
+    "class": "RelationSlot",
+    "labels": { "cs": "Toky ze sítí" },
+    "properties": {
+      "parentProfile": "card-profile-communication-network",
+      "slotCode": "flowsFrom",
+      "slotLabelCs": "Toky ze sítí",
+      "relationshipType": "Flow",
+      "traverseDirection": "incoming",
+      "targetClasses": "CommunicationNetwork",
+      "importance": "optional",
+      "sortOrder": 7
     }
   }
 ]

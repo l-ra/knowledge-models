@@ -1,5 +1,5 @@
 {
-  "version": "1.0.0",
+  "version": "1.1.0",
   "package": {
     "code": "archimate-ui-cards",
     "lifecycle": "continuous",
@@ -20,8 +20,8 @@
       },
       {
         "dependsOnCode": "archimate-lite",
-        "versionRange": "^3.1.0",
-        "releaseVersion": "3.1.0"
+        "versionRange": "^3.2.0",
+        "releaseVersion": "3.2.1"
       }
     ]
   },
@@ -80,7 +80,7 @@
         "cs": "Stabilní kód identifikující prezentační profil."
       },
       "usageGuidance": "Unique code within the cards package.",
-      "usageExamples": "department; person; application."
+      "usageExamples": "department; person; application; businessProcess; applicationService; device; communicationNetwork."
     },
     {
       "iriLocal": "profileVersion",
