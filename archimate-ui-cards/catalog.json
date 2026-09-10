@@ -80,7 +80,7 @@
         "cs": "Stabilní kód identifikující prezentační profil."
       },
       "usageGuidance": "Unique code within the cards package.",
-      "usageExamples": "department; person; application; businessProcess; applicationService; device; communicationNetwork."
+      "usageExamples": "department; person; businessRole; node; communicationNetwork."
     },
     {
       "iriLocal": "profileVersion",

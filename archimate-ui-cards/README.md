@@ -18,18 +18,45 @@ Odděleno od [`archimate-ui-traversal`](../archimate-ui-traversal/) (column brow
 
 ## Systémové profily (1.1.0)
 
+### BusinessActor (match properties)
+
+| profileCode | Match | Label CS |
+|-------------|-------|----------|
+| `department` | organizationalUnit + internal | Oddělení |
+| `person` | person + internal | Osoba |
+| `externalOrganization` | organization + external | Externí organizace |
+| `externalPerson` | person + external | Externí osoba |
+| `internalOrganization` | organization + internal | Organizace |
+| `externalUnit` | organizationalUnit + external | Externí jednotka |
+
+### Ostatní elementy
+
 | profileCode | AML typ | Label CS |
 |-------------|---------|----------|
-| `department` | BusinessActor | Oddělení |
-| `person` | BusinessActor | Osoba |
-| `externalOrganization` | BusinessActor | Externí organizace |
 | `application` | ApplicationComponent | Aplikace |
 | `businessProcess` | BusinessProcess | Proces |
 | `businessCollaboration` | BusinessCollaboration | Business spolupráce |
 | `businessEvent` | BusinessEvent | Business událost |
 | `applicationService` | ApplicationService | Aplikační služba |
+| `businessRole` | BusinessRole | Role |
+| `businessFunction` | BusinessFunction | Oblast odpovědnosti |
+| `businessService` | BusinessService | Business služba |
+| `businessObject` | BusinessObject | Business objekt |
+| `dataObject` | DataObject | Datový objekt |
+| `applicationFunction` | ApplicationFunction | Aplikační funkce |
+| `applicationProcess` | ApplicationProcess | Aplikační proces |
+| `applicationCollaboration` | ApplicationCollaboration | Aplikační spolupráce |
+| `technologyService` | TechnologyService | Technologická služba |
+| `systemSoftware` | SystemSoftware | System software |
+| `node` | Node | Uzel |
 | `device` | Device | Zařízení |
+| `artifact` | Artifact | Artefakt |
 | `communicationNetwork` | CommunicationNetwork | Síť |
+| `path` | Path | Spojení |
+| `facility` | Facility | Areál |
+| `location` | Location | Lokace |
+
+**Záměrně bez profilu (raw ArchiMate karta):** ApplicationInterface, ApplicationEvent, TechnologyInterface, Gap, WorkPackage, Assessment, Requirement, Risk, ExchangeForeignElement.
 
 ## Import
 
