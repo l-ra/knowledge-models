@@ -11,12 +11,14 @@ Odděleno od [`archimate-ui-traversal`](../archimate-ui-traversal/) (column brow
 | [catalog.json](catalog.json) | Třídy PresentationProfile / RelationSlot + properties |
 | [ui-cards-seed.json](ui-cards-seed.json) | Systémové profily a relation slots |
 | [build_bundle.py](build_bundle.py) | Portable release bundle |
-| [releases/archimate-ui-cards-1.1.0.bundle.json](releases/archimate-ui-cards-1.1.0.bundle.json) | Bundle pro import |
+| [releases/archimate-ui-cards-1.1.1.bundle.json](releases/archimate-ui-cards-1.1.1.bundle.json) | Bundle pro import |
 | [load.py](load.py) | Nahraje catalog (+ závislosti) přes API |
 
 `iriBase`: `https://knowledge-core.local/archimate-ui-cards/`
 
-## Systémové profily (1.1.0)
+## Systémové profily (1.1.1)
+
+`relationshipDefaults` na RelationSlot (JSON) — např. Association/`reportsTo`.
 
 ### BusinessActor (match properties)
 
@@ -62,7 +64,7 @@ Odděleno od [`archimate-ui-traversal`](../archimate-ui-traversal/) (column brow
 
 1. `kc-base` 1.1.0
 2. `archimate-lite` 3.2.1 (nebo ^3.2.0)
-3. Tento package 1.1.0
+3. Tento package 1.1.1
 
 ```bash
 python3 archimate-ui-cards/build_bundle.py

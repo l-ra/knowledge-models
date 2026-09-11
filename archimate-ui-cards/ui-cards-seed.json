@@ -347,7 +347,8 @@
       "traverseDirection": "outgoing",
       "targetClasses": "BusinessActor",
       "importance": "optional",
-      "sortOrder": 3
+      "sortOrder": 3,
+      "relationshipDefaults": "{\"associationKind\":\"reportsTo\"}"
     }
   },
   {
@@ -1051,7 +1052,8 @@
       "traverseDirection": "outgoing",
       "targetClasses": "BusinessActor",
       "importance": "optional",
-      "sortOrder": 3
+      "sortOrder": 3,
+      "relationshipDefaults": "{\"associationKind\":\"reportsTo\"}"
     }
   },
   {

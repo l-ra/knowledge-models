@@ -1,5 +1,5 @@
 {
-  "version": "1.1.0",
+  "version": "1.1.1",
   "package": {
     "code": "archimate-ui-cards",
     "lifecycle": "continuous",
@@ -321,6 +321,19 @@
       },
       "usageGuidance": "recommended slots show empty placeholders; optional hide when empty unless expert.",
       "usageExamples": "recommended; optional."
+    },
+    {
+      "iriLocal": "relationshipDefaults",
+      "datatype": "String",
+      "domain": ["RelationSlot"],
+      "maxCount": 1,
+      "labels": { "en": "Relationship defaults", "cs": "Výchozí properties vztahu" },
+      "descriptions": {
+        "en": "JSON object of default properties applied to the relationship when creating from this slot (e.g. associationKind).",
+        "cs": "JSON objekt výchozích properties aplikovaných na vztah při create ze slotu (např. associationKind)."
+      },
+      "usageGuidance": "Optional. Keys are AML property locals; values are strings.",
+      "usageExamples": "{\"associationKind\":\"reportsTo\"}"
     }
   ],
   "shapes": [
